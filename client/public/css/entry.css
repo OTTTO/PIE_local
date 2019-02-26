@@ -1,0 +1,24 @@
+body {
+	background-image: linear-gradient(black, white, black);
+}
+
+#pages {
+	margin: auto;
+	width: 10rem;
+	padding-top: 15rem;
+	text-align: center;
+}
+
+a:link {
+	color:blue;
+	font-size: 2rem;
+	text-decoration: none;
+}
+
+a:visited {
+	color:blue;
+}
+
+a:hover {
+	color:hotpink;
+}

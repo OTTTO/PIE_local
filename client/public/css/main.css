@@ -1,0 +1,14 @@
+body {
+    color: white;
+    background-image: radial-gradient(circle, green, purple, blue, purple);
+    background-attachment: fixed;
+}
+
+fieldset, input {
+    width: 200px;
+    margin: auto;
+}
+
+.pie {
+    text-align: center; 
+}

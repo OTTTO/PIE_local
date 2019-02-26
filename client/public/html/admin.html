@@ -1,0 +1,53 @@
+<html> 
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+  </head>
+  <body>
+    <script type = "text/javascript" src = "../js/bundle.js"></script>   
+    <div class="pie"><H1>PIE</H1></div>
+      <form id="client-form">
+        <fieldset>
+          <label>Client Name</label>
+          <input id="clientName" type="string" value=""/>
+          <br>
+          <label>Client Address</label>
+          <input id="clientAddr" type="string" value=""/>
+          <br><br>
+          <button type="button" onClick="addClient()"> Add Client </button>
+        </fieldset><br>
+        <fieldset>
+          <label>Member Address</label>
+          <input id="memberAddr" type="string" placeholder="0x..." maxlength="42" />
+          <br>
+          <label>Member Role</label>
+          <input id="memberRole" type="string" placeholder="A,B,C,D"/>
+          <br><br>
+          <button type="button" onClick="addMember()"> Add Member </button>
+        </fieldset><br>
+        <fieldset>
+          <label>Account Number</label>
+          <input id="accountNumber" type="string" value=""/>
+          <br>
+          <label>Routing Number</label>
+          <input id="routingNumber" type="string" value=""/>
+          <br>
+          <label>Amount</label>
+          <input id="fraudAmount" type="number" value=""/>
+          <br>
+          <label>From Fraud</label>
+          <input id="fromFraud" type="number" value=""/>
+          <br><br>
+          <button type="button" onClick="reportFraud()"> Report Fraud </button>
+        </fieldset><br>
+         <fieldset id="fraud">
+          <label>Fraud ID</label>
+          <input id="fraudID" type="string" value=""/>
+          <br>
+          <div id="fraudList"></div>
+          <br>
+          <button type="button" onClick="readFraud()"> Read Fraud </button>
+        </fieldset>
+      </form>
+    </div> 
+  </body>
+</html>
