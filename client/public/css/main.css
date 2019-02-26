@@ -5,8 +5,26 @@ body {
 }
 
 fieldset, input {
-    width: 200px;
+    width: 15rem;
     margin: auto;
+}
+
+#fraudEvents {
+	height: 30rem;
+	width: 25rem;
+	margin: auto;
+	overflow: auto;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	border-top-width: .1rem;
+	border-top-style: solid;
+	border-top-color: white;
+}
+
+.fraudEvent {
+	border-width: .1rem;
+	border-style: solid;
+	border-color: grey;
 }
 
 .pie {

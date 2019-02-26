@@ -61287,7 +61287,23 @@ readFraud = async () => {
     fraudID = document.getElementById("fraudID").value;
     fraud = await this.KYCinstance.methods.readFraud(fraudID).call({from: ethereum.selectedAddress, gas:3000000});  
  
-    fraudDisplay(fraud[0], fraud[1], fraud[2], fraud[3], fraud[4], fraud[5])
+    var bank = document.createTextNode("Bank: " + fraud[0]);
+    var accountNumber = document.createTextNode("Account Number: " + fraud[1]);
+    var routingNumber = document.createTextNode("Routing Number: " + fraud[2]);
+    var amount = document.createTextNode("Amount: " + fraud[3]);
+    var fromID = document.createTextNode("From_ID: " + fraud[4])
+    var time = document.createTextNode("Time: " + utils.timeConverter(fraud[5]));
+
+    var elements = [bank, accountNumber, routingNumber, amount, fromID, time];
+
+    fraudList = document.getElementById("fraudList");
+    fraudList.innerHTML = '';
+
+    for (var i = 0; i < elements.length; i++) {
+      var listItem = document.createElement("ul");
+      listItem.appendChild(elements[i]);
+      fraudList.appendChild(listItem);
+    }
     
     console.log("fraud read");
   } else {
@@ -61302,39 +61318,36 @@ fraudListen = () => {
         console.log(error);
       }
       else {
-        console.log(event.returnValues.fraudID);
-        console.log(event.returnValues.bank);
-        console.log(event.returnValues.accountNumber);
-        console.log(event.returnValues.routingNumber);
-        console.log(event.returnValues.amount);
-        console.log(event.returnValues.fromID);
-        console.log(utils.timeConverter(event.returnValues.fromID));
+        values = event.returnValues;
+
+        var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
+        var bank = document.createTextNode("Bank: " + values.bank);
+        var accountNumber = document.createTextNode("Account Number: " + values.accountNumber);
+        var routingNumber = document.createTextNode("Routing Number: " + values.routingNumber);
+        var amount = document.createTextNode("Amount: " + values.amount);
+        var fromID = document.createTextNode("From_ID: " + values.fromID)
+        var time = document.createTextNode("Time: " + utils.timeConverter(values.fromID));
+
+        var elements = [fraudID, bank, accountNumber, routingNumber, amount, fromID, time];
+
+        fraudEvents = document.getElementById("fraudEvents");
+        var divItem = document.createElement('div');
+        divItem.setAttribute('class', "fraudEvent")
+
+        for (var i = 0; i < elements.length; i++) {
+          var listItem = document.createElement('ul');
+          listItem.appendChild(elements[i]);
+          divItem.appendChild(listItem);
+        }
+
+        fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
+        var linebreak = document.createElement('br');
+        fraudEvents.insertBefore(linebreak, divItem);
       }
     });
 
   console.log('now listening for events');
 }
-
-fraudDisplay = (bank, accountNumber, routingNumber, amount, fromID, time) => {
-  var bank = document.createTextNode("Bank: " + bank);
-  var accountNumber = document.createTextNode("Account Number: " + accountNumber);
-  var routingNumber = document.createTextNode("Routing Number: " + routingNumber);
-  var amount = document.createTextNode("Amount: " + amount);
-  var fromID = document.createTextNode("From_ID: " + fromID);
-  var time = document.createTextNode("Time: " + utils.timeConverter(time));
-
-  var elements = [bank, accountNumber, routingNumber, amount, fromID, time];
-
-  fraudList = document.getElementById("fraudList");
-  fraudList.innerHTML = '';
-
-  for (var i = 0; i < elements.length; i++) {
-    var listItem = document.createElement("ul");
-    listItem.appendChild(elements[i]);
-    fraudList.appendChild(listItem);
-  }
-}
-
 
 startWeb3 = async () => {
   await initWeb3();
