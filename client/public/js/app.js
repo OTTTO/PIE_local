@@ -153,6 +153,68 @@ startWeb3 = async () => {
   fraudListen();
 }
 
+/*
+findFraudByFromID = (fraudID) => {
+  this.KYCinstance.events.ReportedFraud({
+  filter: {fromID: fraudID},
+  fromBlock: 0
+  }, (error, event) => { 
+    console.log(event); 
+  })
+} 
+
+trackFraud = () => {
+
+  function newNode(node) { return {text:{name:node}}; }
+
+  findFraudByFromID.bind(this, 1);
+
+  chart_config.nodeStructure.text = {name: "node one"};
+  chart_config.nodeStructure.children = [];
+  gen2 = chart_config.nodeStructure.children;
+  gen2.push(newNode("node2"));
+  gen2.push(newNode("node3"));
+  gen2.push(newNode("node4"));
+
+}
+
+chart_config = {
+    chart: {
+        container: "#tree-simple",
+        connectors: {
+          type: "straight"
+        },
+        rootOrientation: "WEST"
+    },
+    
+    nodeStructure: {
+       // text: { name: "Parent node" },
+       /* children: [
+            {
+                text: { name: "First child" },
+                children: [
+                    {
+                      text: {name: "another child"}
+                    },
+                    {
+                      text: {name: "dat boi"}
+                    }
+                ]
+            },
+            {
+                text: { name: "Second child" }
+            },
+            {
+                text: { name: "Third child" }
+            }
+        ]*/
+//    }
+//};
+
+//trackFraud();
+
+//var my_chart = new Treant(chart_config);
+
 startWeb3();
 
 module.exports = { startWeb3 }
