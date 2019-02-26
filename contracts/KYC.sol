@@ -5,12 +5,12 @@ import "./Ownable.sol";
 contract KYC is Ownable {
 
 	event ReportedFraud(
-		uint256 fraudID,
+		uint256 indexed fraudID,
 		address bank,
 		string accountNumber,
 		string routingNumber,
-		uint256 amount,
-		uint256 fromID,
+		uint256 indexed amount,
+		uint256 indexed fromID,
 		uint256 time
 	);
 
