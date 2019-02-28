@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/Treant.css">
   </head>
   <body>  
-    <div class="pie"><H1>PIE</H1></div>
+    <div id="pie"><H1>PIE</H1></div>
       <form id="client-form">
         <fieldset>
           <label>Client Name</label>
@@ -51,7 +51,11 @@
           <button type="button" onClick="readFraud()"> Read Fraud </button>
         </fieldset><br>
       </form>
-      <div id="tree-simple" style="width:335px;height:335px;margin:auto;background:white;color:black;"> </div><br>
+      <div id="trackFraud" style="text-align: center;"> 
+       <button type="button" onClick="trackFraud(1)"> Track Fraud </button>
+      </div>
+
+      <br><br>
       <div id="fraudEvents"></div>
     </div>
 

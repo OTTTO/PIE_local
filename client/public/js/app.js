@@ -125,7 +125,7 @@ fraudListen = () => {
         var routingNumber = document.createTextNode("Routing Number: " + values.routingNumber);
         var amount = document.createTextNode("Amount: " + values.amount);
         var fromID = document.createTextNode("From_ID: " + values.fromID)
-        var time = document.createTextNode("Time: " + utils.timeConverter(values.fromID));
+        var time = document.createTextNode("Time: " + utils.timeConverter(values.time));
 
         var elements = [fraudID, bank, accountNumber, routingNumber, amount, fromID, time];
 
@@ -153,38 +153,34 @@ startWeb3 = async () => {
   fraudListen();
 }
 
-/*
-findFraudByFromID = (fraudID) => {
-  this.KYCinstance.events.ReportedFraud({
-  filter: {fromID: fraudID},
-  fromBlock: 0
-  }, (error, event) => { 
-    console.log(event); 
-  })
-} 
-
-trackFraud = () => {
-
-  function newNode(node) { return {text:{name:node}}; }
-
-  findFraudByFromID.bind(this, 1);
-
-  chart_config.nodeStructure.text = {name: "node one"};
-  chart_config.nodeStructure.children = [];
-  gen2 = chart_config.nodeStructure.children;
-  gen2.push(newNode("node2"));
-  gen2.push(newNode("node3"));
-  gen2.push(newNode("node4"));
-
+findFraudByFromID = async (fraudID) => {
+  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {fromID: fraudID}, fromBlock: 0 });
+  var frauds = [];
+  for (var i = 0; i < events.length; i++) {
+    frauds.push(events[i].returnValues.fraudID); 
+  }
+  return frauds;
 }
 
-chart_config = {
+
+trackFraud = async (fraudID) => {
+
+  var frauds = await findFraudByFromID.call(this, 1);
+  console.log(frauds);k
+
+  var chart = document.createElement('div');
+  chart.setAttribute('id', "tree-simple");
+
+  var chartDiv = document.getElementById("trackFraud");
+  chartDiv.appendChild(chart);
+
+  chart_config = {
     chart: {
         container: "#tree-simple",
         connectors: {
           type: "straight"
         },
-        rootOrientation: "WEST"
+        rootOrientation: "EAST"
     },
     
     nodeStructure: {
@@ -208,12 +204,20 @@ chart_config = {
                 text: { name: "Third child" }
             }
         ]*/
-//    }
-//};
+    }
+  };
 
-//trackFraud();
+  function newNode(node) { return {text:{name:"fraud " + node}}; }
 
-//var my_chart = new Treant(chart_config);
+  chart_config.nodeStructure.text = {name: "fraud " + fraudID};
+  chart_config.nodeStructure.children = [];
+  gen2 = chart_config.nodeStructure.children;
+  gen2.push(newNode("2"));
+  gen2.push(newNode("3"));
+  gen2.push(newNode("4"));
+
+  var my_chart = new Treant(chart_config);
+}
 
 startWeb3();
 
