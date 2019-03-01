@@ -103,8 +103,7 @@ readFraud = async () => {
       listItem.appendChild(elements[i]);
       fraudList.appendChild(listItem);
     }
-    
-    console.log("fraud read");
+
   } else {
     throw new Error('KYC instance not loaded')
   }
@@ -165,12 +164,8 @@ findFraudByFromID = async (fraudID) => {
 
 trackFraud = async (fraudID) => {
 
-  var frauds = await findFraudByFromID.call(this, 1);
-  console.log(frauds);k
-
   var chart = document.createElement('div');
   chart.setAttribute('id', "tree-simple");
-
   var chartDiv = document.getElementById("trackFraud");
   chartDiv.appendChild(chart);
 
@@ -180,43 +175,36 @@ trackFraud = async (fraudID) => {
         connectors: {
           type: "straight"
         },
-        rootOrientation: "EAST"
+        rootOrientation: "WEST"
     },
     
-    nodeStructure: {
-       // text: { name: "Parent node" },
-       /* children: [
-            {
-                text: { name: "First child" },
-                children: [
-                    {
-                      text: {name: "another child"}
-                    },
-                    {
-                      text: {name: "dat boi"}
-                    }
-                ]
-            },
-            {
-                text: { name: "Second child" }
-            },
-            {
-                text: { name: "Third child" }
-            }
-        ]*/
-    }
+    nodeStructure: { }
   };
+
+  var root = chart_config.nodeStructure = newNode(fraudID);
+
+  await fraudClimb(root, 1);
+
+  var my_chart = new Treant(chart_config);
 
   function newNode(node) { return {text:{name:"fraud " + node}}; }
 
-  chart_config.nodeStructure.text = {name: "fraud " + fraudID};
-  chart_config.nodeStructure.children = [];
-  gen2 = chart_config.nodeStructure.children;
-  gen2.push(newNode("2"));
-  gen2.push(newNode("3"));
-  gen2.push(newNode("4"));
+  async function fraudClimb(root, fraudID) {
+    console.log(root, fraudID)
 
-  var my_chart = new Treant(chart_config);
+    var frauds = await findFraudByFromID.call(this, fraudID);
+
+    if (frauds.length == 0) return;
+
+    var children = root.children = [];
+    console.log(fraudID, children);
+    for (var i = 0; i < frauds.length; i++) {
+      children.push(newNode(frauds[i]));
+      await fraudClimb(children[i], frauds[i]);
+    }
+
+
+  }
 }
 
 startWeb3();
