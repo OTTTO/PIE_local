@@ -10,21 +10,21 @@ fieldset, input {
 }
 
 #fraudEvents {
-	height: 30rem;
-	width: 25rem;
-	margin: auto;
-	overflow: auto;
-	padding-right: 1rem;
-	padding-left: 1rem;
-	border-top-width: .1rem;
-	border-top-style: solid;
-	border-top-color: white;
+    height: 30rem;
+    width: 25rem;
+    margin: auto;
+    overflow: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-top-width: .1rem;
+    border-top-style: solid;
+    border-top-color: white;
 }
 
 .fraudEvent {
-	border-width: .1rem;
-	border-style: solid;
-	border-color: grey;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: grey;
 }
 
 .pie {

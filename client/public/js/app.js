@@ -74,7 +74,7 @@ reportFraud = async () => {
     amount = document.getElementById("fraudAmount").value;
     fromFraud = document.getElementById("fromFraud").value;
     console.log("fraud submitted");
-    await this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, accountNumber, routingNumber, amount, fromFraud).send({from: ethereum.selectedAddress, gas:8000000});
+    await this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, accountNumber, routingNumber, amount, fromFraud).send({from: ethereum.selectedAddress, gas:3200000});
     console.log("fraud reported");
   } else {
     throw new Error('KYC instance not loaded')
@@ -85,7 +85,7 @@ readFraud = async () => {
   if (this.KYCinstance) {
     fraudID = document.getElementById("fraudID").value;
     fraud = await this.KYCinstance.methods.readFraud(fraudID).call({from: ethereum.selectedAddress, gas:3000000});  
- 
+
     var bank = document.createTextNode("Bank: " + fraud[0]);
     var accountNumber = document.createTextNode("Account Number: " + fraud[1]);
     var routingNumber = document.createTextNode("Routing Number: " + fraud[2]);
@@ -118,14 +118,13 @@ fraudListen = () => {
       }
       else {
         values = event.returnValues;
-
         var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
         var bank = document.createTextNode("Bank: " + values.bank);
         var accountNumber = document.createTextNode("Account Number: " + values.accountNumber);
         var routingNumber = document.createTextNode("Routing Number: " + values.routingNumber);
         var amount = document.createTextNode("Amount: " + values.amount);
         var fromID = document.createTextNode("From_ID: " + values.fromID)
-        var time = document.createTextNode("Time: " + utils.timeConverter(values.fromID));
+        var time = document.createTextNode("Time: " + utils.timeConverter(values.time));
 
         var elements = [fraudID, bank, accountNumber, routingNumber, amount, fromID, time];
 
@@ -152,6 +151,9 @@ startWeb3 = async () => {
   await initWeb3();
   fraudListen();
 }
+
+
+
 
 startWeb3();
 
