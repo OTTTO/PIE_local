@@ -14189,12 +14189,12 @@
         }
       },
       "links": {},
-      "address": "0xe82Bcf12571C6D43cD9795d91427FCEe00F62658",
-      "transactionHash": "0xc1d981967cf4e9cbe225930cfd16e8ee4ba734b4e76f181524e4b9bb81f015d3"
+      "address": "0x4C440469CcDB10E313887030b50D3c19d60dB034",
+      "transactionHash": "0xe8a658bca14da0a02b75c95f9a9018747d5e20aa9b6c13193abf4c98083dca54"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-27T21:25:01.122Z",
+  "updatedAt": "2019-03-01T16:54:30.227Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {
