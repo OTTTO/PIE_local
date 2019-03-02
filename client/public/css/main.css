@@ -21,12 +21,20 @@ fieldset, input {
     border-top-color: white;
 }
 
+#tree-simple {
+	width: 30rem;
+	margin: auto;
+	background: white;
+	color: black;
+}
+
+#pie {
+    text-align: center; 
+}
+
 .fraudEvent {
     border-width: .1rem;
     border-style: solid;
     border-color: grey;
 }
 
-.pie {
-    text-align: center; 
-}

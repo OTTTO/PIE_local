@@ -14146,12 +14146,12 @@ module.exports={
     "1234321": {
       "events": {},
       "links": {},
-      "address": "0x2F7e7Dab285f741fB99eEe2bC9c167b1336193D8",
-      "transactionHash": "0x87e1c87e0c79f518ceb895f51848b69812d164c949b974c27b8ca211f62d0bab"
+      "address": "0x4C440469CcDB10E313887030b50D3c19d60dB034",
+      "transactionHash": "0xe8a658bca14da0a02b75c95f9a9018747d5e20aa9b6c13193abf4c98083dca54"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-28T21:49:49.984Z",
+  "updatedAt": "2019-03-01T16:54:30.227Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {
@@ -28104,21 +28104,27 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":36,"minimalistic-assert":330,"minimalistic-crypto-utils":331}],101:[function(require,module,exports){
 module.exports={
-  "_from": "elliptic@^6.4.0",
+  "_args": [
+    [
+      "elliptic@6.4.1",
+      "/Users/dylanbeckwith/Desktop/PIE/client"
+    ]
+  ],
+  "_from": "elliptic@6.4.1",
   "_id": "elliptic@6.4.1",
   "_inBundle": false,
   "_integrity": "sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "elliptic@^6.4.0",
+    "raw": "elliptic@6.4.1",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "^6.4.0",
+    "rawSpec": "6.4.1",
     "saveSpec": null,
-    "fetchSpec": "^6.4.0"
+    "fetchSpec": "6.4.1"
   },
   "_requiredBy": [
     "/browserify-sign",
@@ -28128,9 +28134,8 @@ module.exports={
     "/web3-utils/eth-lib"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz",
-  "_shasum": "c2d0b7776911b86722c632c3c06c60f2f819939a",
-  "_spec": "elliptic@^6.4.0",
-  "_where": "/Users/dylanbeckwith/Desktop/PIE/client/node_modules/eth-lib",
+  "_spec": "6.4.1",
+  "_where": "/Users/dylanbeckwith/Desktop/PIE/client",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -28138,7 +28143,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -28148,7 +28152,6 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
-  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -61746,8 +61749,7 @@ readFraud = async () => {
       listItem.appendChild(elements[i]);
       fraudList.appendChild(listItem);
     }
-    
-    console.log("fraud read");
+
   } else {
     throw new Error('KYC instance not loaded')
   }
@@ -61761,7 +61763,6 @@ fraudListen = () => {
       }
       else {
         values = event.returnValues;
-        console.log(event);
         var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
         var bank = document.createTextNode("Bank: " + values.bank);
         var accountNumber = document.createTextNode("Account Number: " + values.accountNumber);
@@ -61791,18 +61792,57 @@ fraudListen = () => {
   console.log('now listening for events');
 }
 
+findFraudByFromID = async (fraudID) => {
+  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {fromID: fraudID}, fromBlock: 0 });
+  var frauds = [];
+  for (var i = 0; i < events.length; i++) {
+    frauds.push(events[i].returnValues.fraudID); 
+  }
+  return frauds;
+}
+
+trackFraud = async () => {
+
+  fraudID = document.getElementById("fraudID").value;
+
+  chart_config = {
+    chart: {
+        container: "#tree-simple",
+        connectors: {
+          type: "straight"
+        },
+        rootOrientation: "WEST"
+    }
+  };
+
+  var root = chart_config.nodeStructure = newNode(fraudID);
+
+  await fraudClimb(root, fraudID);
+
+  var my_chart = new Treant(chart_config);
+
+  function newNode(node) { return {text:{name:"fraud " + node}}; }
+
+  async function fraudClimb(root, fraudID) {
+
+    var frauds = await findFraudByFromID.call(this, fraudID);
+
+    if (frauds.length == 0) return;
+
+    var children = root.children = [];
+
+    for (var i = 0; i < frauds.length; i++) {
+      children.push(newNode(frauds[i]));
+      await fraudClimb(children[i], frauds[i]);
+    }
+
+
+  }
+}
+
 startWeb3 = async () => {
   await initWeb3();
   fraudListen();
-  /*this.KYCinstance.getPastEvents('ReportedFraud', {fromBlock:0, toBlock:'latest'},
-    (error, events) => {console.log(events);
-  });
-  var options = { fromBlock: 0, address:'0xA7A05cD00045e87261212ec338157e0CA7789d44' };
-  this.web3.eth.subscribe('logs', options, function (error, result) {
-    if (!error)
-    console.log(result);
-  });
-  */
 }
 
 

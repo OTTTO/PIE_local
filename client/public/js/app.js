@@ -103,8 +103,7 @@ readFraud = async () => {
       listItem.appendChild(elements[i]);
       fraudList.appendChild(listItem);
     }
-    
-    console.log("fraud read");
+
   } else {
     throw new Error('KYC instance not loaded')
   }
@@ -145,6 +144,54 @@ fraudListen = () => {
     });
 
   console.log('now listening for events');
+}
+
+findFraudByFromID = async (fraudID) => {
+  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {fromID: fraudID}, fromBlock: 0 });
+  var frauds = [];
+  for (var i = 0; i < events.length; i++) {
+    frauds.push(events[i].returnValues.fraudID); 
+  }
+  return frauds;
+}
+
+trackFraud = async () => {
+
+  fraudID = document.getElementById("fraudID").value;
+
+  chart_config = {
+    chart: {
+        container: "#tree-simple",
+        connectors: {
+          type: "straight"
+        },
+        rootOrientation: "WEST"
+    }
+  };
+
+  var root = chart_config.nodeStructure = newNode(fraudID);
+
+  await fraudClimb(root, fraudID);
+
+  var my_chart = new Treant(chart_config);
+
+  function newNode(node) { return {text:{name:"fraud " + node}}; }
+
+  async function fraudClimb(root, fraudID) {
+
+    var frauds = await findFraudByFromID.call(this, fraudID);
+
+    if (frauds.length == 0) return;
+
+    var children = root.children = [];
+
+    for (var i = 0; i < frauds.length; i++) {
+      children.push(newNode(frauds[i]));
+      await fraudClimb(children[i], frauds[i]);
+    }
+
+
+  }
 }
 
 startWeb3 = async () => {

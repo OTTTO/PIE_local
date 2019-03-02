@@ -14145,12 +14145,12 @@
     "1234321": {
       "events": {},
       "links": {},
-      "address": "0x2F7e7Dab285f741fB99eEe2bC9c167b1336193D8",
-      "transactionHash": "0x87e1c87e0c79f518ceb895f51848b69812d164c949b974c27b8ca211f62d0bab"
+      "address": "0x4C440469CcDB10E313887030b50D3c19d60dB034",
+      "transactionHash": "0xe8a658bca14da0a02b75c95f9a9018747d5e20aa9b6c13193abf4c98083dca54"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-02-28T21:49:49.984Z",
+  "updatedAt": "2019-03-01T16:54:30.227Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {
