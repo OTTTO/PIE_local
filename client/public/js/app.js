@@ -147,11 +147,6 @@ fraudListen = () => {
   console.log('now listening for events');
 }
 
-startWeb3 = async () => {
-  await initWeb3();
-  fraudListen();
-}
-
 findFraudByFromID = async (fraudID) => {
   events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {fromID: fraudID}, fromBlock: 0 });
   var frauds = [];
@@ -161,13 +156,9 @@ findFraudByFromID = async (fraudID) => {
   return frauds;
 }
 
+trackFraud = async () => {
 
-trackFraud = async (fraudID) => {
-
-  var chart = document.createElement('div');
-  chart.setAttribute('id', "tree-simple");
-  var chartDiv = document.getElementById("trackFraud");
-  chartDiv.appendChild(chart);
+  fraudID = document.getElementById("fraudID").value;
 
   chart_config = {
     chart: {
@@ -176,28 +167,25 @@ trackFraud = async (fraudID) => {
           type: "straight"
         },
         rootOrientation: "WEST"
-    },
-    
-    nodeStructure: { }
+    }
   };
 
   var root = chart_config.nodeStructure = newNode(fraudID);
 
-  await fraudClimb(root, 1);
+  await fraudClimb(root, fraudID);
 
   var my_chart = new Treant(chart_config);
 
   function newNode(node) { return {text:{name:"fraud " + node}}; }
 
   async function fraudClimb(root, fraudID) {
-    console.log(root, fraudID)
 
     var frauds = await findFraudByFromID.call(this, fraudID);
 
     if (frauds.length == 0) return;
 
     var children = root.children = [];
-    console.log(fraudID, children);
+
     for (var i = 0; i < frauds.length; i++) {
       children.push(newNode(frauds[i]));
       await fraudClimb(children[i], frauds[i]);
@@ -205,6 +193,11 @@ trackFraud = async (fraudID) => {
 
 
   }
+}
+
+startWeb3 = async () => {
+  await initWeb3();
+  fraudListen();
 }
 
 startWeb3();

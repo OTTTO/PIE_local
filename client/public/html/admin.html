@@ -45,18 +45,14 @@
          <fieldset id="fraud">
           <label>Fraud ID</label>
           <input id="fraudID" type="string" value=""/>
-          <br>
-          <div id="fraudList"></div>
-          <br>
+          <br><br>
           <button type="button" onClick="readFraud()"> Read Fraud </button>
+          <button type="button" onClick="trackFraud()"> Track Fraud </button>
         </fieldset><br>
       </form>
-      <div id="trackFraud" style="text-align: center;"> 
-       <button type="button" onClick="trackFraud(1)"> Track Fraud </button>
-      </div>
-
-      <br><br>
-      <div id="fraudEvents"></div>
+       <div id="fraudList"></div>
+       <div id="tree-simple"></div> <br>
+       <div id="fraudEvents"></div>
     </div>
 
     <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>

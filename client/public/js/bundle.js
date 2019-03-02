@@ -61847,12 +61847,9 @@ findFraudByFromID = async (fraudID) => {
 }
 
 
-trackFraud = async (fraudID) => {
+trackFraud = async () => {
 
-  var chart = document.createElement('div');
-  chart.setAttribute('id', "tree-simple");
-  var chartDiv = document.getElementById("trackFraud");
-  chartDiv.appendChild(chart);
+  fraudID = document.getElementById("fraudID").value;
 
   chart_config = {
     chart: {
@@ -61861,28 +61858,25 @@ trackFraud = async (fraudID) => {
           type: "straight"
         },
         rootOrientation: "WEST"
-    },
-    
-    nodeStructure: { }
+    }
   };
 
   var root = chart_config.nodeStructure = newNode(fraudID);
 
-  await fraudClimb(root, 1);
+  await fraudClimb(root, fraudID);
 
   var my_chart = new Treant(chart_config);
 
   function newNode(node) { return {text:{name:"fraud " + node}}; }
 
   async function fraudClimb(root, fraudID) {
-    console.log(root, fraudID)
 
     var frauds = await findFraudByFromID.call(this, fraudID);
 
     if (frauds.length == 0) return;
 
     var children = root.children = [];
-    console.log(fraudID, children);
+
     for (var i = 0; i < frauds.length; i++) {
       children.push(newNode(frauds[i]));
       await fraudClimb(children[i], frauds[i]);

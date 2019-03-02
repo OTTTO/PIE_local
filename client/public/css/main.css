@@ -22,11 +22,10 @@ fieldset, input {
 }
 
 #tree-simple {
-	width:335px;
-	height:335px;
-	margin:auto;
-	background:white;
-	color:black;
+	width: 30rem;
+	margin: auto;
+	background: white;
+	color: black;
 }
 
 #pie {
