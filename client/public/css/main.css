@@ -1,6 +1,6 @@
 body {
     color: white;
-    background-image: radial-gradient(circle, green, purple, blue, purple);
+    background-image: linear-gradient(black,white);
     background-attachment: fixed;
 }
 
@@ -21,20 +21,33 @@ fieldset, input {
     border-top-color: white;
 }
 
+.fraudEvent, #fraudList {
+    border-width: .1rem;
+    border-style: solid;
+    border-color: grey;
+}
+
+#fraudList {   
+    visibility: hidden;
+}
+
+#fraudOutput{
+    width: 25rem;
+    margin: auto;
+}
+
 #tree-simple {
-	width: 30rem;
-	margin: auto;
 	background: white;
 	color: black;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: black;
+    visibility: hidden;
 }
 
 #pie {
     text-align: center; 
 }
 
-.fraudEvent {
-    border-width: .1rem;
-    border-style: solid;
-    border-color: grey;
-}
+
 

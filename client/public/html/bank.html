@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <title> PIE </title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/Treant.css">
+  </head>
+  <body>  
+    <div id="pie"><H1> PIE </H1></div>
+      <form id="client-form">       
+        <fieldset>
+          <label> Client Name </label>
+          <input id="clientName" type="string" value=""/>
+          <br>
+          <label> Client Address </label>
+          <input id="clientAddr" type="string" value=""/>
+          <br><br>
+          <button type="button" onClick="addClient()"> Add Client </button>
+        </fieldset><br>
+        <fieldset>
+          <label> Account Number </label>
+          <input id="accountNumber" type="string" value=""/>
+          <br>
+          <label> Routing Number </label>
+          <input id="routingNumber" type="string" value=""/>
+          <br>
+          <label> Amount </label>
+          <input id="fraudAmount" type="number" value=""/>
+          <br>
+          <label> From Fraud </label>
+          <input id="fromFraud" type="number" value=""/>
+          <br><br>
+          <button type="button" onClick="reportFraud()"> Report Fraud </button>
+        </fieldset><br>
+         <fieldset id="fraud">
+          <label> Fraud ID </label>
+          <input id="fraudID" type="string" value=""/>
+          <br><br>
+          <button type="button" onClick="readFraud()"> Read Fraud </button>
+          <button type="button" onClick="trackFraud()"> Track Fraud </button>
+          <button type="button" onClick="clearFraud()"> Clear </button>
+        </fieldset><br>
+      </form>
+      <div id="fraudOutput">
+       <div id="fraudList"></div><br>
+       <div id="tree-simple"></div>
+      </div><br>
+      <div id="fraudEvents"></div>
+    </div>
+    <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
+    <script type="text/javascript" src="../js/treant/Treant.js"></script>
+    <script type="text/javascript" src="../js/bundle.js"></script>
+  </body>
+</html>

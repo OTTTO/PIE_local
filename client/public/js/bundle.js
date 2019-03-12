@@ -14137,21 +14137,15 @@ module.exports={
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
-    "4447": {
-      "events": {},
-      "links": {},
-      "address": "0x52A8850451711a8157AA044AAF22a51D32cb1B6E",
-      "transactionHash": "0x52527b1f9c325350262fa984d939f0e040ea4d6c99b7c41b16b73c078bcc2c88"
-    },
     "1234321": {
       "events": {},
       "links": {},
-      "address": "0x4C440469CcDB10E313887030b50D3c19d60dB034",
-      "transactionHash": "0xe8a658bca14da0a02b75c95f9a9018747d5e20aa9b6c13193abf4c98083dca54"
+      "address": "0x149195E2e2764d68824000Ad88e6B0AeB6b3D2Ab",
+      "transactionHash": "0x40b313ac1530b358f0fb976ff33d1c327be118bae720c1f30ec35a4b4cbe665f"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-03-01T16:54:30.227Z",
+  "updatedAt": "2019-03-08T19:40:33.810Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {
@@ -61743,6 +61737,7 @@ readFraud = async () => {
 
     fraudList = document.getElementById("fraudList");
     fraudList.innerHTML = '';
+    fraudList.style.visibility = "visible";
 
     for (var i = 0; i < elements.length; i++) {
       var listItem = document.createElement("ul");
@@ -61821,6 +61816,8 @@ trackFraud = async () => {
 
   var my_chart = new Treant(chart_config);
 
+  document.getElementById("tree-simple").style.visibility = "visible";
+
   function newNode(node) { return {text:{name:"fraud " + node}}; }
 
   async function fraudClimb(root, fraudID) {
@@ -61835,17 +61832,22 @@ trackFraud = async () => {
       children.push(newNode(frauds[i]));
       await fraudClimb(children[i], frauds[i]);
     }
-
-
   }
+}
+
+clearFraud = () => {
+  var fraudList = document.getElementById("fraudList");
+  var tree = document.getElementById("tree-simple");
+  fraudList.innerHTML = '';
+  tree.innerHTML = '';
+  fraudList.style.visibility = "hidden";
+  tree.style.visibility = "hidden";
 }
 
 startWeb3 = async () => {
   await initWeb3();
   fraudListen();
 }
-
-
 
 
 startWeb3();

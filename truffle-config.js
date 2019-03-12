@@ -19,7 +19,7 @@ module.exports = {
       network_id: 1234321,       // This network is yours, in the cloud.
       production: true,          // Treats this network as if it was a public net. (default: false)
       port: 30305,               // Custom port
-      gas: 3400000,              // Gas sent with each transaction (default: ~6700000)
+      gas: 3200000,              // Gas sent with each transaction (default: ~6700000)
       // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
       // from: <address>,        // Account to send txs from (default: accounts[0])
     }

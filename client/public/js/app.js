@@ -97,6 +97,7 @@ readFraud = async () => {
 
     fraudList = document.getElementById("fraudList");
     fraudList.innerHTML = '';
+    fraudList.style.visibility = "visible";
 
     for (var i = 0; i < elements.length; i++) {
       var listItem = document.createElement("ul");
@@ -175,6 +176,8 @@ trackFraud = async () => {
 
   var my_chart = new Treant(chart_config);
 
+  document.getElementById("tree-simple").style.visibility = "visible";
+
   function newNode(node) { return {text:{name:"fraud " + node}}; }
 
   async function fraudClimb(root, fraudID) {
@@ -189,17 +192,22 @@ trackFraud = async () => {
       children.push(newNode(frauds[i]));
       await fraudClimb(children[i], frauds[i]);
     }
-
-
   }
+}
+
+clearFraud = () => {
+  var fraudList = document.getElementById("fraudList");
+  var tree = document.getElementById("tree-simple");
+  fraudList.innerHTML = '';
+  tree.innerHTML = '';
+  fraudList.style.visibility = "hidden";
+  tree.style.visibility = "hidden";
 }
 
 startWeb3 = async () => {
   await initWeb3();
   fraudListen();
 }
-
-
 
 
 startWeb3();

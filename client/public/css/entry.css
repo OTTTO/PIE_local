@@ -1,22 +1,25 @@
 body {
-	background-image: linear-gradient(black, white, black);
+	background-color: black;
 }
 
 #pages {
-	margin: auto;
-	width: 10rem;
-	padding-top: 15rem;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 	text-align: center;
 }
 
 a:link {
-	color:blue;
-	font-size: 2rem;
+	color:white;
+	font-size: 3rem;
 	text-decoration: none;
 }
 
 a:visited {
-	color:blue;
+	color:white;
 }
 
 a:hover {
