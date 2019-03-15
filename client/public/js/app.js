@@ -43,24 +43,14 @@ initWeb3 = async () => {
   }
 }
 
-addClient = async () => {
-  if (this.KYCinstance) {
-    name = document.getElementById("clientName").value;
-    addr = document.getElementById("clientAddr").value;
-    console.log("client submitted");
-    await this.KYCinstance.methods.addClient(name, addr).send({from: ethereum.selectedAddress});
-    console.log("client added");
-  } else {
-    throw new Error('KYC instance not loaded')
-  }
-}
-
 addMember = async () => {
   if (this.KYCinstance) {
     addr = document.getElementById("memberAddr").value;
-    role = document.getElementById("memberRole").value;
+    name = document.getElementById("bankName").value;
+    type = document.getElementById("bankType");
+    bankType = type.options[type.selectedIndex].value;
     console.log("member submitted");
-    await this.KYCinstance.methods.addMember(addr, role).send({from: ethereum.selectedAddress});
+    await this.KYCinstance.methods.addMember(addr, name, bankType).send({from: ethereum.selectedAddress});
     console.log("member added");
   } else {
     throw new Error('KYC instance not loaded')
@@ -69,13 +59,16 @@ addMember = async () => {
 
 reportFraud = async () => {
   if (this.KYCinstance) {
-    accountNumber = document.getElementById("accountNumber").value;
-    routingNumber = document.getElementById("routingNumber").value;
-    amount = document.getElementById("fraudAmount").value;
-    fromFraud = document.getElementById("fromFraud").value;
-    console.log("fraud submitted");
-    await this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, accountNumber, routingNumber, amount, fromFraud).send({from: ethereum.selectedAddress, gas:3200000});
-    console.log("fraud reported");
+    for (var i = 0; i < 5; i++) {
+      var fieldset = document.getElementsByTagName("fieldset")[i];
+      var params = [];
+      for (var j = 0; j < 5; j++) {
+        params.push(fieldset.getElementsByTagName("input")[j].value);
+      }
+      if (params[0] == "") continue;
+      console.log(utils.dateToday());
+      this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, params[0], params[1], params[2], params[3], 0, utils.dateToday()).send({from: ethereum.selectedAddress, gas:3200000});  
+    }
   } else {
     throw new Error('KYC instance not loaded')
   }
@@ -123,8 +116,8 @@ fraudListen = () => {
         var accountNumber = document.createTextNode("Account Number: " + values.accountNumber);
         var routingNumber = document.createTextNode("Routing Number: " + values.routingNumber);
         var amount = document.createTextNode("Amount: " + values.amount);
-        var fromID = document.createTextNode("From_ID: " + values.fromID)
-        var time = document.createTextNode("Time: " + utils.timeConverter(values.time));
+        var fromID = document.createTextNode("From_ID: " + values.fromID);
+        var time = document.createTextNode("Time: " + values.reportedDate);//utils.timeConverter(values.txDate));
 
         var elements = [fraudID, bank, accountNumber, routingNumber, amount, fromID, time];
 
@@ -145,6 +138,42 @@ fraudListen = () => {
     });
 
   console.log('now listening for events');
+}
+
+queryChain = async () => {
+  fromDate = new Date(document.getElementById("fromDate").value); utils.fixTime(fromDate);
+  toDate = new Date(document.getElementById("toDate").value); utils.fixTime(toDate);
+  //console.log(fromDate.getTime());
+
+  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {reportedDate: 1552626000000/*fromDate.getTime()*/}, fromBlock: 0 });
+  console.log("events", events);
+  for (var i = 0; i < events.length; i++) {
+    console.log("i", i);
+    console.log(events[i].returnValues); 
+    values = events[i].returnValues;
+    var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
+    var accountNumber = document.createTextNode("Account Number: " + values.accountNumber);
+    var routingNumber = document.createTextNode("Routing Number: " + values.routingNumber);
+    var amount = document.createTextNode("Amount: " + values.amount);
+    var time = document.createTextNode("Reported Date: " + utils.timeConverter(values.reportedDate / 1000));
+
+    var elements = [fraudID, accountNumber, routingNumber, amount, time];
+
+    fraudEvents = document.getElementById("reportedFrauds");
+    var divItem = document.createElement('div');
+    divItem.setAttribute('class', "fraudEvent")
+
+    for (var j = 0; j < elements.length; j++) {
+      var listItem = document.createElement('ul');
+      listItem.appendChild(elements[j]);
+      divItem.appendChild(listItem);
+    }
+
+    fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
+    var linebreak = document.createElement('br');
+    fraudEvents.insertBefore(linebreak, divItem);
+    console.log("done with loop");
+  }
 }
 
 findFraudByFromID = async (fraudID) => {

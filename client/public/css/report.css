@@ -1,0 +1,30 @@
+body {
+    border-style: solid;
+    border-width: .1rem;
+}
+
+fieldset {
+    width: 40rem;
+    margin: auto;
+    border-style: none;
+    text-align: center;
+}
+
+input {
+    width: 7rem;
+    margin-bottom: .5rem;
+    margin-left: .25rem;
+}
+
+#report {
+    text-align: center; 
+}
+
+#report-a-fraud {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#report-image {
+    margin-top: 1rem;
+}

@@ -1,28 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en"> 
   <head>
     <meta charset="utf-8">
     <title> PIE </title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
   </head>
   <body>  
-    <div id="pie"><H1> PIE </H1></div>
+    <div id="admin-bank"> 
+      <img id="admin-bank-img" src="../images/admin.png"> <br>
+      <p id="add-bank"> Add a Bank to the Blockchain </p>
+    </div><br>
       <form id="client-form">
         <fieldset>
           <label> Type of Bank </label>
-            <select>
+            <select id="bankType">
               <option value="retail">Retail</option>
               <option value="commercial">Commercial</option>
-              <option value="credit-card">Credit Card</option>
-              <option value="money-movement">Money Movement</option>
-            </select>
-          <label> Member Address </label>
-            <input id="memberAddr" type="string" placeholder="0x..." maxlength="42" />
-            <br>
-          <label> Member Role </label>
-            <input id="memberRole" type="string" placeholder="A,B,C,D"/>
-            <br><br>
-          <button type="button" onClick="addMember()"> Add Member </button>
+              <option value="credit card">Credit Card</option>
+              <option value="money movement">Money Movement</option>
+            </select> <br><br>
+          <label> Name of Bank </label>
+            <input id="bankName" type="string" placeholder="Bank Name"/> <br><br>
+          <label> Ethereum Address </label>
+            <input id="memberAddr" type="string" placeholder="0x..." maxlength="42"/><br><br>
+          <button type="button" onClick="addMember()"> Add Bank </button>
         </fieldset><br>
     </div>
     <script type="text/javascript" src="../js/bundle.js"></script>

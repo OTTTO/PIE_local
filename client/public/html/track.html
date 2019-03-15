@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <title> PIE </title>
+    <link rel="stylesheet" type="text/css" href="../css/track.css">
+    <link rel="stylesheet" type="text/css" href="../css/Treant.css">
+  </head>
+  <body>  
+    <div id="track">
+      <img id="track-image" src="../images/track.png">
+      <p id="track-fraud"> Track Fraud </p><br>
+    </div>
+      <form id="client-form">
+        <fieldset id="fraud">
+          <label> Fraud ID </label>
+          <input id="fraudID" type="string" value=""/>
+          <br><br>
+          <button type="button" onClick="trackFraud()"> Track Fraud </button>
+          <button type="button" onClick="clearFraud()"> Clear </button>
+      </fieldset>
+      </form>
+      <div id="fraudOutput">
+       <div id="fraudList"></div><br>
+       <div id="tree-simple"></div>
+      </div><br>
+      <div id="fraudEvents"></div>
+    </div>
+    <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
+    <script type="text/javascript" src="../js/treant/Treant.js"></script>
+    <script type="text/javascript" src="../js/bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+body {
+    border-style: solid;
+    border-width: .1rem;
+}
+
+fieldset {
+    width: 15rem;
+    margin: auto;
+    border-style: none;
+}
+
+input {
+    width: 7rem;
+    margin-right: .5rem;
+}
+
+.fraudEvent ul { 
+    padding-left: 1rem; 
+}
+
+#fraudEvents {
+    height: 30rem;
+    width: 27rem;
+    margin: auto;
+    overflow: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-top-width: .1rem;
+    border-top-style: solid;
+    border-top-color: black;
+}
+
+.fraudEvent, #fraudList {
+    border-width: .1rem;
+    border-style: solid;
+    border-color: black;
+}
+
+#fraudList {   
+    visibility: hidden;
+}
+
+#fraudOutput{
+    width: 25rem;
+    margin: auto;
+}
+
+#tree-simple {
+	background: white;
+	color: black;
+    border-width: .1rem;
+    border-style: solid;
+    border-color: black;
+    visibility: hidden;
+}
+
+#track {
+    text-align: center; 
+}
+
+#track-fraud {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#track-image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+}
+
+
