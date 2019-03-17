@@ -2,9 +2,9 @@ const form = document.getElementById("client-form");
 for (var i = 0; i < 5; i++) {
   var fieldset = document.createElement("fieldset");
   var account = document.createElement("input");
-  account.setAttribute("placeholder", "Account Number");
+  account.setAttribute("placeholder", "FROM Account");
   var routing = document.createElement("input");
-  routing.setAttribute("placeholder", "Routing Number");
+  routing.setAttribute("placeholder", "TO Account");
   var amount = document.createElement("input");
   amount.setAttribute("placeholder", "Amount");
   amount.setAttribute("type", "number");

@@ -4,7 +4,7 @@ body {
 }
 
 fieldset {
-    /*width: 7.5rem;*/
+    width: 40rem;
     margin: auto;
     border-style: none;
 }
@@ -44,8 +44,20 @@ input {
     border-width: .1rem;
     border-style: solid;
     border-color: black;
+    position: relative;
 }
 
 .fraudEvent ul { 
     padding-left: 1rem; 
+}
+
+.notify {
+    float: right;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+}
+
+.notifyAll {
+    margin-top: 1rem;
 }
