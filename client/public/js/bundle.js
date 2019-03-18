@@ -47212,7 +47212,7 @@ readFraud = async () => {
 }
 
 fraudListen = () => {
-  this.KYCinstance.events.ReportedFraud({ fromBlock:0 }, 
+  this.KYCinstance.events.ReportedFraud({ filter: {bank:ethereum.selectedAddress}, fromBlock:0 }, 
     (error, event) => {
       if (error) {
         console.log(error);
@@ -47263,7 +47263,7 @@ queryChain = async () => {
 
   for (var i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
 
-  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {txDate: days}, fromBlock: 0 });
+  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {txDate: days, bank:ethereum.selectedAddress}, fromBlock: 0 });
   for (var i = 0; i < events.length; i++) {
     values = events[i].returnValues;
     var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
@@ -47362,10 +47362,16 @@ clearFraud = () => {
 startWeb3 = async () => {
   await initWeb3();
   fraudListen();
+  if (location.href.split("/").slice(-1)[0] == "report.html") {
+    if (ethereum.selectedAddress == "0xf0dd2be7aa3e59dea9d8c24da1af03cab984d3c8") { document.getElementById("report-image").src = "../images/report2.png" }
+  }
 }
 
 
 startWeb3();
+console.log("enter");
+
+
 
 module.exports = { startWeb3 }
 
