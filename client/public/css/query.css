@@ -41,6 +41,7 @@ input {
 }
 
 .fraudEvent {
+    margin-top: 1rem;
     border-width: .1rem;
     border-style: solid;
     border-color: black;

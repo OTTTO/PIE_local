@@ -19,4 +19,4 @@ function fixTime(date) {
   date.setHours(date.getHours() + 5);
 }
 
-module.exports = { timeConverter, dateToday, fixTime };
+//module.exports = { timeConverter, dateToday, fixTime };

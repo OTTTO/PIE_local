@@ -36,6 +36,11 @@ input {
     border-color: black;
 }
 
+#account {
+    width: 15.5rem;
+    text-align: center;
+}
+
 #fraudList {   
     visibility: hidden;
 }
@@ -55,7 +60,9 @@ input {
 }
 
 #track {
+
     text-align: center; 
+
 }
 
 #track-fraud {

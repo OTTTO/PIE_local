@@ -8,18 +8,20 @@
     <link rel="icon" href="../images/bank.png">
   </head>
   <body>  
+    <a href="/html/entry.html" style="float: left;">
+      <img src="../images/backArrow.png" style="width:3rem; margin: .5rem;">
+    </a> 
     <div id="track">
-      <img id="track-image" src="../images/track.png">
+      <img id="track-image" src="../images/track.png" style="padding-right: 3rem;">
       <p id="track-fraud"> Track Fraud </p><br>
     </div>
       <form id="client-form">
         <fieldset id="fraud">
-          <label> Fraud ID </label>
-          <input id="fraudID" type="string" value=""/>
+          <input id="account" type="string" value="" placeholder="Account Number" />
           <br><br>
           <button type="button" onClick="trackFraud()"> Track Fraud </button>
           <button type="button" onClick="clearFraud()"> Clear </button>
-      </fieldset>
+        </fieldset>
       </form>
       <div id="fraudOutput">
        <div id="fraudList"></div><br>
@@ -30,5 +32,7 @@
     <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
     <script type="text/javascript" src="../js/treant/Treant.js"></script>
     <script type="text/javascript" src="../js/bundle.js"></script>
+    <script type="text/javascript" src="../js/utils.js"></script>
+    <script type="text/javascript" src="../js/track.js"></script>
   </body>
 </html>

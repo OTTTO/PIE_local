@@ -4,14 +4,27 @@ import "./Ownable.sol";
 
 contract KYC is Ownable {
 
-    event ReportedFraud(
-        uint256 fraudID,
-        address indexed bank,
-        string fromAccount,
-        string toAccount,
+    event ReportedFraudA(
+        address indexed fromBank,
+        address indexed toBank,
+        bytes32 fromAccount,
+        bytes32 toAccount,
         uint256 amount,
-        uint256 indexed fromID,
         uint256 indexed txDate
+    );
+
+    event ReportedFraudB(
+        address fromBank,
+        address toBank,
+        bytes32 indexed fromAccount,
+        bytes32 indexed toAccount,
+        uint256 indexed amount,
+        uint256 txDate
+    );
+
+    event BankAdded(
+        string indexed name,
+        string bankType
     );
 
     struct Bank {
@@ -20,22 +33,22 @@ contract KYC is Ownable {
     }
 
     struct Fraud {
-        address bank;
-        string fromAccount;
-        string toAccount;
+        address fromBank;
+        address toBank;        
+        bytes32 fromAccount;
+        bytes32 toAccount;
         uint256 amount;
-        uint256 fromID;
         uint256 txDate;
     }
     
     Fraud[] frauds;
 
     //bankEthAddr => bank
-    mapping (address => Bank) banks;
+    mapping (address => Bank) public banks;
 
     constructor() public {
         //push fraud origin
-        frauds.push(Fraud(address(0x0), "", "", 0, 0, 0));
+        frauds.push(Fraud(address(0x0), address(0x0), "", "", 0, 0));
     }
 /*
     modifier classA () {
@@ -59,29 +72,27 @@ contract KYC is Ownable {
     }
 */
     function addMember (address bankAddress, string memory name, string memory bankType) public onlyOwner {
-       // require bank doesnt exist at this address
+        //require (banks[bankAddress].name=="");
         //assigned role must exist
         //require (keccak256(abi.encode(role)) == keccak256(abi.encode("A")) || keccak256(abi.encode(role)) == keccak256(abi.encode("B")) || keccak256(abi.encode(role)) == keccak256(abi.encode("C")) || keccak256(abi.encode(role)) == keccak256(abi.encode("D")));
         
-       // numberOfMembers++;
         Bank memory bank = Bank(name, bankType);
         banks[bankAddress] = bank;
+        emit BankAdded(name, bankType);
     }
 
-    function reportFraud (address bank, string calldata fromAccount, string calldata toAccount, uint256 amount, uint256 fromID, uint256 txDate) external returns(uint256 fraudID) {
-        fraudID = frauds.length;
-        require (fromID < fraudID);
+    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate) external returns(uint256 fraudID) {
 
-        Fraud memory fraud = Fraud(bank, fromAccount, toAccount, amount, fromID, txDate);
+        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate);
         frauds.push(fraud);
 
-        emit ReportedFraud(fraudID, bank, fromAccount, toAccount, amount, fromID, txDate);
+        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate);
+        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate);
     }
-
+/*
     function readFraud (uint256 fraudID) external view returns(address, string memory, string memory, uint256, uint256, uint256) {
         Fraud memory fraud = frauds[fraudID];
         return(fraud.bank, fraud.fromAccount, fraud.toAccount, fraud.amount, fraud.fromID, fraud.txDate);
     }   
-
-
+*/
 }

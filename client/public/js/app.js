@@ -6,6 +6,9 @@ getWeb3 = async () =>
   new Promise((resolve, reject) => {
     window.addEventListener("load", async () => {
       if (window.ethereum) {
+        window.ethereum.on('accountsChanged', function (accounts) {
+          document.location.href = "../html/entry.html";
+        });
         web3 = new Web3(ethereum);
         console.log("Thanks for using MetaMask!");
         try {
@@ -62,18 +65,22 @@ reportFraud = async () => {
     for (var i = 0; i < 5; i++) {
       var fieldset = document.getElementsByTagName("fieldset")[i];
       var params = [];
-      for (var j = 0; j < 5; j++) {
+      for (var j = 0; j < 4; j++) {
         params.push(fieldset.getElementsByTagName("input")[j].value);
       }
+      bank = document.getElementById("toBank");
+      toBank = bank.options[bank.selectedIndex].value;
+      fromAccount = web3.utils.fromAscii(params[0])
+      toAccount = web3.utils.fromAscii(params[1])
       if (params[0] == "") continue;
-      txDate = new Date(params[4])
-      this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, params[0], params[1], params[2], params[3], txDate.getTime()).send({from: ethereum.selectedAddress, gas:3200000});  
+      txDate = new Date(params[3])
+      this.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[2], txDate.getTime()).send({from: ethereum.selectedAddress, gas:3200000});  
     }
   } else {
     throw new Error('KYC instance not loaded')
   }
 }
-
+/*
 readFraud = async () => {
   if (this.KYCinstance) {
     fraudID = document.getElementById("fraudID").value;
@@ -101,43 +108,66 @@ readFraud = async () => {
   } else {
     throw new Error('KYC instance not loaded')
   }
+}*/
+
+listenCallback = async (error, event) => {
+  if (error) { console.log(error); }
+  else {
+    let values = event.returnValues;
+    console.log("from/to",values.fromBank, values.toBank);
+    let fromB = await this.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    let toB = await this.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    var fromBank = document.createTextNode("From Bank: " + fromB.name);
+    var fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
+    var toBank = document.createTextNode("To Bank: " + toB.name);
+    var toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
+    var amount = document.createTextNode("Amount: " + values.amount);
+    var time = document.createTextNode("Transaction Date: " + utils.timeConverter(values.txDate / 1000));
+
+    const elements = [fromBank, fromAccount, toBank, toAccount, amount, time];
+
+    const fraudEvents = document.getElementById("fraudEvents");
+    const divItem = document.createElement('div');
+    divItem.setAttribute('class', "fraudEvent")
+
+    for (var i = 0; i < elements.length; i++) {
+      var listItem = document.createElement('ul');
+      listItem.appendChild(elements[i]);
+      divItem.appendChild(listItem);
+    }
+
+    fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
+    var linebreak = document.createElement('br');
+    fraudEvents.insertBefore(linebreak, divItem);
+  }
 }
 
 fraudListen = () => {
-  this.KYCinstance.events.ReportedFraud({ filter: {bank:ethereum.selectedAddress}, fromBlock:0 }, 
-    (error, event) => {
-      if (error) {
-        console.log(error);
-      }
-      else {
-        values = event.returnValues;
-        var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
-        var bank = document.createTextNode("Bank: " + values.bank);
-        var fromAccount = document.createTextNode("From Account: " + values.fromAccount);
-        var toAccount = document.createTextNode("To Account: " + values.toAccount);
-        var amount = document.createTextNode("Amount: " + values.amount);
-        var fromID = document.createTextNode("From_ID: " + values.fromID);
-        var time = document.createTextNode("Transaction Date: " + utils.timeConverter(values.txDate / 1000));
-
-        var elements = [fraudID, bank, fromAccount, toAccount, amount, fromID, time];
-
-        fraudEvents = document.getElementById("fraudEvents");
-        var divItem = document.createElement('div');
-        divItem.setAttribute('class', "fraudEvent")
-
-        for (var i = 0; i < elements.length; i++) {
-          var listItem = document.createElement('ul');
-          listItem.appendChild(elements[i]);
-          divItem.appendChild(listItem);
-        }
-
-        fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
-        var linebreak = document.createElement('br');
-        fraudEvents.insertBefore(linebreak, divItem);
-      }
-    });
-
+  this.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback); 
+  this.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback);
   console.log('now listening for events');
+}
+
+eventLister  = (events) => {
+  for (var i = 0; i < events.length; i++) {
+    values = events[i].returnValues;
+    var fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
+    var toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
+    var amount = document.createTextNode("Amount: " + values.amount);
+
+    var elements = [fromAccount, toAccount, amount];
+
+    fraudEvents = document.getElementById("reportedFrauds");
+    var divItem = document.createElement('div');
+    divItem.setAttribute('class', "fraudEvent")
+
+    for (var j = 0; j < elements.length; j++) {
+      var listItem = document.createElement('ul');
+      listItem.appendChild(elements[j]);
+      divItem.appendChild(listItem);
+    }
+    fraudEvents.appendChild(divItem);
+  }
 }
 
 queryChain = async () => {
@@ -155,36 +185,11 @@ queryChain = async () => {
 
   for (var i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
 
-  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {txDate: days, bank:ethereum.selectedAddress}, fromBlock: 0 });
-  for (var i = 0; i < events.length; i++) {
-    values = events[i].returnValues;
-    var fraudID = document.createTextNode("Fraud ID: " + values.fraudID);
-    var fromAccount = document.createTextNode("From Account: " + values.fromAccount);
-    var toAccount = document.createTextNode("To Account: " + values.toAccount);
-    var amount = document.createTextNode("Amount: " + values.amount);
+  fromEvents = await this.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, fromBank:ethereum.selectedAddress}, fromBlock: 0 });
+  toEvents = await this.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, toBank:ethereum.selectedAddress}, fromBlock: 0 });
+  eventLister(fromEvents);
+  eventLister(toEvents);
 
-    var elements = [fraudID, fromAccount, toAccount, amount];
-
-    fraudEvents = document.getElementById("reportedFrauds");
-    var divItem = document.createElement('div');
-    divItem.setAttribute('class', "fraudEvent")
-
-    for (var j = 0; j < elements.length; j++) {
-      var listItem = document.createElement('ul');
-      listItem.appendChild(elements[j]);
-      divItem.appendChild(listItem);
-    }
-
-    button = document.createElement("button");
-    button.setAttribute('class', "notify");
-    button.innerHTML = "NOTIFY";
-    divItem.appendChild(button);
-
-    fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
-    var linebreak = document.createElement('br');
-    fraudEvents.insertBefore(linebreak, divItem);
-  }
-  
   button = document.createElement("button");
   button.setAttribute('class', "notifyAll");
   button.innerHTML = "NOTIFY ALL";
@@ -192,20 +197,21 @@ queryChain = async () => {
   fraudEvents = document.getElementById("reportedFrauds");
   fraudEvents.appendChild(button);
 
+
 }
 
-findFraudByFromID = async (fraudID) => {
-  events = await this.KYCinstance.getPastEvents('ReportedFraud', { filter: {fromID: fraudID}, fromBlock: 0 });
+findFraudByFromAccount = async (account) => {
+  events = await this.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
   for (var i = 0; i < events.length; i++) {
-    frauds.push(events[i].returnValues.fraudID); 
+    frauds.push(web3.utils.toAscii(events[i].returnValues.toAccount)); 
   }
   return frauds;
 }
 
 trackFraud = async () => {
 
-  fraudID = document.getElementById("fraudID").value;
+  account = document.getElementById("account").value;
 
   chart_config = {
     chart: {
@@ -217,19 +223,19 @@ trackFraud = async () => {
     }
   };
 
-  var root = chart_config.nodeStructure = newNode(fraudID);
+  var root = chart_config.nodeStructure = newNode(account);
 
-  await fraudClimb(root, fraudID);
+  await fraudClimb(root, account);
 
   var my_chart = new Treant(chart_config);
 
   document.getElementById("tree-simple").style.visibility = "visible";
 
-  function newNode(node) { return {text:{name:"fraud " + node}}; }
+  function newNode(node) { return {text:{name: node}}; }
 
-  async function fraudClimb(root, fraudID) {
+  async function fraudClimb(root, account) {
 
-    var frauds = await findFraudByFromID.call(this, fraudID);
+    var frauds = await findFraudByFromAccount.call(this, account);
 
     if (frauds.length == 0) return;
 
@@ -259,10 +265,6 @@ startWeb3 = async () => {
   }
 }
 
-
 startWeb3();
-console.log("enter");
-
-
 
 module.exports = { startWeb3 }
