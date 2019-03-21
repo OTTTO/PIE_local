@@ -1,7 +1,7 @@
 body {
 	height: 100%;
 	background-image: url("../images/blockchain.gif");
-	background-size: 100%;
+	background-size: 1%;
 }
 
 header {
@@ -28,7 +28,6 @@ header {
 	-ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 	text-align: center;
-	border-style: solid;
 }
 
 a:link {

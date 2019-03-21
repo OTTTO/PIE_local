@@ -87,8 +87,7 @@ listenCallback = async (error, event) => {
 }
 
 fraudListen = () => {
-  window.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback); 
-  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback);
+  window.KYCinstance.events.ReportedFraudA({ fromBlock:0 }, listenCallback); 
   console.log('now listening for events');
 }
 

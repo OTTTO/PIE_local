@@ -5,8 +5,17 @@ getWeb3 = async () =>
   new Promise((resolve, reject) => {
     window.addEventListener("load", async () => {
       if (window.ethereum) {
-        window.ethereum.on('accountsChanged', function (accounts) {
-          document.location.href = "../html/entry.html";
+        window.ethereum.on('accountsChanged', async (accounts) => {
+          let owner = await window.KYCinstance.methods.owner().call({from: ethereum.selectedAddress, gas:3000000});
+          let potentialBank = await window.KYCinstance.methods.banks(accounts[0]).call({from: ethereum.selectedAddress, gas:3000000});
+          if (accounts[0] == owner.toLowerCase()) {
+            document.location.href = "../html/admin.html";
+          } else if (potentialBank.name != "0x0000000000000000000000000000000000000000000000000000000000000000") {
+            document.location.href = "../html/bank.html";
+          } else {
+            //LOGOUT OF APPLICATION
+          }
+          //document.location.href = "../html/entry.html";
         });
         web3 = new Web3(ethereum);
         console.log("Thanks for using MetaMask!");

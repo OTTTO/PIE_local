@@ -23,13 +23,13 @@ contract KYC is Ownable {
     );
 
     event BankAdded(
-        string indexed name,
-        string bankType
+        bytes32 indexed name,
+        bytes32 indexed bankType
     );
 
     struct Bank {
-        string name;
-        string bankType;
+        bytes32 name;
+        bytes32 bankType;
     }
 
     struct Fraud {
@@ -71,7 +71,7 @@ contract KYC is Ownable {
         _; 
     }
 */
-    function addMember (address bankAddress, string memory name, string memory bankType) public onlyOwner {
+    function addBank (address bankAddress, bytes32 name, bytes32 bankType) public onlyOwner {
         //require (banks[bankAddress].name=="");
         //assigned role must exist
         //require (keccak256(abi.encode(role)) == keccak256(abi.encode("A")) || keccak256(abi.encode(role)) == keccak256(abi.encode("B")) || keccak256(abi.encode(role)) == keccak256(abi.encode("C")) || keccak256(abi.encode(role)) == keccak256(abi.encode("D")));
