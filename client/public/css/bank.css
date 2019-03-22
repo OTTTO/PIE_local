@@ -3,6 +3,7 @@ body {
 	background-size: 10%;
 	margin: 0;
 	border-style: solid;
+	overflow: hidden;
 }
 
 header {

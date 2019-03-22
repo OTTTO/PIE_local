@@ -15,7 +15,7 @@ findFraudByFromAccount = async (account, timestamps) => {
   }
   return [frauds, timestamps];
 }
-
+/*
 findFraudByToAccount = async (account) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {toAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
@@ -24,7 +24,7 @@ findFraudByToAccount = async (account) => {
   }
   return frauds;
 }
-
+*/
 trackFraud = async () => {
 
   account = document.getElementById("account").value;
