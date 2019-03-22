@@ -1,5 +1,23 @@
-findFraudByFromAccount = async (account) => {
+findFraudByFromAccount = async (account, timestamps) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
+  var frauds = [];
+  for (var i = 0; i < events.length; i++) {
+    let values = events[i].returnValues;
+    var cont = false;
+    
+    for (let [key,value] of timestamps.entries()) {
+      if (values.txDate < value) cont = true;
+    }
+
+    if (timestamps.has(values.txDate) || cont) continue;
+    timestamps.add(values.txDate);
+    frauds.push(web3.utils.toAscii(values.toAccount)); 
+  }
+  return [frauds, timestamps];
+}
+
+findFraudByToAccount = async (account) => {
+  events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {toAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
   for (var i = 0; i < events.length; i++) {
     frauds.push(web3.utils.toAscii(events[i].returnValues.toAccount)); 
@@ -23,7 +41,9 @@ trackFraud = async () => {
 
   var root = chart_config.nodeStructure = newNode(account);
 
-  await fraudClimb(root, account);
+  var timestamps = new Set();
+
+  await fraudClimb(root, account, timestamps);
 
   var my_chart = new Treant(chart_config);
 
@@ -31,9 +51,9 @@ trackFraud = async () => {
 
   function newNode(node) { return {text:{name: node}}; }
 
-  async function fraudClimb(root, account) {
+  async function fraudClimb(root, account, timestamps) {
 
-    var frauds = await findFraudByFromAccount.call(this, account);
+    var [frauds, usedTimes] = await findFraudByFromAccount.call(this, account, timestamps);
 
     if (frauds.length == 0) return;
 
@@ -41,7 +61,7 @@ trackFraud = async () => {
 
     for (var i = 0; i < frauds.length; i++) {
       children.push(newNode(frauds[i]));
-      await fraudClimb(children[i], frauds[i]);
+      await fraudClimb(children[i], frauds[i], usedTimes);
     }
   }
 }

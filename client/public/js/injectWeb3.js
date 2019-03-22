@@ -13,9 +13,8 @@ getWeb3 = async () =>
           } else if (potentialBank.name != "0x0000000000000000000000000000000000000000000000000000000000000000") {
             document.location.href = "../html/bank.html";
           } else {
-            //LOGOUT OF APPLICATION
+            document.location.href = "../html/entry.html";
           }
-          //document.location.href = "../html/entry.html";
         });
         web3 = new Web3(ethereum);
         console.log("Thanks for using MetaMask!");
@@ -36,15 +35,15 @@ getWeb3 = async () =>
 
 initWeb3 = async () => {
   try {
-    this.web3 = await getWeb3();
+    window.web3 = await getWeb3();
 
     console.log("Selected Address:", ethereum.selectedAddress);
 
-    const networkId = await this.web3.eth.net.getId();
+    const networkId = await window.web3.eth.net.getId();
     const deployedNetwork = KYC.networks[networkId];
     console.log("kyc address:", deployedNetwork.address);
 
-    window.KYCinstance = new this.web3.eth.Contract(
+    window.KYCinstance = new window.web3.eth.Contract(
       KYC.abi, 
       deployedNetwork.address);
 
