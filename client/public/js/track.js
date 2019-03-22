@@ -75,7 +75,7 @@ clearFraud = () => {
   tree.style.visibility = "hidden";
 }
 
-listenCallback = async (error, event) => {
+listenCallbackTo = async (error, event) => {
   if (error) { console.log(error); }
   else {
     let values = event.returnValues;
@@ -106,9 +106,41 @@ listenCallback = async (error, event) => {
   }
 }
 
+listenCallbackFrom = async (error, event) => {
+  if (error) { console.log(error); }
+  else {
+    let values = event.returnValues;
+    let fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    let toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    if (fromB.name == toB.name) return;
+    var fromBank = document.createTextNode("From Bank: " + web3.utils.toAscii(fromB.name));
+    var fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
+    var toBank = document.createTextNode("To Bank: " + web3.utils.toAscii(toB.name));
+    var toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
+    var amount = document.createTextNode("Amount: " + values.amount);
+    var time = document.createTextNode("Transaction Date: " + timeConverter(values.txDate / 1000));
+
+    const elements = [fromBank, fromAccount, toBank, toAccount, amount, time];
+
+    const fraudEvents = document.getElementById("fraudEvents");
+    const divItem = document.createElement('div');
+    divItem.setAttribute('class', "fraudEvent")
+
+    for (var i = 0; i < elements.length; i++) {
+      var listItem = document.createElement('ul');
+      listItem.appendChild(elements[i]);
+      divItem.appendChild(listItem);
+    }
+
+    fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
+    var linebreak = document.createElement('br');
+    fraudEvents.insertBefore(linebreak, divItem);
+  }
+}
+
 fraudListen = () => {
-  window.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback); 
-  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallback);
+  window.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallbackTo); 
+  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock:0 }, listenCallbackFrom);
   console.log('now listening for events');
 }
 

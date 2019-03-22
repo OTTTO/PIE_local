@@ -3,6 +3,7 @@ body {
 	background-color: 
 	height: 20%;
 	background-size: 2%;
+	border-style: solid;
 }
 header {
 	height: 5rem;

@@ -23,6 +23,7 @@ contract KYC is Ownable {
     );
 
     event BankAdded(
+        address bankAddress,
         bytes32 indexed name,
         bytes32 indexed bankType
     );
@@ -78,7 +79,7 @@ contract KYC is Ownable {
         
         Bank memory bank = Bank(name, bankType);
         banks[bankAddress] = bank;
-        emit BankAdded(name, bankType);
+        emit BankAdded(bankAddress, name, bankType);
     }
 
     function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate) external returns(uint256 fraudID) {
