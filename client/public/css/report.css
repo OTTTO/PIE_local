@@ -29,3 +29,7 @@ input {
     margin-top: 1rem;
     width: 10rem;
 }
+
+#txDate {
+    width: 12rem;
+}

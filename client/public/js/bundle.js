@@ -95,11 +95,16 @@ module.exports={
           "indexed": true,
           "name": "txDate",
           "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "time",
+          "type": "uint256"
         }
       ],
       "name": "ReportedFraudA",
       "type": "event",
-      "signature": "0xe10f83fe263ec468a45f6c19bfc43f908e8a8fb1c1ab1ecee970e416042534c9"
+      "signature": "0x966098a1d08497a2ec81a174cfbd9c5e53160c6edffc421dd5a01886cd623515"
     },
     {
       "anonymous": false,
@@ -133,11 +138,16 @@ module.exports={
           "indexed": false,
           "name": "txDate",
           "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "time",
+          "type": "uint256"
         }
       ],
       "name": "ReportedFraudB",
       "type": "event",
-      "signature": "0xdfc43f926e4adbcd2175e352f5d5d370e7fdd58dc8cb5089e5195b74ecd13f63"
+      "signature": "0x94788e7b316cddc98960bd1184b54eb45e066914426573fcba8bd85303a12c65"
     },
     {
       "anonymous": false,
@@ -211,6 +221,10 @@ module.exports={
         {
           "name": "txDate",
           "type": "uint256"
+        },
+        {
+          "name": "time",
+          "type": "uint256"
         }
       ],
       "name": "reportFraud",
@@ -223,23 +237,23 @@ module.exports={
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function",
-      "signature": "0x28a0c3ab"
+      "signature": "0x10f17037"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160c060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008019168152602001600080191681526020016000815260200160008152509080600181540180825580915050906001820390600052602060002090600602016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a08201518160050155505050610817806101ac6000396000f3fe60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328a0c3ab1461007257806357510cfd1461011f57806380c3b8c2146101845780638da5cb5b146101f0578063f2fde38b14610247575b600080fd5b34801561007e57600080fd5b50610109600480360360c081101561009557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610298565b6040518082815260200191505060405180910390f35b34801561012b57600080fd5b506101826004803603606081101561014257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610508565b005b34801561019057600080fd5b506101d3600480360360208110156101a757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610644565b604051808381526020018281526020019250505060405180910390f35b3480156101fc57600080fd5b50610205610668565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561025357600080fd5b506102966004803603602081101561026a57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061068d565b005b60006102a2610762565b60c0604051908101604052808973ffffffffffffffffffffffffffffffffffffffff1681526020018873ffffffffffffffffffffffffffffffffffffffff1681526020018781526020018681526020018581526020018481525090506001819080600181540180825580915050906001820390600052602060002090600602016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a08201518160050155505050828773ffffffffffffffffffffffffffffffffffffffff168973ffffffffffffffffffffffffffffffffffffffff167fe10f83fe263ec468a45f6c19bfc43f908e8a8fb1c1ab1ecee970e416042534c989898960405180848152602001838152602001828152602001935050505060405180910390a48385877fdfc43f926e4adbcd2175e352f5d5d370e7fdd58dc8cb5089e5195b74ecd13f638b8b88604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a4509695505050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056357600080fd5b61056b6107cb565b604080519081016040528084815260200183815250905080600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015590505081837f089eceb7dd85cde666bfb0e97efba1674f337741170f0eb4422e2baac26ecee186604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a350505050565b60026020528060005260406000206000915090508060000154908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156106e857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151561075f57806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b60c060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600080191681526020016000801916815260200160008152602001600081525090565b60408051908101604052806000801916815260200160008019168152509056fea165627a7a723058204f9e3971216cd0620e33d826184a67bd8a1b2bec74669525921775e420c413d60029",
-  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328a0c3ab1461007257806357510cfd1461011f57806380c3b8c2146101845780638da5cb5b146101f0578063f2fde38b14610247575b600080fd5b34801561007e57600080fd5b50610109600480360360c081101561009557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610298565b6040518082815260200191505060405180910390f35b34801561012b57600080fd5b506101826004803603606081101561014257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610508565b005b34801561019057600080fd5b506101d3600480360360208110156101a757600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610644565b604051808381526020018281526020019250505060405180910390f35b3480156101fc57600080fd5b50610205610668565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561025357600080fd5b506102966004803603602081101561026a57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061068d565b005b60006102a2610762565b60c0604051908101604052808973ffffffffffffffffffffffffffffffffffffffff1681526020018873ffffffffffffffffffffffffffffffffffffffff1681526020018781526020018681526020018581526020018481525090506001819080600181540180825580915050906001820390600052602060002090600602016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a08201518160050155505050828773ffffffffffffffffffffffffffffffffffffffff168973ffffffffffffffffffffffffffffffffffffffff167fe10f83fe263ec468a45f6c19bfc43f908e8a8fb1c1ab1ecee970e416042534c989898960405180848152602001838152602001828152602001935050505060405180910390a48385877fdfc43f926e4adbcd2175e352f5d5d370e7fdd58dc8cb5089e5195b74ecd13f638b8b88604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828152602001935050505060405180910390a4509695505050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056357600080fd5b61056b6107cb565b604080519081016040528084815260200183815250905080600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015590505081837f089eceb7dd85cde666bfb0e97efba1674f337741170f0eb4422e2baac26ecee186604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a350505050565b60026020528060005260406000206000915090508060000154908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156106e857600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151561075f57806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b60c060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600080191681526020016000801916815260200160008152602001600081525090565b60408051908101604052806000801916815260200160008019168152509056fea165627a7a723058204f9e3971216cd0620e33d826184a67bd8a1b2bec74669525921775e420c413d60029",
-  "sourceMap": "59:3429:0:-;;;990:126;8:9:-1;5:2;;;30:1;27;20:12;5:2;990:126:0;414:10:2;406:5;;:18;;;;;;;;;;;;;;;;;;1049:6:0;1061:47;;;;;;;;;1075:3;1061:47;;;;;;1089:3;1061:47;;;;;;;;;;;;;;;;;;;;;;1103:1;1061:47;;;;1106:1;1061:47;;;1049:60;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1049:60:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;59:3429;;;;;;",
-  "deployedSourceMap": "59:3429:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2721:467;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2721:467:0;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;2721:467:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2128:587;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2128:587:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2128:587:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;945:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;945:38:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;945:38:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:20:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;235:20:2;;;;;;;;;;;;;;;;;;;;;;;;;;;739:131;;8:9:-1;5:2;;;30:1;27;20:12;5:2;739:131:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;739:131:2;;;;;;;;;;;;;;;;;;;;;;2721:467:0;2866:15;2894:18;;:::i;:::-;2915:63;;;;;;;;;2921:8;2915:63;;;;;;2931:6;2915:63;;;;;;2939:11;2915:63;;;;2952:9;2915:63;;;;2963:6;2915:63;;;;2971:6;2915:63;;;2894:84;;2988:6;3000:5;2988:18;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;2988:18:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3087:6;3047;3022:72;;3037:8;3022:72;;;3055:11;3068:9;3079:6;3022:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3166:6;3155:9;3142:11;3109:72;3124:8;3134:6;3174;3109:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2721:467;;;;;;;;;:::o;2128:587::-;559:5:2;;;;;;;;;;;545:19;;:10;:19;;;537:28;;;;;;;;2581:16:0;;:::i;:::-;2600:20;;;;;;;;;2605:4;2600:20;;;;2611:8;2600:20;;;2581:39;;2651:4;2630:5;:18;2636:11;2630:18;;;;;;;;;;;;;;;:25;;;;;;;;;;;;;;;;;;;2699:8;2693:4;2670:38;2680:11;2670:38;;;;;;;;;;;;;;;;;;;;;;571:1:2;2128:587:0;;;:::o;945:38::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;235:20:2:-;;;;;;;;;;;;;:::o;739:131::-;559:5;;;;;;;;;;;545:19;;:10;:19;;;537:28;;;;;;;;831:1;811:22;;:8;:22;;;;807:59;;;851:8;843:5;;:16;;;;;;;;;;;;;;;;;;807:59;739:131;:::o;59:3429:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"./Ownable.sol\";\n\ncontract KYC is Ownable {\n\n    event ReportedFraudA(\n        address indexed fromBank,\n        address indexed toBank,\n        bytes32 fromAccount,\n        bytes32 toAccount,\n        uint256 amount,\n        uint256 indexed txDate\n    );\n\n    event ReportedFraudB(\n        address fromBank,\n        address toBank,\n        bytes32 indexed fromAccount,\n        bytes32 indexed toAccount,\n        uint256 indexed amount,\n        uint256 txDate\n    );\n\n    event BankAdded(\n        address bankAddress,\n        bytes32 indexed name,\n        bytes32 indexed bankType\n    );\n\n    struct Bank {\n        bytes32 name;\n        bytes32 bankType;\n    }\n\n    struct Fraud {\n        address fromBank;\n        address toBank;        \n        bytes32 fromAccount;\n        bytes32 toAccount;\n        uint256 amount;\n        uint256 txDate;\n    }\n    \n    Fraud[] frauds;\n\n    //bankEthAddr => bank\n    mapping (address => Bank) public banks;\n\n    constructor() public {\n        //push fraud origin\n        frauds.push(Fraud(address(0x0), address(0x0), \"\", \"\", 0, 0));\n    }\n/*\n    modifier classA () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _;\n    }\n\n    modifier classB () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _;\n    }\n\n    modifier classC () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _; \n    }\n\n    modifier classD () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"D\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _; \n    }\n*/\n    function addBank (address bankAddress, bytes32 name, bytes32 bankType) public onlyOwner {\n        //require (banks[bankAddress].name==\"\");\n        //assigned role must exist\n        //require (keccak256(abi.encode(role)) == keccak256(abi.encode(\"A\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"D\")));\n        \n        Bank memory bank = Bank(name, bankType);\n        banks[bankAddress] = bank;\n        emit BankAdded(bankAddress, name, bankType);\n    }\n\n    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate) external returns(uint256 fraudID) {\n\n        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate);\n        frauds.push(fraud);\n\n        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate);\n        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate);\n    }\n/*\n    function readFraud (uint256 fraudID) external view returns(address, string memory, string memory, uint256, uint256, uint256) {\n        Fraud memory fraud = frauds[fraudID];\n        return(fraud.bank, fraud.fromAccount, fraud.toAccount, fraud.amount, fraud.fromID, fraud.txDate);\n    }   \n*/\n}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160e060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff1681526020016000801916815260200160008019168152602001600081526020016000815260200160008152509080600181540180825580915050906001820390600052602060002090600702016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a0820151816005015560c08201518160060155505050610849806101bd6000396000f3fe60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806310f170371461007257806357510cfd1461012957806380c3b8c21461018e5780638da5cb5b146101fa578063f2fde38b14610251575b600080fd5b34801561007e57600080fd5b50610113600480360360e081101561009557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506102a2565b6040518082815260200191505060405180910390f35b34801561013557600080fd5b5061018c6004803603606081101561014c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610533565b005b34801561019a57600080fd5b506101dd600480360360208110156101b157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061066f565b604051808381526020018281526020019250505060405180910390f35b34801561020657600080fd5b5061020f610693565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561025d57600080fd5b506102a06004803603602081101561027457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506106b8565b005b60006102ac61078d565b60e0604051908101604052808a73ffffffffffffffffffffffffffffffffffffffff1681526020018973ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681526020018581526020018481525090506001819080600181540180825580915050906001820390600052602060002090600702016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a0820151816005015560c08201518160060155505050838873ffffffffffffffffffffffffffffffffffffffff168a73ffffffffffffffffffffffffffffffffffffffff167f966098a1d08497a2ec81a174cfbd9c5e53160c6edffc421dd5a01886cd6235158a8a8a896040518085815260200184815260200183815260200182815260200194505050505060405180910390a48486887f94788e7b316cddc98960bd1184b54eb45e066914426573fcba8bd85303a12c658c8c8989604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200183815260200182815260200194505050505060405180910390a450979650505050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561058e57600080fd5b6105966107fd565b604080519081016040528084815260200183815250905080600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015590505081837f089eceb7dd85cde666bfb0e97efba1674f337741170f0eb4422e2baac26ecee186604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a350505050565b60026020528060005260406000206000915090508060000154908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561071357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151561078a57806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b60e060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008019168152602001600080191681526020016000815260200160008152602001600081525090565b60408051908101604052806000801916815260200160008019168152509056fea165627a7a723058201a82b81b0f482ac7b9b01c6d9995575248625233c862fcdbd06b2cc0812c6ee70029",
+  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806310f170371461007257806357510cfd1461012957806380c3b8c21461018e5780638da5cb5b146101fa578063f2fde38b14610251575b600080fd5b34801561007e57600080fd5b50610113600480360360e081101561009557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506102a2565b6040518082815260200191505060405180910390f35b34801561013557600080fd5b5061018c6004803603606081101561014c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610533565b005b34801561019a57600080fd5b506101dd600480360360208110156101b157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061066f565b604051808381526020018281526020019250505060405180910390f35b34801561020657600080fd5b5061020f610693565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561025d57600080fd5b506102a06004803603602081101561027457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506106b8565b005b60006102ac61078d565b60e0604051908101604052808a73ffffffffffffffffffffffffffffffffffffffff1681526020018973ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018681526020018581526020018481525090506001819080600181540180825580915050906001820390600052602060002090600702016000909192909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020155606082015181600301556080820151816004015560a0820151816005015560c08201518160060155505050838873ffffffffffffffffffffffffffffffffffffffff168a73ffffffffffffffffffffffffffffffffffffffff167f966098a1d08497a2ec81a174cfbd9c5e53160c6edffc421dd5a01886cd6235158a8a8a896040518085815260200184815260200183815260200182815260200194505050505060405180910390a48486887f94788e7b316cddc98960bd1184b54eb45e066914426573fcba8bd85303a12c658c8c8989604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200183815260200182815260200194505050505060405180910390a450979650505050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561058e57600080fd5b6105966107fd565b604080519081016040528084815260200183815250905080600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015590505081837f089eceb7dd85cde666bfb0e97efba1674f337741170f0eb4422e2baac26ecee186604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a350505050565b60026020528060005260406000206000915090508060000154908060010154905082565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561071357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151561078a57806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b50565b60e060405190810160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff16815260200160008019168152602001600080191681526020016000815260200160008152602001600081525090565b60408051908101604052806000801916815260200160008019168152509056fea165627a7a723058201a82b81b0f482ac7b9b01c6d9995575248625233c862fcdbd06b2cc0812c6ee70029",
+  "sourceMap": "59:3530:0:-;;;1056:129;8:9:-1;5:2;;;30:1;27;20:12;5:2;1056:129:0;414:10:2;406:5;;:18;;;;;;;;;;;;;;;;;;1115:6:0;1127:50;;;;;;;;;1141:3;1127:50;;;;;;1155:3;1127:50;;;;;;;;;;;;;;;;;;;;;;1169:1;1127:50;;;;1172:1;1127:50;;;;1175:1;1127:50;;;1115:63;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;1115:63:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;59:3530;;;;;;",
+  "deployedSourceMap": "59:3530:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2790:499;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2790:499:0;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;2790:499:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2197:587;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2197:587:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2197:587:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1011:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1011:38:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1011:38:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:20:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;235:20:2;;;;;;;;;;;;;;;;;;;;;;;;;;;739:131;;8:9:-1;5:2;;;30:1;27;20:12;5:2;739:131:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;739:131:2;;;;;;;;;;;;;;;;;;;;;;2790:499:0;2949:15;2977:18;;:::i;:::-;2998:69;;;;;;;;;3004:8;2998:69;;;;;;3014:6;2998:69;;;;;;3022:11;2998:69;;;;3035:9;2998:69;;;;3046:6;2998:69;;;;3054:6;2998:69;;;;3062:4;2998:69;;;2977:90;;3077:6;3089:5;3077:18;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;3077:18:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3176:6;3136;3111:78;;3126:8;3111:78;;;3144:11;3157:9;3168:6;3184:4;3111:78;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3261:6;3250:9;3237:11;3204:78;3219:8;3229:6;3269;3277:4;3204:78;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2790:499;;;;;;;;;;:::o;2197:587::-;559:5:2;;;;;;;;;;;545:19;;:10;:19;;;537:28;;;;;;;;2650:16:0;;:::i;:::-;2669:20;;;;;;;;;2674:4;2669:20;;;;2680:8;2669:20;;;2650:39;;2720:4;2699:5;:18;2705:11;2699:18;;;;;;;;;;;;;;;:25;;;;;;;;;;;;;;;;;;;2768:8;2762:4;2739:38;2749:11;2739:38;;;;;;;;;;;;;;;;;;;;;;571:1:2;2197:587:0;;;:::o;1011:38::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;235:20:2:-;;;;;;;;;;;;;:::o;739:131::-;559:5;;;;;;;;;;;545:19;;:10;:19;;;537:28;;;;;;;;831:1;811:22;;:8;:22;;;;807:59;;;851:8;843:5;;:16;;;;;;;;;;;;;;;;;;807:59;739:131;:::o;59:3530:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\n\nimport \"./Ownable.sol\";\n\ncontract KYC is Ownable {\n\n    event ReportedFraudA(\n        address indexed fromBank,\n        address indexed toBank,\n        bytes32 fromAccount,\n        bytes32 toAccount,\n        uint256 amount,\n        uint256 indexed txDate,\n        uint256 time\n    );\n\n    event ReportedFraudB(\n        address fromBank,\n        address toBank,\n        bytes32 indexed fromAccount,\n        bytes32 indexed toAccount,\n        uint256 indexed amount,\n        uint256 txDate,\n        uint256 time\n    );\n\n    event BankAdded(\n        address bankAddress,\n        bytes32 indexed name,\n        bytes32 indexed bankType\n    );\n\n    struct Bank {\n        bytes32 name;\n        bytes32 bankType;\n    }\n\n    struct Fraud {\n        address fromBank;\n        address toBank;        \n        bytes32 fromAccount;\n        bytes32 toAccount;\n        uint256 amount;\n        uint256 txDate;\n        uint256 time;\n    }\n    \n    Fraud[] frauds;\n\n    //bankEthAddr => bank\n    mapping (address => Bank) public banks;\n\n    constructor() public {\n        //push fraud origin\n        frauds.push(Fraud(address(0x0), address(0x0), \"\", \"\", 0, 0, 0));\n    }\n/*\n    modifier classA () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _;\n    }\n\n    modifier classB () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _;\n    }\n\n    modifier classC () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _; \n    }\n\n    modifier classD () {\n        require (keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"D\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(members[msg.sender])) == keccak256(abi.encode(\"A\"))); \n        _; \n    }\n*/\n    function addBank (address bankAddress, bytes32 name, bytes32 bankType) public onlyOwner {\n        //require (banks[bankAddress].name==\"\");\n        //assigned role must exist\n        //require (keccak256(abi.encode(role)) == keccak256(abi.encode(\"A\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"B\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"C\")) || keccak256(abi.encode(role)) == keccak256(abi.encode(\"D\")));\n        \n        Bank memory bank = Bank(name, bankType);\n        banks[bankAddress] = bank;\n        emit BankAdded(bankAddress, name, bankType);\n    }\n\n    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate, uint256 time) external returns(uint256 fraudID) {\n\n        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);\n        frauds.push(fraud);\n\n        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);\n        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);\n    }\n/*\n    function readFraud (uint256 fraudID) external view returns(address, string memory, string memory, uint256, uint256, uint256) {\n        Fraud memory fraud = frauds[fraudID];\n        return(fraud.bank, fraud.fromAccount, fraud.toAccount, fraud.amount, fraud.fromID, fraud.txDate);\n    }   \n*/\n}",
   "sourcePath": "/Users/dylanbeckwith/Desktop/PIE/contracts/KYC.sol",
   "ast": {
     "absolutePath": "/Users/dylanbeckwith/Desktop/PIE/contracts/KYC.sol",
     "exportedSymbols": {
       "KYC": [
-        171
+        183
       ]
     },
-    "id": 172,
+    "id": 184,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -261,8 +275,8 @@ module.exports={
         "file": "./Ownable.sol",
         "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 172,
-        "sourceUnit": 273,
+        "scope": 184,
+        "sourceUnit": 285,
         "src": "34:23:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -276,10 +290,10 @@ module.exports={
               "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 272,
+              "referencedDeclaration": 284,
               "src": "75:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$272",
+                "typeIdentifier": "t_contract$_Ownable_$284",
                 "typeString": "contract Ownable"
               }
             },
@@ -289,15 +303,15 @@ module.exports={
           }
         ],
         "contractDependencies": [
-          272
+          284
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 171,
+        "id": 183,
         "linearizedBaseContracts": [
-          171,
-          272
+          183,
+          284
         ],
         "name": "KYC",
         "nodeType": "ContractDefinition",
@@ -305,11 +319,11 @@ module.exports={
           {
             "anonymous": false,
             "documentation": null,
-            "id": 18,
+            "id": 20,
             "name": "ReportedFraudA",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 17,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [
                 {
@@ -318,7 +332,7 @@ module.exports={
                   "indexed": true,
                   "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "120:24:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -346,7 +360,7 @@ module.exports={
                   "indexed": true,
                   "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "154:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -374,7 +388,7 @@ module.exports={
                   "indexed": false,
                   "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "186:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -401,7 +415,7 @@ module.exports={
                   "indexed": false,
                   "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "215:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -428,7 +442,7 @@ module.exports={
                   "indexed": false,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "242:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -455,7 +469,7 @@ module.exports={
                   "indexed": true,
                   "name": "txDate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "266:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -475,58 +489,57 @@ module.exports={
                   },
                   "value": null,
                   "visibility": "internal"
-                }
-              ],
-              "src": "110:184:0"
-            },
-            "src": "90:205:0"
-          },
-          {
-            "anonymous": false,
-            "documentation": null,
-            "id": 32,
-            "name": "ReportedFraudB",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 31,
-              "nodeType": "ParameterList",
-              "parameters": [
+                },
                 {
                   "constant": false,
-                  "id": 20,
+                  "id": 18,
                   "indexed": false,
-                  "name": "fromBank",
+                  "name": "time",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "331:16:0",
+                  "scope": 20,
+                  "src": "298:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 19,
-                    "name": "address",
+                    "id": 17,
+                    "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "331:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "298:7:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
-                },
+                }
+              ],
+              "src": "110:206:0"
+            },
+            "src": "90:227:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 36,
+            "name": "ReportedFraudB",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 35,
+              "nodeType": "ParameterList",
+              "parameters": [
                 {
                   "constant": false,
                   "id": 22,
                   "indexed": false,
-                  "name": "toBank",
+                  "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "357:14:0",
+                  "scope": 36,
+                  "src": "353:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -537,7 +550,7 @@ module.exports={
                     "id": 21,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "357:7:0",
+                    "src": "353:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -550,25 +563,26 @@ module.exports={
                 {
                   "constant": false,
                   "id": 24,
-                  "indexed": true,
-                  "name": "fromAccount",
+                  "indexed": false,
+                  "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "381:27:0",
+                  "scope": 36,
+                  "src": "379:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   },
                   "typeName": {
                     "id": 23,
-                    "name": "bytes32",
+                    "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "381:7:0",
+                    "src": "379:7:0",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
                   "value": null,
@@ -578,10 +592,10 @@ module.exports={
                   "constant": false,
                   "id": 26,
                   "indexed": true,
-                  "name": "toAccount",
+                  "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "418:25:0",
+                  "scope": 36,
+                  "src": "403:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -592,7 +606,7 @@ module.exports={
                     "id": 25,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "418:7:0",
+                    "src": "403:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -605,24 +619,24 @@ module.exports={
                   "constant": false,
                   "id": 28,
                   "indexed": true,
-                  "name": "amount",
+                  "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "453:22:0",
+                  "scope": 36,
+                  "src": "440:25:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
                   },
                   "typeName": {
                     "id": 27,
-                    "name": "uint256",
+                    "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "453:7:0",
+                    "src": "440:7:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
                     }
                   },
                   "value": null,
@@ -631,11 +645,11 @@ module.exports={
                 {
                   "constant": false,
                   "id": 30,
-                  "indexed": false,
-                  "name": "txDate",
+                  "indexed": true,
+                  "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "485:14:0",
+                  "scope": 36,
+                  "src": "475:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -646,7 +660,61 @@ module.exports={
                     "id": 29,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "485:7:0",
+                    "src": "475:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 32,
+                  "indexed": false,
+                  "name": "txDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 36,
+                  "src": "507:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 31,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "507:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 34,
+                  "indexed": false,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 36,
+                  "src": "531:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 33,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "531:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -656,28 +724,28 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "321:184:0"
+              "src": "343:206:0"
             },
-            "src": "301:205:0"
+            "src": "323:227:0"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 40,
+            "id": 44,
             "name": "BankAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 39,
+              "id": 43,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 34,
+                  "id": 38,
                   "indexed": false,
                   "name": "bankAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "537:19:0",
+                  "scope": 44,
+                  "src": "581:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -685,10 +753,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 33,
+                    "id": 37,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "537:7:0",
+                    "src": "581:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -700,12 +768,12 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 36,
+                  "id": 40,
                   "indexed": true,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "566:20:0",
+                  "scope": 44,
+                  "src": "610:20:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -713,10 +781,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 35,
+                    "id": 39,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "566:7:0",
+                    "src": "610:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -727,12 +795,12 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 38,
+                  "id": 42,
                   "indexed": true,
                   "name": "bankType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "596:24:0",
+                  "scope": 44,
+                  "src": "640:24:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -740,10 +808,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 37,
+                    "id": 41,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "596:7:0",
+                    "src": "640:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -753,21 +821,21 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "527:99:0"
+              "src": "571:99:0"
             },
-            "src": "512:115:0"
+            "src": "556:115:0"
           },
           {
             "canonicalName": "KYC.Bank",
-            "id": 45,
+            "id": 49,
             "members": [
               {
                 "constant": false,
-                "id": 42,
+                "id": 46,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "655:12:0",
+                "scope": 49,
+                "src": "699:12:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -775,10 +843,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 41,
+                  "id": 45,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "655:7:0",
+                  "src": "699:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -789,11 +857,11 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 44,
+                "id": 48,
                 "name": "bankType",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "677:16:0",
+                "scope": 49,
+                "src": "721:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -801,10 +869,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 43,
+                  "id": 47,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "677:7:0",
+                  "src": "721:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -816,89 +884,36 @@ module.exports={
             ],
             "name": "Bank",
             "nodeType": "StructDefinition",
-            "scope": 171,
-            "src": "633:67:0",
+            "scope": 183,
+            "src": "677:67:0",
             "visibility": "public"
           },
           {
             "canonicalName": "KYC.Fraud",
-            "id": 58,
+            "id": 64,
             "members": [
               {
                 "constant": false,
-                "id": 47,
+                "id": 51,
                 "name": "fromBank",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "729:16:0",
+                "scope": 64,
+                "src": "773:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
-                },
-                "typeName": {
-                  "id": 46,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "729:7:0",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 49,
-                "name": "toBank",
-                "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "755:14:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 48,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "755:7:0",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 51,
-                "name": "fromAccount",
-                "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "787:19:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bytes32",
-                  "typeString": "bytes32"
                 },
                 "typeName": {
                   "id": 50,
-                  "name": "bytes32",
+                  "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "787:7:0",
+                  "src": "773:7:0",
+                  "stateMutability": "nonpayable",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   }
                 },
                 "value": null,
@@ -907,10 +922,37 @@ module.exports={
               {
                 "constant": false,
                 "id": 53,
-                "name": "toAccount",
+                "name": "toBank",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "816:17:0",
+                "scope": 64,
+                "src": "799:14:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 52,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "799:7:0",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 55,
+                "name": "fromAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "831:19:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -918,10 +960,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 52,
+                  "id": 54,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "816:7:0",
+                  "src": "831:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -932,11 +974,37 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 55,
+                "id": 57,
+                "name": "toAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "860:17:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 56,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "860:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 59,
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "843:14:0",
+                "scope": 64,
+                "src": "887:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -944,10 +1012,10 @@ module.exports={
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 54,
+                  "id": 58,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "843:7:0",
+                  "src": "887:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -958,11 +1026,11 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 57,
+                "id": 61,
                 "name": "txDate",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "867:14:0",
+                "scope": 64,
+                "src": "911:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -970,10 +1038,36 @@ module.exports={
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 56,
+                  "id": 60,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "867:7:0",
+                  "src": "911:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 63,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "935:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 62,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "935:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -985,42 +1079,42 @@ module.exports={
             ],
             "name": "Fraud",
             "nodeType": "StructDefinition",
-            "scope": 171,
-            "src": "706:182:0",
+            "scope": 183,
+            "src": "750:204:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 61,
+            "id": 67,
             "name": "frauds",
             "nodeType": "VariableDeclaration",
-            "scope": 171,
-            "src": "898:14:0",
+            "scope": 183,
+            "src": "964:14:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
               "typeString": "struct KYC.Fraud[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 59,
+                "id": 65,
                 "name": "Fraud",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 58,
-                "src": "898:5:0",
+                "referencedDeclaration": 64,
+                "src": "964:5:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Fraud_$58_storage_ptr",
+                  "typeIdentifier": "t_struct$_Fraud_$64_storage_ptr",
                   "typeString": "struct KYC.Fraud"
                 }
               },
-              "id": 60,
+              "id": 66,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "898:7:0",
+              "src": "964:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage_ptr",
                 "typeString": "struct KYC.Fraud[]"
               }
             },
@@ -1029,44 +1123,44 @@ module.exports={
           },
           {
             "constant": false,
-            "id": 65,
+            "id": 71,
             "name": "banks",
             "nodeType": "VariableDeclaration",
-            "scope": 171,
-            "src": "945:38:0",
+            "scope": 183,
+            "src": "1011:38:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
               "typeString": "mapping(address => struct KYC.Bank)"
             },
             "typeName": {
-              "id": 64,
+              "id": 70,
               "keyType": {
-                "id": 62,
+                "id": 68,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "954:7:0",
+                "src": "1020:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "945:25:0",
+              "src": "1011:25:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
                 "typeString": "mapping(address => struct KYC.Bank)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 63,
+                "id": 69,
                 "name": "Bank",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 45,
-                "src": "965:4:0",
+                "referencedDeclaration": 49,
+                "src": "1031:4:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Bank_$45_storage_ptr",
+                  "typeIdentifier": "t_struct$_Bank_$49_storage_ptr",
                   "typeString": "struct KYC.Bank"
                 }
               }
@@ -1076,9 +1170,9 @@ module.exports={
           },
           {
             "body": {
-              "id": 85,
+              "id": 92,
               "nodeType": "Block",
-              "src": "1011:105:0",
+              "src": "1077:108:0",
               "statements": [
                 {
                   "expression": {
@@ -1093,14 +1187,14 @@ module.exports={
                               {
                                 "argumentTypes": null,
                                 "hexValue": "307830",
-                                "id": 73,
+                                "id": 79,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1075:3:0",
+                                "src": "1141:3:0",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -1116,20 +1210,20 @@ module.exports={
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 72,
+                              "id": 78,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1067:7:0",
+                              "src": "1133:7:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
                               },
                               "typeName": "address"
                             },
-                            "id": 74,
+                            "id": 80,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1137,7 +1231,7 @@ module.exports={
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1067:12:0",
+                            "src": "1133:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
@@ -1149,14 +1243,14 @@ module.exports={
                               {
                                 "argumentTypes": null,
                                 "hexValue": "307830",
-                                "id": 76,
+                                "id": 82,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1089:3:0",
+                                "src": "1155:3:0",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -1172,20 +1266,20 @@ module.exports={
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 75,
+                              "id": 81,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1081:7:0",
+                              "src": "1147:7:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
                               },
                               "typeName": "address"
                             },
-                            "id": 77,
+                            "id": 83,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1193,7 +1287,7 @@ module.exports={
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1081:12:0",
+                            "src": "1147:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
@@ -1202,14 +1296,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "",
-                            "id": 78,
+                            "id": 84,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1095:2:0",
+                            "src": "1161:2:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -1220,14 +1314,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "",
-                            "id": 79,
+                            "id": 85,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1099:2:0",
+                            "src": "1165:2:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -1238,14 +1332,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 80,
+                            "id": 86,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1103:1:0",
+                            "src": "1169:1:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
@@ -1256,14 +1350,32 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 81,
+                            "id": 87,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1106:1:0",
+                            "src": "1172:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 88,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1175:1:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
@@ -1297,20 +1409,24 @@ module.exports={
                             {
                               "typeIdentifier": "t_rational_0_by_1",
                               "typeString": "int_const 0"
+                            },
+                            {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
                             }
                           ],
-                          "id": 71,
+                          "id": 77,
                           "name": "Fraud",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 58,
-                          "src": "1061:5:0",
+                          "referencedDeclaration": 64,
+                          "src": "1127:5:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Fraud_$58_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Fraud_$64_storage_ptr_$",
                             "typeString": "type(struct KYC.Fraud storage pointer)"
                           }
                         },
-                        "id": 82,
+                        "id": 89,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1318,9 +1434,9 @@ module.exports={
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1061:47:0",
+                        "src": "1127:50:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       }
@@ -1328,24 +1444,24 @@ module.exports={
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 68,
+                        "id": 74,
                         "name": "frauds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "1049:6:0",
+                        "referencedDeclaration": 67,
+                        "src": "1115:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
                           "typeString": "struct KYC.Fraud storage ref[] storage ref"
                         }
                       },
-                      "id": 70,
+                      "id": 76,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1353,13 +1469,13 @@ module.exports={
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "1049:11:0",
+                      "src": "1115:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$58_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$64_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct KYC.Fraud storage ref) returns (uint256)"
                       }
                     },
-                    "id": 83,
+                    "id": 90,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1367,76 +1483,76 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1049:60:0",
+                    "src": "1115:63:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 84,
+                  "id": 91,
                   "nodeType": "ExpressionStatement",
-                  "src": "1049:60:0"
+                  "src": "1115:63:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 86,
+            "id": 93,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 66,
+              "id": 72,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1001:2:0"
+              "src": "1067:2:0"
             },
             "returnParameters": {
-              "id": 67,
+              "id": 73,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1011:0:0"
+              "src": "1077:0:0"
             },
-            "scope": 171,
-            "src": "990:126:0",
+            "scope": 183,
+            "src": "1056:129:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 116,
+              "id": 123,
               "nodeType": "Block",
-              "src": "2216:499:0",
+              "src": "2285:499:0",
               "statements": [
                 {
                   "assignments": [
-                    98
+                    105
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 98,
+                      "id": 105,
                       "name": "bank",
                       "nodeType": "VariableDeclaration",
-                      "scope": 116,
-                      "src": "2581:16:0",
+                      "scope": 123,
+                      "src": "2650:16:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bank_$49_memory_ptr",
                         "typeString": "struct KYC.Bank"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 97,
+                        "id": 104,
                         "name": "Bank",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 45,
-                        "src": "2581:4:0",
+                        "referencedDeclaration": 49,
+                        "src": "2650:4:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bank_$45_storage_ptr",
+                          "typeIdentifier": "t_struct$_Bank_$49_storage_ptr",
                           "typeString": "struct KYC.Bank"
                         }
                       },
@@ -1444,18 +1560,18 @@ module.exports={
                       "visibility": "internal"
                     }
                   ],
-                  "id": 103,
+                  "id": 110,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 100,
+                        "id": 107,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 90,
-                        "src": "2605:4:0",
+                        "referencedDeclaration": 97,
+                        "src": "2674:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1463,12 +1579,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 101,
+                        "id": 108,
                         "name": "bankType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 92,
-                        "src": "2611:8:0",
+                        "referencedDeclaration": 99,
+                        "src": "2680:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1486,18 +1602,18 @@ module.exports={
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 99,
+                      "id": 106,
                       "name": "Bank",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 45,
-                      "src": "2600:4:0",
+                      "referencedDeclaration": 49,
+                      "src": "2669:4:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Bank_$45_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Bank_$49_storage_ptr_$",
                         "typeString": "type(struct KYC.Bank storage pointer)"
                       }
                     },
-                    "id": 102,
+                    "id": 109,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1505,19 +1621,19 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2600:20:0",
+                    "src": "2669:20:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bank_$45_memory",
+                      "typeIdentifier": "t_struct$_Bank_$49_memory",
                       "typeString": "struct KYC.Bank memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "2581:39:0"
+                  "src": "2650:39:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 108,
+                    "id": 115,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1526,26 +1642,26 @@ module.exports={
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 104,
+                        "id": 111,
                         "name": "banks",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 65,
-                        "src": "2630:5:0",
+                        "referencedDeclaration": 71,
+                        "src": "2699:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
                           "typeString": "mapping(address => struct KYC.Bank storage ref)"
                         }
                       },
-                      "id": 106,
+                      "id": 113,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 105,
+                        "id": 112,
                         "name": "bankAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 88,
-                        "src": "2636:11:0",
+                        "referencedDeclaration": 95,
+                        "src": "2705:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1556,9 +1672,9 @@ module.exports={
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "2630:18:0",
+                      "src": "2699:18:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_storage",
+                        "typeIdentifier": "t_struct$_Bank_$49_storage",
                         "typeString": "struct KYC.Bank storage ref"
                       }
                     },
@@ -1566,26 +1682,26 @@ module.exports={
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 107,
+                      "id": 114,
                       "name": "bank",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 98,
-                      "src": "2651:4:0",
+                      "referencedDeclaration": 105,
+                      "src": "2720:4:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bank_$49_memory_ptr",
                         "typeString": "struct KYC.Bank memory"
                       }
                     },
-                    "src": "2630:25:0",
+                    "src": "2699:25:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bank_$45_storage",
+                      "typeIdentifier": "t_struct$_Bank_$49_storage",
                       "typeString": "struct KYC.Bank storage ref"
                     }
                   },
-                  "id": 109,
+                  "id": 116,
                   "nodeType": "ExpressionStatement",
-                  "src": "2630:25:0"
+                  "src": "2699:25:0"
                 },
                 {
                   "eventCall": {
@@ -1593,12 +1709,12 @@ module.exports={
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 111,
+                        "id": 118,
                         "name": "bankAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 88,
-                        "src": "2680:11:0",
+                        "referencedDeclaration": 95,
+                        "src": "2749:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1606,12 +1722,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 112,
+                        "id": 119,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 90,
-                        "src": "2693:4:0",
+                        "referencedDeclaration": 97,
+                        "src": "2762:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1619,12 +1735,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 113,
+                        "id": 120,
                         "name": "bankType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 92,
-                        "src": "2699:8:0",
+                        "referencedDeclaration": 99,
+                        "src": "2768:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1646,18 +1762,18 @@ module.exports={
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 110,
+                      "id": 117,
                       "name": "BankAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 40,
-                      "src": "2670:9:0",
+                      "referencedDeclaration": 44,
+                      "src": "2739:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32,bytes32)"
                       }
                     },
-                    "id": 114,
+                    "id": 121,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1665,56 +1781,56 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2670:38:0",
+                    "src": "2739:38:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 115,
+                  "id": 122,
                   "nodeType": "EmitStatement",
-                  "src": "2665:43:0"
+                  "src": "2734:43:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 117,
+            "id": 124,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 95,
+                "id": 102,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 94,
+                  "id": 101,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 252,
-                  "src": "2206:9:0",
+                  "referencedDeclaration": 264,
+                  "src": "2275:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2206:9:0"
+                "src": "2275:9:0"
               }
             ],
             "name": "addBank",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 93,
+              "id": 100,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 88,
+                  "id": 95,
                   "name": "bankAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2146:19:0",
+                  "scope": 124,
+                  "src": "2215:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1722,10 +1838,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 87,
+                    "id": 94,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2146:7:0",
+                    "src": "2215:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1737,11 +1853,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 90,
+                  "id": 97,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2167:12:0",
+                  "scope": 124,
+                  "src": "2236:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1749,10 +1865,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 89,
+                    "id": 96,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2167:7:0",
+                    "src": "2236:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1763,11 +1879,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 92,
+                  "id": 99,
                   "name": "bankType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2181:16:0",
+                  "scope": 124,
+                  "src": "2250:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1775,10 +1891,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 91,
+                    "id": 98,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2181:7:0",
+                    "src": "2250:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1788,53 +1904,53 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "2145:53:0"
+              "src": "2214:53:0"
             },
             "returnParameters": {
-              "id": 96,
+              "id": 103,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2216:0:0"
+              "src": "2285:0:0"
             },
-            "scope": 171,
-            "src": "2128:587:0",
+            "scope": 183,
+            "src": "2197:587:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 169,
+              "id": 181,
               "nodeType": "Block",
-              "src": "2883:305:0",
+              "src": "2966:323:0",
               "statements": [
                 {
                   "assignments": [
-                    135
+                    144
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 135,
+                      "id": 144,
                       "name": "fraud",
                       "nodeType": "VariableDeclaration",
-                      "scope": 169,
-                      "src": "2894:18:0",
+                      "scope": 181,
+                      "src": "2977:18:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                        "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                         "typeString": "struct KYC.Fraud"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 134,
+                        "id": 143,
                         "name": "Fraud",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 58,
-                        "src": "2894:5:0",
+                        "referencedDeclaration": 64,
+                        "src": "2977:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_storage_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_storage_ptr",
                           "typeString": "struct KYC.Fraud"
                         }
                       },
@@ -1842,18 +1958,18 @@ module.exports={
                       "visibility": "internal"
                     }
                   ],
-                  "id": 144,
+                  "id": 154,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 137,
+                        "id": 146,
                         "name": "fromBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "2921:8:0",
+                        "referencedDeclaration": 126,
+                        "src": "3004:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1861,12 +1977,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 138,
+                        "id": 147,
                         "name": "toBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "2931:6:0",
+                        "referencedDeclaration": 128,
+                        "src": "3014:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1874,12 +1990,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 139,
+                        "id": 148,
                         "name": "fromAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "2939:11:0",
+                        "referencedDeclaration": 130,
+                        "src": "3022:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1887,12 +2003,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 140,
+                        "id": 149,
                         "name": "toAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "2952:9:0",
+                        "referencedDeclaration": 132,
+                        "src": "3035:9:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -1900,12 +2016,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 141,
+                        "id": 150,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "2963:6:0",
+                        "referencedDeclaration": 134,
+                        "src": "3046:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1913,12 +2029,25 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 142,
+                        "id": 151,
                         "name": "txDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "2971:6:0",
+                        "referencedDeclaration": 136,
+                        "src": "3054:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 152,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3062:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1950,20 +2079,24 @@ module.exports={
                         {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       ],
-                      "id": 136,
+                      "id": 145,
                       "name": "Fraud",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 58,
-                      "src": "2915:5:0",
+                      "referencedDeclaration": 64,
+                      "src": "2998:5:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Fraud_$58_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Fraud_$64_storage_ptr_$",
                         "typeString": "type(struct KYC.Fraud storage pointer)"
                       }
                     },
-                    "id": 143,
+                    "id": 153,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1971,14 +2104,14 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2915:63:0",
+                    "src": "2998:69:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                      "typeIdentifier": "t_struct$_Fraud_$64_memory",
                       "typeString": "struct KYC.Fraud memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "2894:84:0"
+                  "src": "2977:90:0"
                 },
                 {
                   "expression": {
@@ -1986,14 +2119,14 @@ module.exports={
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 148,
+                        "id": 158,
                         "name": "fraud",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 135,
-                        "src": "3000:5:0",
+                        "referencedDeclaration": 144,
+                        "src": "3089:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       }
@@ -2001,24 +2134,24 @@ module.exports={
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 145,
+                        "id": 155,
                         "name": "frauds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "2988:6:0",
+                        "referencedDeclaration": 67,
+                        "src": "3077:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
                           "typeString": "struct KYC.Fraud storage ref[] storage ref"
                         }
                       },
-                      "id": 147,
+                      "id": 157,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2026,13 +2159,13 @@ module.exports={
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "2988:11:0",
+                      "src": "3077:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$58_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$64_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct KYC.Fraud storage ref) returns (uint256)"
                       }
                     },
-                    "id": 149,
+                    "id": 159,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2040,180 +2173,28 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2988:18:0",
+                    "src": "3077:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 150,
+                  "id": 160,
                   "nodeType": "ExpressionStatement",
-                  "src": "2988:18:0"
+                  "src": "3077:18:0"
                 },
                 {
                   "eventCall": {
                     "argumentTypes": null,
                     "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 152,
-                        "name": "fromBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "3037:8:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 153,
-                        "name": "toBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "3047:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 154,
-                        "name": "fromAccount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "3055:11:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 155,
-                        "name": "toAccount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "3068:9:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 156,
-                        "name": "amount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "3079:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 157,
-                        "name": "txDate",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "3087:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        },
-                        {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        },
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      ],
-                      "id": 151,
-                      "name": "ReportedFraudA",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 18,
-                      "src": "3022:14:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$returns$__$",
-                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256)"
-                      }
-                    },
-                    "id": 158,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "3022:72:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 159,
-                  "nodeType": "EmitStatement",
-                  "src": "3017:77:0"
-                },
-                {
-                  "eventCall": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 161,
-                        "name": "fromBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "3124:8:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
                       {
                         "argumentTypes": null,
                         "id": 162,
-                        "name": "toBank",
+                        "name": "fromBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "3134:6:0",
+                        "referencedDeclaration": 126,
+                        "src": "3126:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2222,24 +2203,24 @@ module.exports={
                       {
                         "argumentTypes": null,
                         "id": 163,
-                        "name": "fromAccount",
+                        "name": "toBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "3142:11:0",
+                        "referencedDeclaration": 128,
+                        "src": "3136:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
                         }
                       },
                       {
                         "argumentTypes": null,
                         "id": 164,
-                        "name": "toAccount",
+                        "name": "fromAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "3155:9:0",
+                        "referencedDeclaration": 130,
+                        "src": "3144:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -2248,11 +2229,24 @@ module.exports={
                       {
                         "argumentTypes": null,
                         "id": 165,
+                        "name": "toAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 132,
+                        "src": "3157:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 166,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "3166:6:0",
+                        "referencedDeclaration": 134,
+                        "src": "3168:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2260,12 +2254,25 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 166,
+                        "id": 167,
                         "name": "txDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "3174:6:0",
+                        "referencedDeclaration": 136,
+                        "src": "3176:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 168,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3184:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2297,20 +2304,24 @@ module.exports={
                         {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       ],
-                      "id": 160,
-                      "name": "ReportedFraudB",
+                      "id": 161,
+                      "name": "ReportedFraudA",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 32,
-                      "src": "3109:14:0",
+                      "referencedDeclaration": 20,
+                      "src": "3111:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$returns$__$",
-                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256,uint256)"
                       }
                     },
-                    "id": 167,
+                    "id": 169,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2318,36 +2329,192 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "3109:72:0",
+                    "src": "3111:78:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 168,
+                  "id": 170,
                   "nodeType": "EmitStatement",
-                  "src": "3104:77:0"
+                  "src": "3106:83:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 172,
+                        "name": "fromBank",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 126,
+                        "src": "3219:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 173,
+                        "name": "toBank",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 128,
+                        "src": "3229:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 174,
+                        "name": "fromAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 130,
+                        "src": "3237:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 175,
+                        "name": "toAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 132,
+                        "src": "3250:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 176,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 134,
+                        "src": "3261:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 177,
+                        "name": "txDate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 136,
+                        "src": "3269:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 178,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3277:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 171,
+                      "name": "ReportedFraudB",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 36,
+                      "src": "3204:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 179,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3204:78:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 180,
+                  "nodeType": "EmitStatement",
+                  "src": "3199:83:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 170,
+            "id": 182,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "reportFraud",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 130,
+              "id": 139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 119,
+                  "id": 126,
                   "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2743:16:0",
+                  "scope": 182,
+                  "src": "2812:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2355,10 +2522,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 118,
+                    "id": 125,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2743:7:0",
+                    "src": "2812:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2370,11 +2537,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 121,
+                  "id": 128,
                   "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2761:14:0",
+                  "scope": 182,
+                  "src": "2830:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2382,10 +2549,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 120,
+                    "id": 127,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2761:7:0",
+                    "src": "2830:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2397,11 +2564,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 123,
+                  "id": 130,
                   "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2777:19:0",
+                  "scope": 182,
+                  "src": "2846:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2409,10 +2576,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 122,
+                    "id": 129,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2777:7:0",
+                    "src": "2846:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2421,98 +2588,39 @@ module.exports={
                   "value": null,
                   "visibility": "internal"
                 },
-                {
-                  "constant": false,
-                  "id": 125,
-                  "name": "toAccount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2798:17:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 124,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2798:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 127,
-                  "name": "amount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2817:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 126,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2817:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 129,
-                  "name": "txDate",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2833:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 128,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2833:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2742:106:0"
-            },
-            "returnParameters": {
-              "id": 133,
-              "nodeType": "ParameterList",
-              "parameters": [
                 {
                   "constant": false,
                   "id": 132,
-                  "name": "fraudID",
+                  "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2866:15:0",
+                  "scope": 182,
+                  "src": "2867:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 131,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2867:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 134,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2886:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2520,10 +2628,62 @@ module.exports={
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 131,
+                    "id": 133,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2866:7:0",
+                    "src": "2886:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "txDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2902:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2902:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 138,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2918:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2918:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2533,29 +2693,62 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "2865:17:0"
+              "src": "2811:120:0"
             },
-            "scope": 171,
-            "src": "2721:467:0",
+            "returnParameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 141,
+                  "name": "fraudID",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2949:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2949:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2948:17:0"
+            },
+            "scope": 183,
+            "src": "2790:499:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 172,
-        "src": "59:3429:0"
+        "scope": 184,
+        "src": "59:3530:0"
       }
     ],
-    "src": "0:3488:0"
+    "src": "0:3589:0"
   },
   "legacyAST": {
     "absolutePath": "/Users/dylanbeckwith/Desktop/PIE/contracts/KYC.sol",
     "exportedSymbols": {
       "KYC": [
-        171
+        183
       ]
     },
-    "id": 172,
+    "id": 184,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -2577,8 +2770,8 @@ module.exports={
         "file": "./Ownable.sol",
         "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 172,
-        "sourceUnit": 273,
+        "scope": 184,
+        "sourceUnit": 285,
         "src": "34:23:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2592,10 +2785,10 @@ module.exports={
               "id": 3,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 272,
+              "referencedDeclaration": 284,
               "src": "75:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$272",
+                "typeIdentifier": "t_contract$_Ownable_$284",
                 "typeString": "contract Ownable"
               }
             },
@@ -2605,15 +2798,15 @@ module.exports={
           }
         ],
         "contractDependencies": [
-          272
+          284
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 171,
+        "id": 183,
         "linearizedBaseContracts": [
-          171,
-          272
+          183,
+          284
         ],
         "name": "KYC",
         "nodeType": "ContractDefinition",
@@ -2621,11 +2814,11 @@ module.exports={
           {
             "anonymous": false,
             "documentation": null,
-            "id": 18,
+            "id": 20,
             "name": "ReportedFraudA",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 17,
+              "id": 19,
               "nodeType": "ParameterList",
               "parameters": [
                 {
@@ -2634,7 +2827,7 @@ module.exports={
                   "indexed": true,
                   "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "120:24:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2662,7 +2855,7 @@ module.exports={
                   "indexed": true,
                   "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "154:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2690,7 +2883,7 @@ module.exports={
                   "indexed": false,
                   "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "186:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2717,7 +2910,7 @@ module.exports={
                   "indexed": false,
                   "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "215:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2744,7 +2937,7 @@ module.exports={
                   "indexed": false,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "242:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2771,7 +2964,7 @@ module.exports={
                   "indexed": true,
                   "name": "txDate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 18,
+                  "scope": 20,
                   "src": "266:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2791,58 +2984,57 @@ module.exports={
                   },
                   "value": null,
                   "visibility": "internal"
-                }
-              ],
-              "src": "110:184:0"
-            },
-            "src": "90:205:0"
-          },
-          {
-            "anonymous": false,
-            "documentation": null,
-            "id": 32,
-            "name": "ReportedFraudB",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 31,
-              "nodeType": "ParameterList",
-              "parameters": [
+                },
                 {
                   "constant": false,
-                  "id": 20,
+                  "id": 18,
                   "indexed": false,
-                  "name": "fromBank",
+                  "name": "time",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "331:16:0",
+                  "scope": 20,
+                  "src": "298:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 19,
-                    "name": "address",
+                    "id": 17,
+                    "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "331:7:0",
-                    "stateMutability": "nonpayable",
+                    "src": "298:7:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
-                },
+                }
+              ],
+              "src": "110:206:0"
+            },
+            "src": "90:227:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 36,
+            "name": "ReportedFraudB",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 35,
+              "nodeType": "ParameterList",
+              "parameters": [
                 {
                   "constant": false,
                   "id": 22,
                   "indexed": false,
-                  "name": "toBank",
+                  "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "357:14:0",
+                  "scope": 36,
+                  "src": "353:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2853,7 +3045,7 @@ module.exports={
                     "id": 21,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "357:7:0",
+                    "src": "353:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2866,25 +3058,26 @@ module.exports={
                 {
                   "constant": false,
                   "id": 24,
-                  "indexed": true,
-                  "name": "fromAccount",
+                  "indexed": false,
+                  "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "381:27:0",
+                  "scope": 36,
+                  "src": "379:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   },
                   "typeName": {
                     "id": 23,
-                    "name": "bytes32",
+                    "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "381:7:0",
+                    "src": "379:7:0",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
                     }
                   },
                   "value": null,
@@ -2894,10 +3087,10 @@ module.exports={
                   "constant": false,
                   "id": 26,
                   "indexed": true,
-                  "name": "toAccount",
+                  "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "418:25:0",
+                  "scope": 36,
+                  "src": "403:27:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2908,7 +3101,7 @@ module.exports={
                     "id": 25,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "418:7:0",
+                    "src": "403:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2921,24 +3114,24 @@ module.exports={
                   "constant": false,
                   "id": 28,
                   "indexed": true,
-                  "name": "amount",
+                  "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "453:22:0",
+                  "scope": 36,
+                  "src": "440:25:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
                   },
                   "typeName": {
                     "id": 27,
-                    "name": "uint256",
+                    "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "453:7:0",
+                    "src": "440:7:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
                     }
                   },
                   "value": null,
@@ -2947,11 +3140,11 @@ module.exports={
                 {
                   "constant": false,
                   "id": 30,
-                  "indexed": false,
-                  "name": "txDate",
+                  "indexed": true,
+                  "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 32,
-                  "src": "485:14:0",
+                  "scope": 36,
+                  "src": "475:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2962,7 +3155,61 @@ module.exports={
                     "id": 29,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "485:7:0",
+                    "src": "475:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 32,
+                  "indexed": false,
+                  "name": "txDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 36,
+                  "src": "507:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 31,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "507:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 34,
+                  "indexed": false,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 36,
+                  "src": "531:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 33,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "531:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2972,28 +3219,28 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "321:184:0"
+              "src": "343:206:0"
             },
-            "src": "301:205:0"
+            "src": "323:227:0"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 40,
+            "id": 44,
             "name": "BankAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 39,
+              "id": 43,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 34,
+                  "id": 38,
                   "indexed": false,
                   "name": "bankAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "537:19:0",
+                  "scope": 44,
+                  "src": "581:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3001,10 +3248,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 33,
+                    "id": 37,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "537:7:0",
+                    "src": "581:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -3016,12 +3263,12 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 36,
+                  "id": 40,
                   "indexed": true,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "566:20:0",
+                  "scope": 44,
+                  "src": "610:20:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3029,10 +3276,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 35,
+                    "id": 39,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "566:7:0",
+                    "src": "610:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3043,12 +3290,12 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 38,
+                  "id": 42,
                   "indexed": true,
                   "name": "bankType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 40,
-                  "src": "596:24:0",
+                  "scope": 44,
+                  "src": "640:24:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3056,10 +3303,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 37,
+                    "id": 41,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "596:7:0",
+                    "src": "640:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -3069,21 +3316,21 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "527:99:0"
+              "src": "571:99:0"
             },
-            "src": "512:115:0"
+            "src": "556:115:0"
           },
           {
             "canonicalName": "KYC.Bank",
-            "id": 45,
+            "id": 49,
             "members": [
               {
                 "constant": false,
-                "id": 42,
+                "id": 46,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "655:12:0",
+                "scope": 49,
+                "src": "699:12:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3091,10 +3338,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 41,
+                  "id": 45,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "655:7:0",
+                  "src": "699:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -3105,11 +3352,11 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 44,
+                "id": 48,
                 "name": "bankType",
                 "nodeType": "VariableDeclaration",
-                "scope": 45,
-                "src": "677:16:0",
+                "scope": 49,
+                "src": "721:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3117,10 +3364,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 43,
+                  "id": 47,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "677:7:0",
+                  "src": "721:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -3132,89 +3379,36 @@ module.exports={
             ],
             "name": "Bank",
             "nodeType": "StructDefinition",
-            "scope": 171,
-            "src": "633:67:0",
+            "scope": 183,
+            "src": "677:67:0",
             "visibility": "public"
           },
           {
             "canonicalName": "KYC.Fraud",
-            "id": 58,
+            "id": 64,
             "members": [
               {
                 "constant": false,
-                "id": 47,
+                "id": 51,
                 "name": "fromBank",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "729:16:0",
+                "scope": 64,
+                "src": "773:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
-                },
-                "typeName": {
-                  "id": 46,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "729:7:0",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 49,
-                "name": "toBank",
-                "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "755:14:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address",
-                  "typeString": "address"
-                },
-                "typeName": {
-                  "id": 48,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "755:7:0",
-                  "stateMutability": "nonpayable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 51,
-                "name": "fromAccount",
-                "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "787:19:0",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bytes32",
-                  "typeString": "bytes32"
                 },
                 "typeName": {
                   "id": 50,
-                  "name": "bytes32",
+                  "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "787:7:0",
+                  "src": "773:7:0",
+                  "stateMutability": "nonpayable",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
                   }
                 },
                 "value": null,
@@ -3223,10 +3417,37 @@ module.exports={
               {
                 "constant": false,
                 "id": 53,
-                "name": "toAccount",
+                "name": "toBank",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "816:17:0",
+                "scope": 64,
+                "src": "799:14:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 52,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "799:7:0",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 55,
+                "name": "fromAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "831:19:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3234,10 +3455,10 @@ module.exports={
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 52,
+                  "id": 54,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "816:7:0",
+                  "src": "831:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -3248,11 +3469,37 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 55,
+                "id": 57,
+                "name": "toAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "860:17:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 56,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "860:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 59,
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "843:14:0",
+                "scope": 64,
+                "src": "887:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3260,10 +3507,10 @@ module.exports={
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 54,
+                  "id": 58,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "843:7:0",
+                  "src": "887:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -3274,11 +3521,11 @@ module.exports={
               },
               {
                 "constant": false,
-                "id": 57,
+                "id": 61,
                 "name": "txDate",
                 "nodeType": "VariableDeclaration",
-                "scope": 58,
-                "src": "867:14:0",
+                "scope": 64,
+                "src": "911:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -3286,10 +3533,36 @@ module.exports={
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 56,
+                  "id": 60,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "867:7:0",
+                  "src": "911:7:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 63,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 64,
+                "src": "935:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 62,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "935:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -3301,42 +3574,42 @@ module.exports={
             ],
             "name": "Fraud",
             "nodeType": "StructDefinition",
-            "scope": 171,
-            "src": "706:182:0",
+            "scope": 183,
+            "src": "750:204:0",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 61,
+            "id": 67,
             "name": "frauds",
             "nodeType": "VariableDeclaration",
-            "scope": 171,
-            "src": "898:14:0",
+            "scope": 183,
+            "src": "964:14:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
               "typeString": "struct KYC.Fraud[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 59,
+                "id": 65,
                 "name": "Fraud",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 58,
-                "src": "898:5:0",
+                "referencedDeclaration": 64,
+                "src": "964:5:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Fraud_$58_storage_ptr",
+                  "typeIdentifier": "t_struct$_Fraud_$64_storage_ptr",
                   "typeString": "struct KYC.Fraud"
                 }
               },
-              "id": 60,
+              "id": 66,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "898:7:0",
+              "src": "964:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage_ptr",
                 "typeString": "struct KYC.Fraud[]"
               }
             },
@@ -3345,44 +3618,44 @@ module.exports={
           },
           {
             "constant": false,
-            "id": 65,
+            "id": 71,
             "name": "banks",
             "nodeType": "VariableDeclaration",
-            "scope": 171,
-            "src": "945:38:0",
+            "scope": 183,
+            "src": "1011:38:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
               "typeString": "mapping(address => struct KYC.Bank)"
             },
             "typeName": {
-              "id": 64,
+              "id": 70,
               "keyType": {
-                "id": 62,
+                "id": 68,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "954:7:0",
+                "src": "1020:7:0",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "945:25:0",
+              "src": "1011:25:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
                 "typeString": "mapping(address => struct KYC.Bank)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 63,
+                "id": 69,
                 "name": "Bank",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 45,
-                "src": "965:4:0",
+                "referencedDeclaration": 49,
+                "src": "1031:4:0",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Bank_$45_storage_ptr",
+                  "typeIdentifier": "t_struct$_Bank_$49_storage_ptr",
                   "typeString": "struct KYC.Bank"
                 }
               }
@@ -3392,9 +3665,9 @@ module.exports={
           },
           {
             "body": {
-              "id": 85,
+              "id": 92,
               "nodeType": "Block",
-              "src": "1011:105:0",
+              "src": "1077:108:0",
               "statements": [
                 {
                   "expression": {
@@ -3409,14 +3682,14 @@ module.exports={
                               {
                                 "argumentTypes": null,
                                 "hexValue": "307830",
-                                "id": 73,
+                                "id": 79,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1075:3:0",
+                                "src": "1141:3:0",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -3432,20 +3705,20 @@ module.exports={
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 72,
+                              "id": 78,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1067:7:0",
+                              "src": "1133:7:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
                               },
                               "typeName": "address"
                             },
-                            "id": 74,
+                            "id": 80,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3453,7 +3726,7 @@ module.exports={
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1067:12:0",
+                            "src": "1133:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
@@ -3465,14 +3738,14 @@ module.exports={
                               {
                                 "argumentTypes": null,
                                 "hexValue": "307830",
-                                "id": 76,
+                                "id": 82,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1089:3:0",
+                                "src": "1155:3:0",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -3488,20 +3761,20 @@ module.exports={
                                   "typeString": "int_const 0"
                                 }
                               ],
-                              "id": 75,
+                              "id": 81,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1081:7:0",
+                              "src": "1147:7:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
                               },
                               "typeName": "address"
                             },
-                            "id": 77,
+                            "id": 83,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3509,7 +3782,7 @@ module.exports={
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1081:12:0",
+                            "src": "1147:12:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
@@ -3518,14 +3791,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "",
-                            "id": 78,
+                            "id": 84,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1095:2:0",
+                            "src": "1161:2:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -3536,14 +3809,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "",
-                            "id": 79,
+                            "id": 85,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1099:2:0",
+                            "src": "1165:2:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
@@ -3554,14 +3827,14 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 80,
+                            "id": 86,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1103:1:0",
+                            "src": "1169:1:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
@@ -3572,14 +3845,32 @@ module.exports={
                           {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 81,
+                            "id": 87,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1106:1:0",
+                            "src": "1172:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 88,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1175:1:0",
                             "subdenomination": null,
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
@@ -3613,20 +3904,24 @@ module.exports={
                             {
                               "typeIdentifier": "t_rational_0_by_1",
                               "typeString": "int_const 0"
+                            },
+                            {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
                             }
                           ],
-                          "id": 71,
+                          "id": 77,
                           "name": "Fraud",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 58,
-                          "src": "1061:5:0",
+                          "referencedDeclaration": 64,
+                          "src": "1127:5:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Fraud_$58_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Fraud_$64_storage_ptr_$",
                             "typeString": "type(struct KYC.Fraud storage pointer)"
                           }
                         },
-                        "id": 82,
+                        "id": 89,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3634,9 +3929,9 @@ module.exports={
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1061:47:0",
+                        "src": "1127:50:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       }
@@ -3644,24 +3939,24 @@ module.exports={
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 68,
+                        "id": 74,
                         "name": "frauds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "1049:6:0",
+                        "referencedDeclaration": 67,
+                        "src": "1115:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
                           "typeString": "struct KYC.Fraud storage ref[] storage ref"
                         }
                       },
-                      "id": 70,
+                      "id": 76,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3669,13 +3964,13 @@ module.exports={
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "1049:11:0",
+                      "src": "1115:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$58_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$64_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct KYC.Fraud storage ref) returns (uint256)"
                       }
                     },
-                    "id": 83,
+                    "id": 90,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3683,76 +3978,76 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1049:60:0",
+                    "src": "1115:63:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 84,
+                  "id": 91,
                   "nodeType": "ExpressionStatement",
-                  "src": "1049:60:0"
+                  "src": "1115:63:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 86,
+            "id": 93,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 66,
+              "id": 72,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1001:2:0"
+              "src": "1067:2:0"
             },
             "returnParameters": {
-              "id": 67,
+              "id": 73,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1011:0:0"
+              "src": "1077:0:0"
             },
-            "scope": 171,
-            "src": "990:126:0",
+            "scope": 183,
+            "src": "1056:129:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 116,
+              "id": 123,
               "nodeType": "Block",
-              "src": "2216:499:0",
+              "src": "2285:499:0",
               "statements": [
                 {
                   "assignments": [
-                    98
+                    105
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 98,
+                      "id": 105,
                       "name": "bank",
                       "nodeType": "VariableDeclaration",
-                      "scope": 116,
-                      "src": "2581:16:0",
+                      "scope": 123,
+                      "src": "2650:16:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bank_$49_memory_ptr",
                         "typeString": "struct KYC.Bank"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 97,
+                        "id": 104,
                         "name": "Bank",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 45,
-                        "src": "2581:4:0",
+                        "referencedDeclaration": 49,
+                        "src": "2650:4:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bank_$45_storage_ptr",
+                          "typeIdentifier": "t_struct$_Bank_$49_storage_ptr",
                           "typeString": "struct KYC.Bank"
                         }
                       },
@@ -3760,18 +4055,18 @@ module.exports={
                       "visibility": "internal"
                     }
                   ],
-                  "id": 103,
+                  "id": 110,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 100,
+                        "id": 107,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 90,
-                        "src": "2605:4:0",
+                        "referencedDeclaration": 97,
+                        "src": "2674:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3779,12 +4074,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 101,
+                        "id": 108,
                         "name": "bankType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 92,
-                        "src": "2611:8:0",
+                        "referencedDeclaration": 99,
+                        "src": "2680:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3802,18 +4097,18 @@ module.exports={
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 99,
+                      "id": 106,
                       "name": "Bank",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 45,
-                      "src": "2600:4:0",
+                      "referencedDeclaration": 49,
+                      "src": "2669:4:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Bank_$45_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Bank_$49_storage_ptr_$",
                         "typeString": "type(struct KYC.Bank storage pointer)"
                       }
                     },
-                    "id": 102,
+                    "id": 109,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3821,19 +4116,19 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2600:20:0",
+                    "src": "2669:20:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bank_$45_memory",
+                      "typeIdentifier": "t_struct$_Bank_$49_memory",
                       "typeString": "struct KYC.Bank memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "2581:39:0"
+                  "src": "2650:39:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 108,
+                    "id": 115,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3842,26 +4137,26 @@ module.exports={
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 104,
+                        "id": 111,
                         "name": "banks",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 65,
-                        "src": "2630:5:0",
+                        "referencedDeclaration": 71,
+                        "src": "2699:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$45_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Bank_$49_storage_$",
                           "typeString": "mapping(address => struct KYC.Bank storage ref)"
                         }
                       },
-                      "id": 106,
+                      "id": 113,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 105,
+                        "id": 112,
                         "name": "bankAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 88,
-                        "src": "2636:11:0",
+                        "referencedDeclaration": 95,
+                        "src": "2705:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3872,9 +4167,9 @@ module.exports={
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "2630:18:0",
+                      "src": "2699:18:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_storage",
+                        "typeIdentifier": "t_struct$_Bank_$49_storage",
                         "typeString": "struct KYC.Bank storage ref"
                       }
                     },
@@ -3882,26 +4177,26 @@ module.exports={
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 107,
+                      "id": 114,
                       "name": "bank",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 98,
-                      "src": "2651:4:0",
+                      "referencedDeclaration": 105,
+                      "src": "2720:4:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bank_$45_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bank_$49_memory_ptr",
                         "typeString": "struct KYC.Bank memory"
                       }
                     },
-                    "src": "2630:25:0",
+                    "src": "2699:25:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bank_$45_storage",
+                      "typeIdentifier": "t_struct$_Bank_$49_storage",
                       "typeString": "struct KYC.Bank storage ref"
                     }
                   },
-                  "id": 109,
+                  "id": 116,
                   "nodeType": "ExpressionStatement",
-                  "src": "2630:25:0"
+                  "src": "2699:25:0"
                 },
                 {
                   "eventCall": {
@@ -3909,12 +4204,12 @@ module.exports={
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 111,
+                        "id": 118,
                         "name": "bankAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 88,
-                        "src": "2680:11:0",
+                        "referencedDeclaration": 95,
+                        "src": "2749:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -3922,12 +4217,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 112,
+                        "id": 119,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 90,
-                        "src": "2693:4:0",
+                        "referencedDeclaration": 97,
+                        "src": "2762:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3935,12 +4230,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 113,
+                        "id": 120,
                         "name": "bankType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 92,
-                        "src": "2699:8:0",
+                        "referencedDeclaration": 99,
+                        "src": "2768:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -3962,18 +4257,18 @@ module.exports={
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 110,
+                      "id": 117,
                       "name": "BankAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 40,
-                      "src": "2670:9:0",
+                      "referencedDeclaration": 44,
+                      "src": "2739:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$_t_bytes32_$returns$__$",
                         "typeString": "function (address,bytes32,bytes32)"
                       }
                     },
-                    "id": 114,
+                    "id": 121,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3981,56 +4276,56 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2670:38:0",
+                    "src": "2739:38:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 115,
+                  "id": 122,
                   "nodeType": "EmitStatement",
-                  "src": "2665:43:0"
+                  "src": "2734:43:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 117,
+            "id": 124,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 95,
+                "id": 102,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 94,
+                  "id": 101,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 252,
-                  "src": "2206:9:0",
+                  "referencedDeclaration": 264,
+                  "src": "2275:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2206:9:0"
+                "src": "2275:9:0"
               }
             ],
             "name": "addBank",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 93,
+              "id": 100,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 88,
+                  "id": 95,
                   "name": "bankAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2146:19:0",
+                  "scope": 124,
+                  "src": "2215:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4038,10 +4333,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 87,
+                    "id": 94,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2146:7:0",
+                    "src": "2215:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -4053,11 +4348,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 90,
+                  "id": 97,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2167:12:0",
+                  "scope": 124,
+                  "src": "2236:12:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4065,10 +4360,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 89,
+                    "id": 96,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2167:7:0",
+                    "src": "2236:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4079,11 +4374,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 92,
+                  "id": 99,
                   "name": "bankType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 117,
-                  "src": "2181:16:0",
+                  "scope": 124,
+                  "src": "2250:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4091,10 +4386,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 91,
+                    "id": 98,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2181:7:0",
+                    "src": "2250:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4104,53 +4399,53 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "2145:53:0"
+              "src": "2214:53:0"
             },
             "returnParameters": {
-              "id": 96,
+              "id": 103,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2216:0:0"
+              "src": "2285:0:0"
             },
-            "scope": 171,
-            "src": "2128:587:0",
+            "scope": 183,
+            "src": "2197:587:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 169,
+              "id": 181,
               "nodeType": "Block",
-              "src": "2883:305:0",
+              "src": "2966:323:0",
               "statements": [
                 {
                   "assignments": [
-                    135
+                    144
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 135,
+                      "id": 144,
                       "name": "fraud",
                       "nodeType": "VariableDeclaration",
-                      "scope": 169,
-                      "src": "2894:18:0",
+                      "scope": 181,
+                      "src": "2977:18:0",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                        "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                         "typeString": "struct KYC.Fraud"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 134,
+                        "id": 143,
                         "name": "Fraud",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 58,
-                        "src": "2894:5:0",
+                        "referencedDeclaration": 64,
+                        "src": "2977:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_storage_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_storage_ptr",
                           "typeString": "struct KYC.Fraud"
                         }
                       },
@@ -4158,18 +4453,18 @@ module.exports={
                       "visibility": "internal"
                     }
                   ],
-                  "id": 144,
+                  "id": 154,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 137,
+                        "id": 146,
                         "name": "fromBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "2921:8:0",
+                        "referencedDeclaration": 126,
+                        "src": "3004:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -4177,12 +4472,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 138,
+                        "id": 147,
                         "name": "toBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "2931:6:0",
+                        "referencedDeclaration": 128,
+                        "src": "3014:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -4190,12 +4485,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 139,
+                        "id": 148,
                         "name": "fromAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "2939:11:0",
+                        "referencedDeclaration": 130,
+                        "src": "3022:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4203,12 +4498,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 140,
+                        "id": 149,
                         "name": "toAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "2952:9:0",
+                        "referencedDeclaration": 132,
+                        "src": "3035:9:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4216,12 +4511,12 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 141,
+                        "id": 150,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "2963:6:0",
+                        "referencedDeclaration": 134,
+                        "src": "3046:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4229,12 +4524,25 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 142,
+                        "id": 151,
                         "name": "txDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "2971:6:0",
+                        "referencedDeclaration": 136,
+                        "src": "3054:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 152,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3062:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4266,20 +4574,24 @@ module.exports={
                         {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       ],
-                      "id": 136,
+                      "id": 145,
                       "name": "Fraud",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 58,
-                      "src": "2915:5:0",
+                      "referencedDeclaration": 64,
+                      "src": "2998:5:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Fraud_$58_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Fraud_$64_storage_ptr_$",
                         "typeString": "type(struct KYC.Fraud storage pointer)"
                       }
                     },
-                    "id": 143,
+                    "id": 153,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4287,14 +4599,14 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2915:63:0",
+                    "src": "2998:69:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Fraud_$58_memory",
+                      "typeIdentifier": "t_struct$_Fraud_$64_memory",
                       "typeString": "struct KYC.Fraud memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "2894:84:0"
+                  "src": "2977:90:0"
                 },
                 {
                   "expression": {
@@ -4302,14 +4614,14 @@ module.exports={
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 148,
+                        "id": 158,
                         "name": "fraud",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 135,
-                        "src": "3000:5:0",
+                        "referencedDeclaration": 144,
+                        "src": "3089:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       }
@@ -4317,24 +4629,24 @@ module.exports={
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Fraud_$58_memory_ptr",
+                          "typeIdentifier": "t_struct$_Fraud_$64_memory_ptr",
                           "typeString": "struct KYC.Fraud memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 145,
+                        "id": 155,
                         "name": "frauds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 61,
-                        "src": "2988:6:0",
+                        "referencedDeclaration": 67,
+                        "src": "3077:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Fraud_$58_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Fraud_$64_storage_$dyn_storage",
                           "typeString": "struct KYC.Fraud storage ref[] storage ref"
                         }
                       },
-                      "id": 147,
+                      "id": 157,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4342,13 +4654,13 @@ module.exports={
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "2988:11:0",
+                      "src": "3077:11:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$58_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Fraud_$64_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct KYC.Fraud storage ref) returns (uint256)"
                       }
                     },
-                    "id": 149,
+                    "id": 159,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4356,180 +4668,28 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2988:18:0",
+                    "src": "3077:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 150,
+                  "id": 160,
                   "nodeType": "ExpressionStatement",
-                  "src": "2988:18:0"
+                  "src": "3077:18:0"
                 },
                 {
                   "eventCall": {
                     "argumentTypes": null,
                     "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 152,
-                        "name": "fromBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "3037:8:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 153,
-                        "name": "toBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "3047:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 154,
-                        "name": "fromAccount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "3055:11:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 155,
-                        "name": "toAccount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "3068:9:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 156,
-                        "name": "amount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "3079:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      {
-                        "argumentTypes": null,
-                        "id": 157,
-                        "name": "txDate",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "3087:6:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        },
-                        {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        },
-                        {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
-                        },
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        },
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      ],
-                      "id": 151,
-                      "name": "ReportedFraudA",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 18,
-                      "src": "3022:14:0",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$returns$__$",
-                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256)"
-                      }
-                    },
-                    "id": 158,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "3022:72:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 159,
-                  "nodeType": "EmitStatement",
-                  "src": "3017:77:0"
-                },
-                {
-                  "eventCall": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "id": 161,
-                        "name": "fromBank",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "3124:8:0",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address",
-                          "typeString": "address"
-                        }
-                      },
                       {
                         "argumentTypes": null,
                         "id": 162,
-                        "name": "toBank",
+                        "name": "fromBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 121,
-                        "src": "3134:6:0",
+                        "referencedDeclaration": 126,
+                        "src": "3126:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -4538,24 +4698,24 @@ module.exports={
                       {
                         "argumentTypes": null,
                         "id": 163,
-                        "name": "fromAccount",
+                        "name": "toBank",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 123,
-                        "src": "3142:11:0",
+                        "referencedDeclaration": 128,
+                        "src": "3136:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_bytes32",
-                          "typeString": "bytes32"
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
                         }
                       },
                       {
                         "argumentTypes": null,
                         "id": 164,
-                        "name": "toAccount",
+                        "name": "fromAccount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 125,
-                        "src": "3155:9:0",
+                        "referencedDeclaration": 130,
+                        "src": "3144:11:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
@@ -4564,11 +4724,24 @@ module.exports={
                       {
                         "argumentTypes": null,
                         "id": 165,
+                        "name": "toAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 132,
+                        "src": "3157:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 166,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 127,
-                        "src": "3166:6:0",
+                        "referencedDeclaration": 134,
+                        "src": "3168:6:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4576,12 +4749,25 @@ module.exports={
                       },
                       {
                         "argumentTypes": null,
-                        "id": 166,
+                        "id": 167,
                         "name": "txDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 129,
-                        "src": "3174:6:0",
+                        "referencedDeclaration": 136,
+                        "src": "3176:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 168,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3184:4:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -4613,20 +4799,24 @@ module.exports={
                         {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       ],
-                      "id": 160,
-                      "name": "ReportedFraudB",
+                      "id": 161,
+                      "name": "ReportedFraudA",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 32,
-                      "src": "3109:14:0",
+                      "referencedDeclaration": 20,
+                      "src": "3111:14:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$returns$__$",
-                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256,uint256)"
                       }
                     },
-                    "id": 167,
+                    "id": 169,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4634,36 +4824,192 @@ module.exports={
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "3109:72:0",
+                    "src": "3111:78:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 168,
+                  "id": 170,
                   "nodeType": "EmitStatement",
-                  "src": "3104:77:0"
+                  "src": "3106:83:0"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 172,
+                        "name": "fromBank",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 126,
+                        "src": "3219:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 173,
+                        "name": "toBank",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 128,
+                        "src": "3229:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 174,
+                        "name": "fromAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 130,
+                        "src": "3237:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 175,
+                        "name": "toAccount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 132,
+                        "src": "3250:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 176,
+                        "name": "amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 134,
+                        "src": "3261:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 177,
+                        "name": "txDate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 136,
+                        "src": "3269:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 178,
+                        "name": "time",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "3277:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 171,
+                      "name": "ReportedFraudB",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 36,
+                      "src": "3204:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_bytes32_$_t_bytes32_$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,bytes32,bytes32,uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 179,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "3204:78:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 180,
+                  "nodeType": "EmitStatement",
+                  "src": "3199:83:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 170,
+            "id": 182,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "reportFraud",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 130,
+              "id": 139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 119,
+                  "id": 126,
                   "name": "fromBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2743:16:0",
+                  "scope": 182,
+                  "src": "2812:16:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4671,10 +5017,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 118,
+                    "id": 125,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2743:7:0",
+                    "src": "2812:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -4686,11 +5032,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 121,
+                  "id": 128,
                   "name": "toBank",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2761:14:0",
+                  "scope": 182,
+                  "src": "2830:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4698,10 +5044,10 @@ module.exports={
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 120,
+                    "id": 127,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2761:7:0",
+                    "src": "2830:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -4713,11 +5059,11 @@ module.exports={
                 },
                 {
                   "constant": false,
-                  "id": 123,
+                  "id": 130,
                   "name": "fromAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2777:19:0",
+                  "scope": 182,
+                  "src": "2846:19:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4725,10 +5071,10 @@ module.exports={
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 122,
+                    "id": 129,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2777:7:0",
+                    "src": "2846:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -4737,98 +5083,39 @@ module.exports={
                   "value": null,
                   "visibility": "internal"
                 },
-                {
-                  "constant": false,
-                  "id": 125,
-                  "name": "toAccount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2798:17:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 124,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2798:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 127,
-                  "name": "amount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2817:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 126,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2817:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 129,
-                  "name": "txDate",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2833:14:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 128,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2833:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2742:106:0"
-            },
-            "returnParameters": {
-              "id": 133,
-              "nodeType": "ParameterList",
-              "parameters": [
                 {
                   "constant": false,
                   "id": 132,
-                  "name": "fraudID",
+                  "name": "toAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
-                  "src": "2866:15:0",
+                  "scope": 182,
+                  "src": "2867:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 131,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2867:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 134,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2886:14:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4836,10 +5123,62 @@ module.exports={
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 131,
+                    "id": 133,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2866:7:0",
+                    "src": "2886:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "txDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2902:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2902:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 138,
+                  "name": "time",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2918:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2918:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -4849,20 +5188,53 @@ module.exports={
                   "visibility": "internal"
                 }
               ],
-              "src": "2865:17:0"
+              "src": "2811:120:0"
             },
-            "scope": 171,
-            "src": "2721:467:0",
+            "returnParameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 141,
+                  "name": "fraudID",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 182,
+                  "src": "2949:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2949:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2948:17:0"
+            },
+            "scope": 183,
+            "src": "2790:499:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 172,
-        "src": "59:3429:0"
+        "scope": 184,
+        "src": "59:3530:0"
       }
     ],
-    "src": "0:3488:0"
+    "src": "0:3589:0"
   },
   "compiler": {
     "name": "solc",
@@ -4878,12 +5250,12 @@ module.exports={
     "1234321": {
       "events": {},
       "links": {},
-      "address": "0x2137883642785a8Aee5D5461D194ccDD09793d30",
-      "transactionHash": "0x02642284e08100eb23a840119abfdb48977fa3d8511afc3187834ed5ce8753a4"
+      "address": "0x785d93Dee777e846fE9280f8b1A252b96735D674",
+      "transactionHash": "0x6f0d0a4704de62d7cdc3d7b658fbb409293ce4b06b0de960d6b11c995b935a35"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-03-22T17:11:29.038Z",
+  "updatedAt": "2019-03-22T22:30:42.625Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {

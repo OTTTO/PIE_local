@@ -26,8 +26,13 @@ queryChain = async () => {
 
   fromDate = new Date(document.getElementById("fromDate").value);
   toDate = new Date(document.getElementById("toDate").value);
+
+  fromDate.setDate(fromDate.getDate() + 1);
+  toDate.setDate(toDate.getDate() + 1);
+
   if (isNaN(fromDate.getTime()) || isNaN(toDate.getTime())) return;
   if (toDate < fromDate) return;
+
   oneDay = 86400000;
   numDays = ((toDate - fromDate) / oneDay) + 1;
   days = [];

@@ -10,7 +10,8 @@ contract KYC is Ownable {
         bytes32 fromAccount,
         bytes32 toAccount,
         uint256 amount,
-        uint256 indexed txDate
+        uint256 indexed txDate,
+        uint256 time
     );
 
     event ReportedFraudB(
@@ -19,7 +20,8 @@ contract KYC is Ownable {
         bytes32 indexed fromAccount,
         bytes32 indexed toAccount,
         uint256 indexed amount,
-        uint256 txDate
+        uint256 txDate,
+        uint256 time
     );
 
     event BankAdded(
@@ -40,6 +42,7 @@ contract KYC is Ownable {
         bytes32 toAccount;
         uint256 amount;
         uint256 txDate;
+        uint256 time;
     }
     
     Fraud[] frauds;
@@ -49,7 +52,7 @@ contract KYC is Ownable {
 
     constructor() public {
         //push fraud origin
-        frauds.push(Fraud(address(0x0), address(0x0), "", "", 0, 0));
+        frauds.push(Fraud(address(0x0), address(0x0), "", "", 0, 0, 0));
     }
 /*
     modifier classA () {
@@ -82,13 +85,13 @@ contract KYC is Ownable {
         emit BankAdded(bankAddress, name, bankType);
     }
 
-    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate) external returns(uint256 fraudID) {
+    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate, uint256 time) external returns(uint256 fraudID) {
 
-        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate);
+        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);
         frauds.push(fraud);
 
-        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate);
-        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate);
+        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);
+        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate, time);
     }
 /*
     function readFraud (uint256 fraudID) external view returns(address, string memory, string memory, uint256, uint256, uint256) {

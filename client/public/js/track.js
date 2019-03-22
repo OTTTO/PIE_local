@@ -1,16 +1,12 @@
 findFraudByFromAccount = async (account, timestamps) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
+  
   for (var i = 0; i < events.length; i++) {
     let values = events[i].returnValues;
-    var cont = false;
-    
-    for (let [key,value] of timestamps.entries()) {
-      if (values.txDate < value) cont = true;
-    }
 
-    if (timestamps.has(values.txDate) || cont) continue;
-    timestamps.add(values.txDate);
+    if (timestamps.has(values.time)) continue;
+    timestamps.add(values.time);
     frauds.push(web3.utils.toAscii(values.toAccount)); 
   }
   return [frauds, timestamps];
