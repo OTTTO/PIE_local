@@ -4,6 +4,7 @@ eventLister  = (events) => {
     var fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
     var toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
     var amount = document.createTextNode("Amount: " + values.amount);
+    //var time = document.createTextNode("Transaction Date: " + timeConverter(values.txDate / 1000));
 
     var elements = [fromAccount, toAccount, amount];
 
@@ -17,6 +18,12 @@ eventLister  = (events) => {
       divItem.appendChild(listItem);
     }
     fraudEvents.appendChild(divItem);
+
+    button = document.createElement("button");
+    button.setAttribute('class', "notify");
+    button.innerHTML = "NOTIFY";
+    
+    divItem.appendChild(button);
   }
 }
 

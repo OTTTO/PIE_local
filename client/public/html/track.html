@@ -15,20 +15,23 @@
       <img id="track-image" src="../images/track.png" style="padding-right: 3rem;">
       <p id="track-fraud"> Track Fraud </p><br>
     </div>
-      <form id="client-form">
-        <fieldset id="fraud">
-          <input id="account" type="string" value="" placeholder="Account Number" />
-          <br><br>
-          <button type="button" onClick="trackFraud()"> Track Fraud </button>
-          <button type="button" onClick="clearFraud()"> Clear </button>
-        </fieldset>
-      </form>
-      <div id="fraudOutput">
-       <div id="fraudList"></div><br>
-       <div id="tree-simple"></div>
-      </div><br>
-      <div id="fraudEvents"></div>
+    <form id="client-form">
+      <fieldset id="fraud">
+        <input id="account" type="string" value="" placeholder="Account Number" />
+        <br><br>
+        <button type="button" onClick="trackFraud()"> Track Fraud </button>
+        <button type="button" onClick="clearFraud()"> Clear </button>
+      </fieldset>
+    </form>
+    <div id="fraudOutput">
+     <div id="fraudList"></div><br>
+     <div id="tree-simple"></div>
+    </div><br>
+    <div id="fraudSelectors">
+      <span class="fraudSelector" id="fromFraud" onclick="listFraudFrom();"> FROM </span>
+      <span class="fraudSelector" id="toFraud" onclick="listFraudTo();"> TO </span>
     </div>
+    <div id="fraudEvents"></div>
     <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
     <script type="text/javascript" src="../js/treant/Treant.js"></script>
     <script type="text/javascript" src="../js/bundle.js"></script>
