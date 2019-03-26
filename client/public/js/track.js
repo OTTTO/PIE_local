@@ -54,20 +54,26 @@ trackFraudTo = async () => {
   }
 }
 
-findFraudByFromAccount = async (account, timestamps) => {
+findFraudByFromAccount = async (account, timestamp) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
-  
-  for (var i = 0; i < events.length; i++) {
+  var theseTimestamps = [];
+
+  for (let i = 0; i < events.length; i++) {
     let values = events[i].returnValues;
 
-    //check txID
-    if (timestamps.has(values.time)) continue;
-    timestamps.add(values.time);
-    frauds.push(web3.utils.toAscii(values.toAccount)); 
+    if ((timestamp > values.time) || timestamps.has(values.time)) continue;
+    else {
+      timestamps.add(values.time);
+      theseTimestamps.push(values.time);
+      frauds.push(web3.utils.toAscii(values.toAccount)); 
+    }
   }
-  return [frauds, timestamps];
+  console.log(frauds);
+  return [frauds, theseTimestamps];
 }
+
+var timestamps;
 
 trackFraud = async () => {
 
@@ -85,9 +91,9 @@ trackFraud = async () => {
 
   var root = chart_config.nodeStructure = newNode(account);
 
-  var timestamps = new Set();
+  timestamps = new Set();
 
-  await fraudClimb(root, account, timestamps);
+  await fraudClimb(root, account, 0);
 
   var my_chart = new Treant(chart_config);
 
@@ -95,9 +101,9 @@ trackFraud = async () => {
 
   function newNode(node) { return {text:{name: node}}; }
 
-  async function fraudClimb(root, account, timestamps) {
+  async function fraudClimb(root, account, theseTimestamps) {
 
-    var [frauds, usedTimes] = await findFraudByFromAccount.call(this, account, timestamps);
+    var [frauds, theseTimestamps] = await findFraudByFromAccount.call(this, account, theseTimestamps);
 
     if (frauds.length == 0) return;
 
@@ -105,7 +111,7 @@ trackFraud = async () => {
 
     for (var i = 0; i < frauds.length; i++) {
       children.push(newNode(frauds[i]));
-      await fraudClimb(children[i], frauds[i], usedTimes);
+      await fraudClimb(children[i], frauds[i], theseTimestamps[i]);
     }
   }
 }
