@@ -15,12 +15,16 @@
       <p id="query-fraud"> Query the Blockchain </p><br>
     </div>
       <form id="client-form">
-        <fieldset>
+        <fieldset id="queryFields">
           <label>Reported Period From</label>
           <input id="fromDate" type="date">
           <label>Reported Period To</label>
           <input id="toDate" type="date" valueAsDate="new Date()">
-          <button type="button" onClick="queryChain()"> Run Query </button>
+          <button id="dateQueryButton" type="button" onClick="queryChainByDate()"> Run Date Query </button><br><br>
+          <label>Transaction ID</label>
+          <input id="txId" placeholder="UPI / NPCI Txn ID, 12 digits">
+          <button id="txQueryButton" type="button" onClick="queryChainByTxId()"> Run Txn ID Query </button><br><br>
+          <button id="toQueryButton" type="button" onClick="queryChainByToBank()"> Run To Bank Query </button>         
         </fieldset> 
       </form>
       <div id="reportedFrauds"></div>

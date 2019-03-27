@@ -22,20 +22,39 @@
         <button type="button" onClick="trackFraud()"> Track Fraud </button>
         <button type="button" onClick="clearFraud()"> Clear </button>
       </fieldset>
-    </form>
-    <div id="fraudOutput">
-     <div id="fraudList"></div><br>
-     <div id="tree-simple"></div>
-    </div><br>
+    </form>    
+     <div id="tree-simple"></div><br>
     <div id="fraudSelectors">
       <span class="fraudSelector" id="fromFraud" onclick="listFraudFrom();"> FROM </span>
       <span class="fraudSelector" id="toFraud" onclick="listFraudTo();"> TO </span>
       <span class="fraudSelector" id="internalFraud" onclick="listFraudInternal();"> INTERNAL </span>
     </div>
-    <div id="fraudEvents">
-      <div id="fromFraudEvents"></div>
-      <div id="toFraudEvents"></div>
-      <div id="internalFraudEvents"></div>
+    <div id="fraudEvents" style="overflow-x:auto;">
+      <table id="fromFraudEvents">
+        <thead>
+          <tr><th>Txn Date</th><th>Txn ID</th><th>From Bank</th><th>From Account</th><th>To Bank</th><th>To Account</th><th>Amount</th>
+          </tr>
+          <tr></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <table id="toFraudEvents" style="display:none;">
+        <thead>
+          <tr><th>Txn Date</th><th>Txn ID</th><th>From Bank</th><th>From Account</th><th>To Bank</th><th>To Account</th><th>Amount</th>
+          </tr>
+          <tr></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <table id="internalFraudEvents" style="display:none;">
+        <thead>
+          <tr><th>Txn Date</th><th>Txn ID</th><th>From Bank</th><th>From Account</th><th>To Bank</th><th>To Account</th><th>Amount</th>
+          </tr>
+          <tr></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
     <script type="text/javascript" src="../js/treant/Treant.js"></script>
     <script type="text/javascript" src="../js/bundle.js"></script>

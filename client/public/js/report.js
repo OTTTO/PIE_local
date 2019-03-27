@@ -35,6 +35,8 @@ renderPage = async () => {
     txDate.setAttribute("placeholder", "Transaction Time");
     txDate.setAttribute("onfocus", "(this.type='datetime-local')");
     txDate.setAttribute("onblur", "(this.type='')" );
+    var txId = document.createElement("input");
+    txId.setAttribute("placeholder", "Transaction ID");
     fieldset.appendChild(fromAccount);
     fieldset.appendChild(toAccount);
     fieldset.appendChild(linebreak1);
@@ -42,6 +44,7 @@ renderPage = async () => {
     fieldset.appendChild(amount);
     fieldset.appendChild(linebreak2);
     fieldset.appendChild(txDate);
+    fieldset.appendChild(txId);
     form.appendChild(fieldset);
   }
 
@@ -59,7 +62,7 @@ reportFraud = async () => {
     for (var i = 0; i < 5; i++) {
       var fieldset = document.getElementsByTagName("fieldset")[i];
       var params = [];
-      for (var j = 0; j < 4; j++) {
+      for (var j = 0; j < 5; j++) {
         params.push(fieldset.getElementsByTagName("input")[j].value);
       }
       bank = document.getElementById("toBank");
@@ -79,7 +82,8 @@ reportFraud = async () => {
         alert("invalid date");
         return;
       }
-      window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[2], txDate.getTime(), timestamp.getTime()).send({from: ethereum.selectedAddress, gas:3200000});  
+
+      window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[2], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[4])).send({from: ethereum.selectedAddress, gas:3200000});  
     }
   } else {
     throw new Error('KYC instance not loaded')

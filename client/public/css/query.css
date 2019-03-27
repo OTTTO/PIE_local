@@ -4,14 +4,19 @@ body {
 }
 
 fieldset {
-    width: 40rem;
+    width: 100%;
     margin: auto;
     border-style: none;
+    text-align: center;
 }
 
 input {
     width: 7.5rem;
     margin-right: .5rem;
+}
+
+#client-form {
+    margin: auto;
 }
 
 #query {

@@ -1,59 +1,3 @@
-findFraudByToAccount = async (account, timestamps) => {
-  events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {toAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
-  var frauds = [];
-  
-  for (var i = 0; i < events.length; i++) {
-    let values = events[i].returnValues;
-
-    //check txID
-    if (timestamps.has(values.time)) continue;
-    timestamps.add(values.time);
-    frauds.push(web3.utils.toAscii(values.fromAccount)); 
-  }
-  return [frauds, timestamps];
-}
-
-trackFraudTo = async () => {
-
-  account = document.getElementById("account").value;
-
-  chart_config = {
-    chart: {
-        container: "#tree-simple",
-        connectors: {
-          type: "straight"
-        },
-        rootOrientation: "EAST"
-    }
-  };
-
-  var root = chart_config.nodeStructure = newNode(account);
-
-  var timestamps = new Set();
-
-  await fraudClimb(root, account, timestamps);
-
-  var my_chart = new Treant(chart_config);
-
-  document.getElementById("tree-simple").style.visibility = "visible";
-
-  function newNode(node) { return {text:{name: node}}; }
-
-  async function fraudClimb(root, account, timestamps) {
-
-    var [frauds, usedTimes] = await findFraudByToAccount.call(this, account, timestamps);
-
-    if (frauds.length == 0) return;
-
-    var children = root.children = [];
-
-    for (var i = 0; i < frauds.length; i++) {
-      children.push(newNode(frauds[i]));
-      await fraudClimb(children[i], frauds[i], usedTimes);
-    }
-  }
-}
-
 findFraudByFromAccount = async (account, timestamp) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
   var frauds = [];
@@ -69,7 +13,6 @@ findFraudByFromAccount = async (account, timestamp) => {
       frauds.push(web3.utils.toAscii(values.toAccount)); 
     }
   }
-  console.log(frauds);
   return [frauds, theseTimestamps];
 }
 
@@ -124,8 +67,7 @@ clearFraud = () => {
   fraudList.style.visibility = "hidden";
   tree.style.visibility = "hidden";
 }
-
-
+/*
 listenCallback = async (error, event, type) => {
   if (error) { console.log(error); }
   else {
@@ -164,6 +106,43 @@ listenCallback = async (error, event, type) => {
     
   }
 }
+*/
+
+listenCallback = async (error, event, type) => {
+  if (error) { console.log(error); }
+  else {
+
+    let values = event.returnValues;
+    if (values.fromBank == values.toBank && (type == "fromFraudEvents" || type == "toFraudEvents")) return;
+    console.log(values);
+    let blockNumber = event.blockNumber;
+    if (eventBlocks.has(blockNumber)) return;
+    eventBlocks.add(blockNumber);
+
+    let fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    let toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const fromBank = web3.utils.toAscii(fromB.name);
+    const fromAccount = web3.utils.toAscii(values.fromAccount);
+    const toBank = web3.utils.toAscii(toB.name);
+    const toAccount = web3.utils.toAscii(values.toAccount);
+    const amount = values.amount;
+    const time = timeConverter(values.txDate / 1000);
+    const txId = web3.utils.toAscii(values.txId);
+
+    const elements = [time, txId, fromBank, fromAccount, toBank, toAccount, amount]
+
+    const row = document.createElement("tr");
+
+    for (let i = 0; i < elements.length; i++) {
+      let td = document.createElement("td");
+      td.innerHTML =  elements[i];
+      row.appendChild(td);
+    }
+
+    const table = document.getElementById(type);
+    table.appendChild(row);
+  }
+}
 
 listFraudFrom = () => {
   const fraudTo = document.getElementById("toFraud");
@@ -182,7 +161,7 @@ listFraudFrom = () => {
   internalFraud.style.display = "none";
 
   const fromFraud = document.getElementById("fromFraudEvents");
-  fromFraud.style.display = "block";
+  fromFraud.style.display = "inline-block";
 }
 
 listFraudTo = () => {
@@ -202,7 +181,7 @@ listFraudTo = () => {
   internalFraud.style.display = "none";
 
   const toFraud = document.getElementById("toFraudEvents");
-  toFraud.style.display = "block";
+  toFraud.style.display = "inline-block";
 }
 
 listFraudInternal = () => {
@@ -222,7 +201,7 @@ listFraudInternal = () => {
   toFraud.style.display = "none";
 
   const internalFraud = document.getElementById("internalFraudEvents");
-  internalFraud.style.display = "block";
+  internalFraud.style.display = "inline-block";
 }
 
 startWeb3 = async () => { 
@@ -247,7 +226,6 @@ startWeb3 = async () => {
   
   console.log('now listening for events');
   
-
 };
 
 var eventBlocks = new Set();

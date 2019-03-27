@@ -14,6 +14,12 @@ input {
     margin-right: .5rem;
 }
 
+table { margin: auto; }
+
+th, td {
+    padding: 1rem;
+}
+
 .fraudEvent ul { 
     padding-left: 1rem; 
 }
@@ -35,7 +41,7 @@ input {
 
 #fraudEvents {
     height: 30rem;
-    width: 27rem;
+    width: 90%;
     margin: auto;
     overflow: auto;
     padding-right: 1rem;
@@ -43,6 +49,7 @@ input {
     border-top-width: .1rem;
     border-top-style: solid;
     border-top-color: black;
+    text-align: center;
 }
 
 .fraudEvent, #fraudList {
