@@ -111,21 +111,19 @@ listenCallback = async (error, event, type) => {
 listenCallback = async (error, event, type) => {
   if (error) { console.log(error); }
   else {
-
     let values = event.returnValues;
     if (values.fromBank == values.toBank && (type == "fromFraudEvents" || type == "toFraudEvents")) return;
-    console.log(values);
     let blockNumber = event.blockNumber;
     if (eventBlocks.has(blockNumber)) return;
     eventBlocks.add(blockNumber);
 
-    let fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
-    let toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
     const fromBank = web3.utils.toAscii(fromB.name);
     const fromAccount = web3.utils.toAscii(values.fromAccount);
     const toBank = web3.utils.toAscii(toB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
-    const amount = values.amount;
+    const amount = `$${values.amount}`;
     const time = timeConverter(values.txDate / 1000);
     const txId = web3.utils.toAscii(values.txId);
 

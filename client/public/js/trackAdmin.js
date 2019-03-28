@@ -54,7 +54,7 @@ clearFraud = () => {
   fraudList.style.visibility = "hidden";
   tree.style.visibility = "hidden";
 }
-
+/*
 listenCallback = async (error, event) => {
   if (error) { console.log(error); }
   else {
@@ -85,6 +85,38 @@ listenCallback = async (error, event) => {
     fraudEvents.insertBefore(linebreak, divItem);
   }
 }
+*/
+
+listenCallback = async (error, event, type) => {
+  if (error) { console.log(error); }
+  else {
+    const values = event.returnValues;
+
+    const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const fromBank = web3.utils.toAscii(fromB.name);
+    const fromAccount = web3.utils.toAscii(values.fromAccount);
+    const toBank = web3.utils.toAscii(toB.name);
+    const toAccount = web3.utils.toAscii(values.toAccount);
+    const amount = `$${values.amount}`;
+    const time = timeConverter(values.txDate / 1000);
+    const txId = web3.utils.toAscii(values.txId);
+
+    const elements = [time, txId, fromBank, fromAccount, toBank, toAccount, amount]
+
+    const row = document.createElement("tr");
+
+    for (let i = 0; i < elements.length; i++) {
+      const td = document.createElement("td");
+      td.innerHTML =  elements[i];
+      row.appendChild(td);
+    }
+
+    const table = document.getElementsByTagName("table")[0];
+    table.appendChild(row);
+  }
+}
+
 
 fraudListen = () => {
   window.KYCinstance.events.ReportedFraudA({ fromBlock:0 }, listenCallback); 
