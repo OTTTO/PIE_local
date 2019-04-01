@@ -81,9 +81,6 @@ queryChain = async () => {
 }*/
 
 queryChainByDate = async () => {
-  const fraudEvents = document.getElementById("reportedFrauds");
-  fraudEvents.innerHTML = "";
-
   var fromDate = new Date(document.getElementById("fromDate").value);
   var toDate = new Date(document.getElementById("toDate").value);
 

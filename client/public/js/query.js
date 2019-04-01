@@ -49,7 +49,6 @@ eventLister  = async (events) => {
 
 }
 
-
 /*eventLister  = (events) => {
   const fraudEvents = document.getElementById("reportedFrauds");
   fraudEvents.innerHTML = "";
@@ -89,9 +88,6 @@ eventLister  = async (events) => {
 }
 */
 queryChainByDate = async () => {
-  const fraudEvents = document.getElementById("reportedFrauds");
-  fraudEvents.innerHTML = "";
-
   var fromDate = new Date(document.getElementById("fromDate").value);
   var toDate = new Date(document.getElementById("toDate").value);
 
@@ -125,10 +121,9 @@ queryChainByTxId = async () => {
 }
 
 queryChainByToBank = async () => {
-  const bank = document.getElementById("toBank").value;
-  if (bank == "") return;
-  
-  const toBank = web3.utils.fromAscii(bank);
+  const toBank = document.getElementById("toBank").value;
+  if (toBank == "") return;
+
   var toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {fromBank: ethereum.selectedAddress, toBank: toBank}, fromBlock: 0 });
 
   eventLister(toEvents);
