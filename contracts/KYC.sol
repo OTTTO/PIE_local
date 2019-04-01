@@ -32,6 +32,13 @@ contract KYC is Ownable {
         bytes32 indexed bankType
     );
 
+    event BankRemoved(
+        address bankAddress,
+        bytes32 indexed name,
+        bytes32 indexed bankType
+        );
+
+
     struct Bank {
         bytes32 name;
         bytes32 bankType;
@@ -78,7 +85,7 @@ contract KYC is Ownable {
         _; 
     }
 */
-    function addBank (address bankAddress, bytes32 name, bytes32 bankType) public onlyOwner {
+    function addBank (address bankAddress, bytes32 name, bytes32 bankType) external onlyOwner {
         //require (banks[bankAddress].name=="");
         //assigned role must exist
         //require (keccak256(abi.encode(role)) == keccak256(abi.encode("A")) || keccak256(abi.encode(role)) == keccak256(abi.encode("B")) || keccak256(abi.encode(role)) == keccak256(abi.encode("C")) || keccak256(abi.encode(role)) == keccak256(abi.encode("D")));
@@ -87,6 +94,13 @@ contract KYC is Ownable {
         banks[bankAddress] = bank;
         emit BankAdded(bankAddress, name, bankType);
     }
+
+    function removeBank (address bankAddress, bytes32 name, bytes32 bankType) external {
+        Bank memory bank = Bank("","");
+        banks[bankAddress] = bank;
+        emit BankRemoved(bankAddress, name, bankType);      
+    }
+    
 
     function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate, uint256 time, bytes32 txId) external returns(uint256 fraudID) {
 
