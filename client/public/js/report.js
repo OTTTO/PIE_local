@@ -93,7 +93,7 @@ reportFraud = async () => {
         return;
       }
 
-      await window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[4])).send({from: ethereum.selectedAddress, gas:3200000});
+      await window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[0])).send({from: ethereum.selectedAddress, gas:3200000});
       
     }
   } else {
@@ -104,7 +104,6 @@ reportFraud = async () => {
 startWeb3 = async () => { 
   await initWeb3(); 
   await setBank();
-  if (ethereum.selectedAddress == "0xf0dd2be7aa3e59dea9d8c24da1af03cab984d3c8") { document.getElementById("report-image").src = "../images/report2.png" }
   renderPage();
 };
 

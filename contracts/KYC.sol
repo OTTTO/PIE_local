@@ -38,6 +38,10 @@ contract KYC is Ownable {
         bytes32 indexed bankType
         );
 
+    event FraudViewed(
+        bytes32 txID,
+        address indexed toBank
+    );
 
     struct Bank {
         bytes32 name;
@@ -110,6 +114,9 @@ contract KYC is Ownable {
         emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate, time, txId);
         emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate, time, txId);
     }
+
+    function viewFraud (bytes32 txId, address toBank) external { emit FraudViewed(txId, toBank); }
+    
 /*
     function readFraud (uint256 fraudID) external view returns(address, string memory, string memory, uint256, uint256, uint256) {
         Fraud memory fraud = frauds[fraudID];
