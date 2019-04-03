@@ -92,6 +92,7 @@ reportFraud = async () => {
 
 startWeb3 = async () => { 
   await initWeb3(); 
+  await setBank();
   if (ethereum.selectedAddress == "0xf0dd2be7aa3e59dea9d8c24da1af03cab984d3c8") { document.getElementById("report-image").src = "../images/report2.png" }
   renderPage();
 };

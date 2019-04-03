@@ -60,53 +60,10 @@ trackFraud = async () => {
 }
 
 clearFraud = () => {
-  var fraudList = document.getElementById("fraudList");
   var tree = document.getElementById("tree-simple");
-  fraudList.innerHTML = '';
   tree.innerHTML = '';
-  fraudList.style.visibility = "hidden";
   tree.style.visibility = "hidden";
 }
-/*
-listenCallback = async (error, event, type) => {
-  if (error) { console.log(error); }
-  else {
-
-    let values = event.returnValues;
-    if (values.fromBank == values.toBank && (type == "fromFraudEvents" || type == "toFraudEvents")) return;
-
-    let blockNumber = event.blockNumber;
-    if (eventBlocks.has(blockNumber)) return;
-    eventBlocks.add(blockNumber);
-    
-    let fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
-    let toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
-    let fromBank = document.createTextNode("From Bank: " + web3.utils.toAscii(fromB.name));
-    let fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
-    let toBank = document.createTextNode("To Bank: " + web3.utils.toAscii(toB.name));
-    let toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
-    let amount = document.createTextNode("Amount: " + values.amount);
-    let time = document.createTextNode("Transaction Date: " + timeConverter(values.txDate / 1000));
-
-    const elements = [fromBank, fromAccount, toBank, toAccount, amount, time];
-
-    const fraudEvents = document.getElementById(type);
-    const divItem = document.createElement('div');
-    divItem.setAttribute('class', "fraudEvent")
-
-    for (let i = 0; i < elements.length; i++) {
-      let listItem = document.createElement('ul');
-      listItem.appendChild(elements[i]);
-      divItem.appendChild(listItem);
-    }
-
-    fraudEvents.insertBefore(divItem, fraudEvents.firstChild);
-    let linebreak = document.createElement('br');
-    fraudEvents.insertBefore(linebreak, divItem);
-    
-  }
-}
-*/
 
 listenCallback = async (error, event, type) => {
   if (error) { console.log(error); }
@@ -136,76 +93,13 @@ listenCallback = async (error, event, type) => {
       td.innerHTML =  elements[i];
       row.appendChild(td);
     }
-
     const table = document.getElementById(type);
     table.appendChild(row);
   }
 }
-
-listFraudFrom = () => {
-  const fraudTo = document.getElementById("toFraud");
-  fraudTo.style.background = "rgba(255,255,255)";
-
-  const fraudInternal = document.getElementById("internalFraud");
-  fraudInternal.style.background = "rgba(255,255,255)";
-
-  const fraudFrom = document.getElementById("fromFraud");
-  fraudFrom.style.background = "rgba(135,206,250,.8)";  
-
-  const toFraud = document.getElementById("toFraudEvents");
-  toFraud.style.display = "none";
-
-  const internalFraud = document.getElementById("internalFraudEvents");
-  internalFraud.style.display = "none";
-
-  const fromFraud = document.getElementById("fromFraudEvents");
-  fromFraud.style.display = "inline-block";
-}
-
-listFraudTo = () => {
-  const fraudFrom = document.getElementById("fromFraud");
-  fraudFrom.style.background = "rgba(255,255,255)";
-
-  const fraudInternal = document.getElementById("internalFraud");
-  fraudInternal.style.background = "rgba(255,255,255)";
-  
-  const fraudTo = document.getElementById("toFraud");
-  fraudTo.style.background = "rgba(135,206,250,.8)";
-
-  const fromFraud = document.getElementById("fromFraudEvents");
-  fromFraud.style.display = "none";
-
-  const internalFraud = document.getElementById("internalFraudEvents");
-  internalFraud.style.display = "none";
-
-  const toFraud = document.getElementById("toFraudEvents");
-  toFraud.style.display = "inline-block";
-}
-
-listFraudInternal = () => {
-  const fraudFrom = document.getElementById("fromFraud");
-  fraudFrom.style.background = "rgba(255,255,255)";
-  
-  const fraudTo = document.getElementById("toFraud");
-  fraudTo.style.background = "rgba(255,255,255)"
-
-  const fraudInternal = document.getElementById("internalFraud");
-  fraudInternal.style.background = "rgba(135,206,250,.8)";
-
-  const fromFraud = document.getElementById("fromFraudEvents");
-  fromFraud.style.display = "none";
-
-  const toFraud = document.getElementById("toFraudEvents");
-  toFraud.style.display = "none";
-
-  const internalFraud = document.getElementById("internalFraudEvents");
-  internalFraud.style.display = "inline-block";
-}
-
 startWeb3 = async () => { 
   await initWeb3(); 
-
-  listFraudFrom();
+  await setBank();
 
   window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress, toBank:ethereum.selectedAddress}, fromBlock:0 }, 
   async (error, event) => {

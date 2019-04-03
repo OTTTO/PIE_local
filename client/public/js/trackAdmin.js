@@ -47,11 +47,11 @@ trackFraud = async () => {
 }
 
 clearFraud = () => {
-  var fraudList = document.getElementById("fraudList");
+ // var fraudList = document.getElementById("fraudList");
   var tree = document.getElementById("tree-simple");
-  fraudList.innerHTML = '';
+ // fraudList.innerHTML = '';
   tree.innerHTML = '';
-  fraudList.style.visibility = "hidden";
+ // fraudList.style.visibility = "hidden";
   tree.style.visibility = "hidden";
 }
 /*

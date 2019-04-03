@@ -1,4 +1,4 @@
-getBankNames = async () => {
+/*getBankNames = async () => {
   events = await window.KYCinstance.getPastEvents('BankAdded', { fromBlock: 0 });
   
   let nullOpt = document.createElement("option");
@@ -16,7 +16,7 @@ getBankNames = async () => {
   }
   return options;
 }
-
+*/
 eventLister  = async (events) => {
   const tBody = document.getElementsByTagName("tbody")[0];
   tBody.innerHTML = "";
@@ -34,6 +34,9 @@ eventLister  = async (events) => {
     const time = timeConverter(values.txDate / 1000);
     const txId = web3.utils.toAscii(values.txId);
 
+    if (txIds.has(txId)) return;
+    txIds.add(txId);
+
     const elements = [time, txId, fromBank, fromAccount, toBank, toAccount, amount]
 
     const row = document.createElement("tr");
@@ -46,47 +49,10 @@ eventLister  = async (events) => {
 
     tBody.appendChild(row);
   }
-
 }
 
-/*eventLister  = (events) => {
-  const fraudEvents = document.getElementById("reportedFrauds");
-  fraudEvents.innerHTML = "";
+var txIds = new Set(); 
 
-  for (var i = 0; i < events.length; i++) {
-    let values = events[i].returnValues;
-    let fromAccount = document.createTextNode("From Account: " + web3.utils.toAscii(values.fromAccount));
-    let toAccount = document.createTextNode("To Account: " + web3.utils.toAscii(values.toAccount));
-    let amount = document.createTextNode("Amount: " + values.amount);
-    let time = document.createTextNode("Transaction Date: " + timeConverter(values.txDate / 1000));
-
-    var elements = [fromAccount, toAccount, amount, time];
-
-    const fraudEvents = document.getElementById("reportedFrauds");
-    let divItem = document.createElement('div');
-    divItem.setAttribute('class', "fraudEvent")
-
-    for (var j = 0; j < elements.length; j++) {
-      var listItem = document.createElement('ul');
-      listItem.appendChild(elements[j]);
-      divItem.appendChild(listItem);
-    }
-    fraudEvents.appendChild(divItem);
-
-    let button = document.createElement("button");
-    button.setAttribute('class', "notify");
-    button.innerHTML = "NOTIFY";
-    
-    divItem.appendChild(button);
-  }
-  
-  const button = document.createElement("button");
-  button.setAttribute('class', "notifyAll");
-  button.innerHTML = "NOTIFY ALL";
-    
-  fraudEvents.appendChild(button);
-}
-*/
 queryChainByDate = async () => {
   var fromDate = new Date(document.getElementById("fromDate").value);
   var toDate = new Date(document.getElementById("toDate").value);
@@ -104,6 +70,8 @@ queryChainByDate = async () => {
 
   for (var i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
 
+  txIds.clear();
+
   var fromEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, fromBank:ethereum.selectedAddress}, fromBlock: 0 });
   var toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, toBank:ethereum.selectedAddress}, fromBlock: 0 });
 
@@ -114,6 +82,7 @@ queryChainByDate = async () => {
 queryChainByTxId = async () => {
   var txId = web3.utils.fromAscii(document.getElementById("txId").value);
   var txEvent = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {txId: txId}, fromBlock: 0 });
+  if (!txEvent[0]) return ;
   if ((txEvent[0].returnValues.fromBank.toLowerCase() != ethereum.selectedAddress) 
   && (txEvent[0].returnValues.toBank.toLowerCase() != ethereum.selectedAddress)) return;
 
@@ -129,7 +98,7 @@ queryChainByToBank = async () => {
   eventLister(toEvents);
 
 }
-
+/*
 renderPage = async () => {
   var banks = document.createElement("select");
   banks.setAttribute("id", "toBank");
@@ -141,10 +110,11 @@ renderPage = async () => {
   const qButton = document.getElementById("toQueryButton");
   qFields.insertBefore(banks, qButton);
 }
-
+*/
 startWeb3 = async () => { 
   await initWeb3(); 
-  renderPage();
+  await setBank();
+  //renderPage();
 };
 
 startWeb3();

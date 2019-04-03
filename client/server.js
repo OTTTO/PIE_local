@@ -7,7 +7,7 @@ var app = express();
 
 app.get('/', function(req, res) {
   if (userIsLoggedIn()) {
-    res.sendFile(__dirname + '/public/html/entry.html');
+    res.sendFile(__dirname + '/public/index.html');
   } else {
     res.sendFile(__dirname + '/public/accessDenied.html');
   }
