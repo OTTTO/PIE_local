@@ -1,9 +1,9 @@
-/*getBankNames = async () => {
+getBankNames = async () => {
   events = await window.KYCinstance.getPastEvents('BankAdded', { fromBlock: 0 });
   
   let nullOpt = document.createElement("option");
   nullOpt.setAttribute("value", "");
-  nullOpt.innerHTML = "Select TO Bank";
+  nullOpt.innerHTML = "Select Bank";
 
   var options = [nullOpt];
 
@@ -16,7 +16,7 @@
   }
   return options;
 }
-*/
+
 eventLister  = async (events) => {
   const tBody = document.getElementsByTagName("tbody")[0];
   tBody.innerHTML = "";
@@ -98,23 +98,19 @@ queryChainByToBank = async () => {
   eventLister(toEvents);
 
 }
-/*
+
 renderPage = async () => {
-  var banks = document.createElement("select");
-  banks.setAttribute("id", "toBank");
+  var banks = document.getElementById("bank-selector");
   var options = await getBankNames();
   for (let j = 0; j < options.length; j++) {
     banks.appendChild(options[j]);
   }
-  const qFields = document.getElementById("queryFields");
-  const qButton = document.getElementById("toQueryButton");
-  qFields.insertBefore(banks, qButton);
 }
-*/
+
 startWeb3 = async () => { 
   await initWeb3(); 
   await setBank();
-  //renderPage();
+  renderPage();
 };
 
 startWeb3();

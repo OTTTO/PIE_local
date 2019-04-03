@@ -48631,17 +48631,6 @@ getWeb3 = async () =>
   new Promise((resolve, reject) => {
     window.addEventListener("load", async () => {
       if (window.ethereum) {
-        window.ethereum.on('accountsChanged', async (accounts) => {
-          let owner = await window.KYCinstance.methods.owner().call({from: ethereum.selectedAddress, gas:3000000});
-          let potentialBank = await window.KYCinstance.methods.banks(accounts[0]).call({from: ethereum.selectedAddress, gas:3000000});
-          if (accounts[0] == owner.toLowerCase()) {
-            document.location.href = "../admin/banks-list.html";
-          } else if (potentialBank.name != "0x0000000000000000000000000000000000000000000000000000000000000000") {
-            document.location.href = "../bank/report-fraud.html";
-          } else {
-            document.location.href = "../index.html";
-          }
-        });
         web3 = new Web3(ethereum);
         console.log("Thanks for using MetaMask!");
         try {
@@ -48672,6 +48661,21 @@ initWeb3 = async () => {
     window.KYCinstance = new window.web3.eth.Contract(
       KYC.abi, 
       deployedNetwork.address);
+
+    window.ethereum.on('accountsChanged', async (accounts) => {
+      console.log(accounts[0]);
+      if (accounts[0] === undefined) document.location.href = "../index.html";
+      let owner = await window.KYCinstance.methods.owner().call({from: ethereum.selectedAddress, gas:3000000});
+      let potentialBank = await window.KYCinstance.methods.banks(accounts[0]).call({from: ethereum.selectedAddress, gas:3000000});
+      if (accounts[0] == owner.toLowerCase()) {
+        document.location.href = "../admin/banks-list.html";
+      } else if (potentialBank.name != "0x0000000000000000000000000000000000000000000000000000000000000000") {
+        document.location.href = "../bank/report-fraud.html";
+      } else {
+        document.location.href = "../index.html";
+      }
+    });
+
 
   } catch (err) {
     alert('Failed to load web3, accounts, or contract');

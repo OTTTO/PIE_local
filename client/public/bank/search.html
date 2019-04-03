@@ -27,7 +27,7 @@
    <div class="col-md-5">
    <div class="top-user-menu dropdown pull-right" dropdown="">
      <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <i class="fa fa-user"></i> John Doe
+      <i class="fa fa-user"></i> Bank/Risk Officer
           <span class="caret"></span>
         </button>
         <ul aria-labelledby="dLabel" class="dropdown-menu">
@@ -62,8 +62,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="report-fraud.html">Report Fraud</a></li>
+        <li><a href="view-fraud.html">View Fraud</a></li>
         <li class="active"><a href="search.html">Search</a></li>
-		<li><a href="track.html">Track</a></li>
+		    <li><a href="track.html">Track</a></li>
       </ul>
      
     </div><!-- /.navbar-collapse -->
@@ -103,7 +104,7 @@
  
  <div class="card search-wrapper">
  <div class="row">
- <div class="form-group col-sm-4 col-md-offset-3">
+ <div class="form-group col-sm-4">
  <label>Transaction ID</label>
   <input type="text" id="txId" class="form-control" placeholder="UPI/NPCI Txn ID">
  </div>
@@ -114,6 +115,23 @@
  </div>
  </div>
  <!--Eof Search by ID-->
+ 
+  <div class="card search-wrapper">
+ <div class="row">
+ <div class="form-group col-sm-7">
+ <label>To Bank</label>
+  <select id="bank-selector" class="form-control">
+  </select>
+ </div>
+ 
+ 
+ <div class="form-group col-sm-4">
+<button class="btn btn-search" onclick="queryChainByToBank();"><i class="fas fa-search"></i> Search by Bank</div>
+ </div>
+ </div>
+ 
+ </div>
+ <!--Eof Search by bank-->
  
  <!--Eof Search-->
  <div class="table-responsive mt-20">

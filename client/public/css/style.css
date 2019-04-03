@@ -190,26 +190,28 @@ margin-bottom:40px;
 .login-wrapper h2{
  margin: 10px 0 29px 0;
 font-size: 22px;
-font-weight:600;
+font-weight:700;
+text-align:center;
 }
 
 .login-btn{
 	text-align:center;
 	margin-bottom:20px;
+	margin-top:20px;
 }
 
 .btn-mainlogin{
 color: #ffffff;
-background: #0f59b3;
+background: #e78a3c;
 padding: 7px 60px;
 border-radius: 25px;
-border: 2px solid #0f59b3;
+border: 2px solid #e78a3c;
 font-size: 17px;
 font-weight: 500;
 }
 
 .btn-mainlogin:hover{
- color: #0f59b3;
+ color: #e78a3c;
  background: #ffffff;
 }
 

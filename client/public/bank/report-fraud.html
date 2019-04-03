@@ -27,7 +27,7 @@
    <div class="col-md-5">
    <div class="top-user-menu dropdown pull-right" dropdown="">
      <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <i class="fa fa-user"></i> John Doe
+      <i class="fa fa-user"></i> Bank/Risk Officer
           <span class="caret"></span>
         </button>
         <ul aria-labelledby="dLabel" class="dropdown-menu">
@@ -62,6 +62,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="report-fraud.html">Report Fraud</a></li>
+        <li><a href="view-fraud.html">View Fraud</a></li>
         <li><a href="search.html">Search</a></li>
 		<li><a href="track.html">Track</a></li>
       </ul>
@@ -83,82 +84,20 @@
  <table class="table table-hover">
  <thead>
  <tr>
- <th>From Account Number</th>
- <th>To Account Number</th>
- <th>Bank Name</th>
- <th>Amount</th>
- <th>Transaction Time</th>
-  <th>Transaction ID</th>
+ <th>Transaction ID</th>
+<th>From Account Number</th>
+<th>To Bank Name</th>
+<th>To Account Number</th>
+<th>Amount</th>
+<th>Transaction Time</th>
  </tr>
  </thead>
  <tbody>
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
- 
- <tr>
- <td>045005423252</td>
- <td>452356253523</td>
- <td>West Wrangler Bank</td>
- <td>$50</td>
- <td>09/05/2016 <span class="time">10:00 AM</span></td>
- <td>23526325</td>
- </tr>
  </tbody>
  </table>
  </div>
  </div>
- <div class="text-center mt-20"><button class="btn btn-danger">Publish To Blockchain</button></div>
+ <div class="text-center mt-20"><button class="btn btn-danger" onclick="reportFraud();">Publish To Blockchain</button></div>
  </div>
  
  </div>
@@ -184,6 +123,5 @@
     <script type="text/javascript" src="../js/bundle.js"></script>
     <script type="text/javascript" src="../js/bank.js"></script>
     <script type="text/javascript" src="../js/report.js"></script>
-	
   </body>
 </html>
