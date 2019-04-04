@@ -35,7 +35,7 @@ initWeb3 = async () => {
     window.KYCinstance = new window.web3.eth.Contract(
       KYC.abi, 
       deployedNetwork.address);
-
+    /*
     window.ethereum.on('accountsChanged', async (accounts) => {
       if (accounts[0] === undefined) document.location.href = "../index.html";
       const owner = await window.KYCinstance.methods.owner().call({from: ethereum.selectedAddress, gas:3000000});
@@ -48,8 +48,7 @@ initWeb3 = async () => {
         document.location.href = "../index.html";
       }
     });
-
-
+    */
   } catch (err) {
     alert('Failed to load web3, accounts, or contract');
     console.error(err);
