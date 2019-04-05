@@ -86,15 +86,19 @@ queryChainByTxId = async () => {
   if ((txEvent[0].returnValues.fromBank.toLowerCase() != ethereum.selectedAddress) 
   && (txEvent[0].returnValues.toBank.toLowerCase() != ethereum.selectedAddress)) return;
 
+  txIds.clear();
+
   eventLister(txEvent);
 }
 
 queryChainByToBank = async () => {
-  const toBank = document.getElementById("toBank").value;
+  const toBank = document.getElementById("bank-selector").value;
   if (toBank == "") return;
 
-  var toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {fromBank: ethereum.selectedAddress, toBank: toBank}, fromBlock: 0 });
+  
+  const toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {fromBank: ethereum.selectedAddress, toBank: toBank}, fromBlock: 0 });
 
+  txIds.clear();
   eventLister(toEvents);
 
 }

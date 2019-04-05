@@ -2,13 +2,13 @@ logFraud = async (type, values) => {
     const tbody = document.getElementById(type);
     const txId = web3.utils.toAscii(values.txId);
     const fromAccount = web3.utils.toAscii(values.fromAccount);
-    const toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
-    const toBank = web3.utils.toAscii(toB.name);
+    const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
+    const fromBank = web3.utils.toAscii(fromB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
     const amount = `$${values.amount}`;
     const txTime = timeConverter(values.time / 1000);
 
-    const elements = [txId, fromAccount, toBank, toAccount, amount, txTime];
+    const elements = [txId, fromAccount, fromBank, toAccount, amount, txTime];
 
     var tr = document.createElement("tr");
 
@@ -74,6 +74,7 @@ viewFraud = async function () {
     const details = row.children;
     const txId = web3.utils.fromAscii(details[0].innerHTML);
     await window.KYCinstance.methods.viewFraud(txId, ethereum.selectedAddress).send({from: ethereum.selectedAddress});;
+    location.reload(true);
 }
 
 startWeb3 = async () => { 

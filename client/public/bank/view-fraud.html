@@ -81,12 +81,12 @@
  <!-- Nav tabs -->
  <div class="mt-20">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#dispositioned" aria-controls="dispositioned" role="tab" data-toggle="tab">Dispositioned Fraud Transactions</a></li>
-    <li role="presentation"><a href="#notview" aria-controls="notview" role="tab" data-toggle="tab">Not Viewed Fraud Transactions</a></li>
+    <li role="presentation"><a href="#dispositioned" aria-controls="dispositioned" role="tab" data-toggle="tab">Dispositioned Fraud Transactions</a></li>
+    <li role="presentation" class="active"><a href="#notview" aria-controls="notview" role="tab" data-toggle="tab">Not Viewed Fraud Transactions</a></li>
   </ul>
   
    <div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="dispositioned">
+  <div role="tabpanel" class="tab-pane fade" id="dispositioned">
  <h4 class="subtitle">Dispositioned Fraud Transactions</h4>
  <div class="table-responsive mt-20">
  <div class="table-wrapper view-fraud-table">
@@ -95,7 +95,7 @@
  <tr>
  <th>Transaction ID</th>
 <th>From Account Number</th>
-<th>To Bank Name</th>
+<th>From Bank Name</th>
 <th>To Account Number</th>
 <th>Amount</th>
 <th>Transaction Time</th>
@@ -108,7 +108,7 @@
  </div>
  </div>
  
- <div role="tabpanel" class="tab-pane fade" id="notview">
+ <div role="tabpanel" class="tab-pane fade in active" id="notview">
  <h4 class="subtitle">Not Viewed Fraud Transactions </h4>
  <div class="table-responsive mt-20">
  <div class="table-wrapper view-fraud-table">
@@ -117,7 +117,7 @@
  <tr>
  <th>Transaction ID</th>
 <th>From Account Number</th>
-<th>To Bank Name</th>
+<th>From Bank Name</th>
 <th>To Account Number</th>
 <th>Amount</th>
 <th>Transaction Date</th>

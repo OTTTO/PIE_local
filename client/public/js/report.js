@@ -93,7 +93,7 @@ reportFraud = async () => {
         return;
       }
 
-      await window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[0])).send({from: ethereum.selectedAddress, gas:3200000});
+      window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[0])).send({from: ethereum.selectedAddress, gas:3200000});
       
     }
   } else {
