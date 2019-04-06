@@ -35,7 +35,7 @@ removeBank = async function() {
   }    
 }
 
-var invalidAddresses = new Set();
+const invalidAddresses = new Set();
 
 getInvalidAddresses = async () => {
   events = await window.KYCinstance.getPastEvents('BankRemoved', { fromBlock: 0 });
@@ -55,7 +55,7 @@ getBankList = async (error, event) => {
   const bankType = web3.utils.toAscii(values.bankType);
   const elements = [bankType, name, addr];
 
-  var row = document.createElement("tr"); 
+  const row = document.createElement("tr"); 
 
   for (let i = 0; i < elements.length; i++) {
     const td = document.createElement("td");
@@ -70,7 +70,6 @@ getBankList = async (error, event) => {
   delIcon.setAttribute("class", "fas fa-trash-alt");
   delButton.appendChild(delIcon);
 //<button class="btn btn-icon btn-edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-edit"></i></button>
-//<button class="btn btn-icon btn-delete" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash-alt"></i></button>
   row.appendChild(delButton);
   tBody.appendChild(row);
 }

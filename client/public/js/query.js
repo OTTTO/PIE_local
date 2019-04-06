@@ -5,7 +5,7 @@ getBankNames = async () => {
   nullOpt.setAttribute("value", "");
   nullOpt.innerHTML = "Select Bank";
 
-  var options = [nullOpt];
+  const options = [nullOpt];
 
   for (let i = 0; i < events.length; i++) {
     let values = events[i].returnValues;
@@ -21,7 +21,7 @@ eventLister  = async (events) => {
   const tBody = document.getElementsByTagName("tbody")[0];
   tBody.innerHTML = "";
 
-  for (var i = 0; i < events.length; i++) {
+  for (let i = 0; i < events.length; i++) {
     const values = events[i].returnValues;
 
     const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
@@ -51,11 +51,11 @@ eventLister  = async (events) => {
   }
 }
 
-var txIds = new Set(); 
+const txIds = new Set(); 
 
 queryChainByDate = async () => {
-  var fromDate = new Date(document.getElementById("fromDate").value);
-  var toDate = new Date(document.getElementById("toDate").value);
+  const fromDate = new Date(document.getElementById("fromDate").value);
+  const toDate = new Date(document.getElementById("toDate").value);
 
   fromDate.setDate(fromDate.getDate() + 1);
   toDate.setDate(toDate.getDate() + 1);
@@ -65,23 +65,23 @@ queryChainByDate = async () => {
 
   const oneDay = 86400000;
   const numDays = ((toDate - fromDate) / oneDay) + 1;
-  var days = [];  
-  var date = fromDate.getTime();
+  const days = [];  
+  const date = fromDate.getTime();
 
-  for (var i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
+  for (let i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
 
   txIds.clear();
 
-  var fromEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, fromBank:ethereum.selectedAddress}, fromBlock: 0 });
-  var toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, toBank:ethereum.selectedAddress}, fromBlock: 0 });
+  const fromEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, fromBank:ethereum.selectedAddress}, fromBlock: 0 });
+  const toEvents = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days, toBank:ethereum.selectedAddress}, fromBlock: 0 });
 
   eventLister(fromEvents);
   eventLister(toEvents);
 }
 
 queryChainByTxId = async () => {
-  var txId = web3.utils.fromAscii(document.getElementById("txId").value);
-  var txEvent = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {txId: txId}, fromBlock: 0 });
+  const txId = web3.utils.fromAscii(document.getElementById("txId").value);
+  const txEvent = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {txId: txId}, fromBlock: 0 });
   if (!txEvent[0]) return ;
   if ((txEvent[0].returnValues.fromBank.toLowerCase() != ethereum.selectedAddress) 
   && (txEvent[0].returnValues.toBank.toLowerCase() != ethereum.selectedAddress)) return;
@@ -104,8 +104,8 @@ queryChainByToBank = async () => {
 }
 
 renderPage = async () => {
-  var banks = document.getElementById("bank-selector");
-  var options = await getBankNames();
+  const banks = document.getElementById("bank-selector");
+  const options = await getBankNames();
   for (let j = 0; j < options.length; j++) {
     banks.appendChild(options[j]);
   }

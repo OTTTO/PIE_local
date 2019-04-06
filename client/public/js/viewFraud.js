@@ -10,7 +10,7 @@ logFraud = async (type, values) => {
 
     const elements = [txId, fromAccount, fromBank, toAccount, amount, txTime];
 
-    var tr = document.createElement("tr");
+    const tr = document.createElement("tr");
 
     for (let i = 0; i < elements.length; i++) {
         const td = document.createElement("td");
@@ -46,7 +46,7 @@ logFraud = async (type, values) => {
 }
 
 disposition = async () => { 
-    var viewedTxns = new Set();
+    const viewedTxns = new Set();
     const latest = await web3.eth.getBlockNumber();
     const viewedEvents = await window.KYCinstance.getPastEvents('FraudViewed', { filter: {toBank:ethereum.selectedAddress}, fromBlock: 0 });
 

@@ -2,14 +2,14 @@ getBankNames = async () => {
   addEvents = await window.KYCinstance.getPastEvents('BankAdded', { fromBlock: 0 });
   rmEvents = await window.KYCinstance.getPastEvents('BankRemoved', { fromBlock: 0 });
 
-  var invalidAddresses = new Set();
+  const invalidAddresses = new Set();
 
   for (let i = 0; i < rmEvents.length; i++) {
     const values = rmEvents[i].returnValues;
     invalidAddresses.add(values.bankAddress);
   }
 
-  var options = [];
+  const options = [];
   for (let i = 0; i < addEvents.length; i++) {
     const values = addEvents[i].returnValues;
     if (invalidAddresses.has(values.bankAddress)) continue;
@@ -68,11 +68,11 @@ renderPage = async () => {
 
 reportFraud = async () => {
   if (window.KYCinstance) {
-    var tbody = document.getElementsByTagName("tbody")[0];
-    for (var i = 0; i < 7; i++) {
-      var tr = tbody.getElementsByTagName("tr")[i];
-      var params = [];
-      for (var j = 0; j < 5; j++) {
+    const tbody = document.getElementsByTagName("tbody")[0];
+    for (let i = 0; i < 7; i++) {
+      const tr = tbody.getElementsByTagName("tr")[i];
+      const params = [];
+      for (let j = 0; j < 5; j++) {
         params.push(tr.getElementsByTagName("input")[j].value);
       }
       bank = document.getElementById("toBank");
@@ -83,7 +83,7 @@ reportFraud = async () => {
       
       const earliestDate = new Date(1965, 0, 0);
       const latestDate = new Date();
-      var txDate = new Date(params[4]);
+      const txDate = new Date(params[4]);
       const hours = (24 - (txDate.getTimezoneOffset() / 60)) % 24;
       txDate.setHours(hours,0,0,0);
       const timestamp = new Date(params[4]);

@@ -1,7 +1,7 @@
 findFraudByFromAccount = async (account, timestamp) => {
   events = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
-  var frauds = [];
-  var theseTimestamps = [];
+  const frauds = [];
+  const theseTimestamps = [];
 
   for (let i = 0; i < events.length; i++) {
     let values = events[i].returnValues;
@@ -16,7 +16,7 @@ findFraudByFromAccount = async (account, timestamp) => {
   return [frauds, theseTimestamps];
 }
 
-var timestamps;
+let timestamps;
 
 trackFraud = async () => {
 
@@ -32,13 +32,13 @@ trackFraud = async () => {
     }
   };
 
-  var root = chart_config.nodeStructure = newNode(account);
+  const root = chart_config.nodeStructure = newNode(account);
 
   timestamps = new Set();
 
   await fraudClimb(root, account, 0);
 
-  var my_chart = new Treant(chart_config);
+  const my_chart = new Treant(chart_config);
 
   document.getElementById("tree-simple").style.visibility = "visible";
 
@@ -46,13 +46,15 @@ trackFraud = async () => {
 
   async function fraudClimb(root, account, theseTimestamps) {
 
-    var [frauds, theseTimestamps] = await findFraudByFromAccount.call(this, account, theseTimestamps);
+    let frauds;
+
+    [frauds, theseTimestamps] = await findFraudByFromAccount.call(this, account, theseTimestamps);
 
     if (frauds.length == 0) return;
 
-    var children = root.children = [];
+    const children = root.children = [];
 
-    for (var i = 0; i < frauds.length; i++) {
+    for (let i = 0; i < frauds.length; i++) {
       children.push(newNode(frauds[i]));
       await fraudClimb(children[i], frauds[i], theseTimestamps[i]);
     }
@@ -60,7 +62,7 @@ trackFraud = async () => {
 }
 
 clearFraud = () => {
-  var tree = document.getElementById("tree-simple");
+  const tree = document.getElementById("tree-simple");
   tree.innerHTML = '';
   tree.style.visibility = "hidden";
 }
@@ -120,6 +122,6 @@ startWeb3 = async () => {
   
 };
 
-var eventBlocks = new Set();
+const eventBlocks = new Set();
 
 startWeb3();

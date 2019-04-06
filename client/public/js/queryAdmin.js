@@ -2,7 +2,7 @@ eventLister  = async (events) => {
   const tBody = document.getElementsByTagName("tbody")[0];
   tBody.innerHTML = "";
 
-  for (var i = 0; i < events.length; i++) {
+  for (let i = 0; i < events.length; i++) {
     const values = events[i].returnValues;
 
     const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
@@ -39,8 +39,8 @@ eventLister  = async (events) => {
 }
 
 queryChainByDate = async () => {
-  var fromDate = new Date(document.getElementById("fromDate").value);
-  var toDate = new Date(document.getElementById("toDate").value);
+  const fromDate = new Date(document.getElementById("fromDate").value);
+  const toDate = new Date(document.getElementById("toDate").value);
 
   fromDate.setDate(fromDate.getDate() + 1);
   toDate.setDate(toDate.getDate() + 1);
@@ -50,19 +50,19 @@ queryChainByDate = async () => {
 
   const oneDay = 86400000;
   const numDays = ((toDate - fromDate) / oneDay) + 1;
-  var days = [];  
-  var date = fromDate.getTime();
+  const days = [];  
+  const date = fromDate.getTime();
 
-  for (var i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
+  for (let i = 0; i < numDays; i++) { days.push(date + (oneDay * i)); }
 
-  var events = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days}, fromBlock: 0 });
+  const events = await window.KYCinstance.getPastEvents('ReportedFraudA', { filter: {txDate: days}, fromBlock: 0 });
 
   eventLister(events);
 }
 
 queryChainByTxId = async () => {
-  var txId = web3.utils.fromAscii(document.getElementById("txId").value);
-  var txEvent = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {txId: txId}, fromBlock: 0 });
+  const txId = web3.utils.fromAscii(document.getElementById("txId").value);
+  const txEvent = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {txId: txId}, fromBlock: 0 });
 
   eventLister(txEvent);
 }
