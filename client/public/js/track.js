@@ -103,17 +103,17 @@ startWeb3 = async () => {
   await initWeb3(); 
   await setBank();
 
-  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress, toBank:ethereum.selectedAddress}, fromBlock:0 }, 
+  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress, toBank:ethereum.selectedAddress}, fromBlock: 0 }, 
   async (error, event) => {
     listenCallback(error, event, "internalFraudEvents");
   });
 
-  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock:0 }, 
+  window.KYCinstance.events.ReportedFraudA({ filter: {fromBank:ethereum.selectedAddress}, fromBlock: 0 }, 
   async (error, event) => {
     listenCallback(error, event, "fromFraudEvents");
   });
 
-  window.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock:0 }, 
+  window.KYCinstance.events.ReportedFraudA({ filter: {toBank:ethereum.selectedAddress}, fromBlock: 0 }, 
   async (error, event) => {
     listenCallback(error, event, "toFraudEvents");
   });

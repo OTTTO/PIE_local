@@ -76,7 +76,7 @@ getBankList = async (error, event) => {
 startWeb3 = async () => {
     await initWeb3();
     await getInvalidAddresses();    
-    window.KYCinstance.events.BankAdded({ fromBlock:0 }, getBankList);
+    window.KYCinstance.events.BankAdded({ fromBlock: 0 }, getBankList);
 }
 
 startWeb3();
