@@ -11,6 +11,14 @@ h1,h2,h3,h4,h5,h6{
 font-family: 'Montserrat', sans-serif;
 }
 
+.bg-white{
+	background:#ffffff!important;
+}
+
+.pdl-0{
+	padding-left:0;
+}
+
 a{
 	color:#0f59b3;
 }
@@ -81,14 +89,14 @@ transition: all ease 0.3s 0s;
 }
 
 .btn-edit{
-	background:#2e78d3;
-	border:1px solid #2e78d3;
+	background:#2ca7e7;
+	border:1px solid #2ca7e7;
 	color:#ffffff;
 }
 
 .btn-edit:hover{
 	background:#ffffff;
-	color:#2e78d3;
+	color:#2ca7e7;
 }
 
 .btn-delete{
@@ -105,28 +113,28 @@ transition: all ease 0.3s 0s;
 /* Login Styles */
 
 .dataeconomy-top-logo{
-	padding:5px;
-	text-align:center;
-	background:#ffffff;
+	padding: 5px 15px;
+    text-align: right;
+    background: #ffffff;
 }
 
 .login-logo{
 text-align:center;
-margin-top:50px;
-margin-bottom:40px;
+margin-top:35px;
+margin-bottom:35px;
 }
 
 
 #main-login-container .admin-login{
-	background:#2e78d3;
+	background:#010a4d url('../images/login_admin_bg.png') no-repeat right top;
 	color:#ffffff;
 	min-height:420px;
 	text-align:center;
 }
 
 #main-login-container .bank-login{
-	background:#ffffff;
-	color:#2e78d3;
+	background:#ffffff url('../images/login_bank_bg.png') no-repeat right top;
+	color:#2ca7e7;
 	min-height:420px;
 	text-align:center;
 }
@@ -144,25 +152,28 @@ margin-bottom:40px;
 }
 
 .login-main-btns .btn-admin-login{
-	color:#ffffff;
+	color:#00083a;
 	border:2px solid #ffffff;
+	background:#ffffff;
+	font-weight:600;
 	
 }
 
 .login-main-btns .btn-admin-login:hover{
-	color:#2e78d3;
-	background:#ffffff;
+	color:#ffffff;
+	background:transparent;
 }
 
 .login-main-btns .btn-bank-login{
-	color:#2e78d3;
-	border:2px solid #2e78d3;
+	color:#ffffff;
+	border:2px solid #2ca7e7;
+	background:#2ca7e7;
 	
 }
 
 .login-main-btns .btn-bank-login:hover{
-	color:#ffffff;
-	background:#2e78d3;
+	color:#2ca7e7;
+	background:#ffffff;
 }
 
 .poweredby{
@@ -178,13 +189,18 @@ margin-bottom:40px;
 
 /* Login Page Styles */
 .login-wrapper{
-    width: 500px;
     min-height: 350px;
     padding: 15px 30px;
 	background:#ffffff;
     margin: 15px auto;
     border-radius: 0;
+	}
 	
+	.loginpage-slide{
+		background:url('../images/login-bg.png') no-repeat center left;
+		background-size:cover;
+		height:100vh;
+		
 	}
 	
 .login-wrapper h2{
@@ -202,16 +218,16 @@ text-align:center;
 
 .btn-mainlogin{
 color: #ffffff;
-background: #e78a3c;
+background: #2ca7e7;
 padding: 7px 60px;
 border-radius: 25px;
-border: 2px solid #e78a3c;
+border: 2px solid #2ca7e7;
 font-size: 17px;
 font-weight: 500;
 }
 
 .btn-mainlogin:hover{
- color: #e78a3c;
+ color: #2ca7e7;
  background: #ffffff;
 }
 
@@ -229,7 +245,7 @@ font-size: 16px;
 /* Admin Styles */
 
 #inner-header{
-	background:#2e78d3;
+	background:#2ca7e7;
 	padding:10px 0;
 }
 
@@ -249,7 +265,7 @@ outline:none;
 .top-user-menu .dropdown-toggle i{
 	width:32px;
 	height:32px;
-	background:#478ee5;
+	background:#088ace;
 	color:#ffffff;
 	line-height:32px;
 	text-align:center;
@@ -258,7 +274,7 @@ outline:none;
 }
 
 #main-menu{
-	background:#2068c0;
+	background:#088ace;
 }
 
 #main-menu .navbar{
@@ -339,9 +355,10 @@ font-size: 16px;
 }
 
 .btn-clear{
-	background:lightblue;
+	background:#ffffff;
+	border:2px solid #da251c;
 	border-radius:25px;
-	color:#000000;
+	color:#da251c;
 	font-weight:600;
 	font-size:15px;
 	padding: 5px 25px;
@@ -349,8 +366,8 @@ font-size: 16px;
 }
 
 .btn-clear:hover{
-	color:white;
-	background:blue;	
+	color:#ffffff;
+	background:#da251c;	
 }
 
 .btn-search i{
@@ -469,12 +486,12 @@ color:#222222;
 
 .nav-tabs>li>a:hover{
 	background:#f8f8f8;
-	color:#2e78d3;
+	color:#2ca7e7;
 	border: 1px solid #ddd;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-	background:#2e78d3;
+	background:#2ca7e7;
 	color:#ffffff;
 }
 
@@ -484,6 +501,64 @@ color:#222222;
 	border:1px solid #cccccc;
 	border-top:0;
 }
+
+.table tbody .form-control{
+		font-size:13px!important;
+		    padding: 5px 6px;
+	}
+	
+	.report-fraud-table{
+		height:410px!important;
+	}
+	
+	.view-fraud-table{
+		height:400px!important;
+	}
+	
+	
+	
+	.checkbox {
+  padding-left: 20px; }
+  .checkbox input{
+	  width:16px;
+	  height:16px;
+  }
+  
+  @media screen and (max-width: 767px) {
+  .navbar-toggle span{
+	  background:#ffffff;
+  }
+  .bank-logo-text {
+    font-size: 24px;
+    margin: 0 0px 20px 0;
+    line-height: 33px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#main-menu .navbar-nav>li {
+    float: none;
+    margin: 0 15px;
+    display: block;
+    text-align: left;
+}
+
+.desktop-only{
+	display:none;
+}
+
+.login-logo{
+	margin:0;
+}
+
+#main-login-container .login-icon-img-wrapper{
+	margin-top:15px;
+}
+
+#main-login-container .admin-login, #main-login-container .bank-login{
+	min-height:280px;
+}
+  }
 
 /* Treant Style */
 
