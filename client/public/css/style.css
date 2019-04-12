@@ -438,7 +438,7 @@ td {
 }
 
 .modal-body{
-	min-height:250px;
+	min-height:500px;
 }
 
 .modal-body label{
@@ -564,4 +564,12 @@ color:#222222;
 
 p.node-name {
 	margin: 0;
+}
+
+.suspended {
+	color: red;
+}
+
+#tree-simple {
+	overflow-y: auto;
 }

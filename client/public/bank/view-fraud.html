@@ -11,6 +11,7 @@
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../font-awesome-5.0.8/css/fontawesome-all.min.css" rel="stylesheet">
 	 <link href="../css/style.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="../css/Treant.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -137,6 +138,26 @@
  </div>
  
  </div>
+
+<!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" onclick="$('#tree-simple').hide();">&times;</button>
+          <h4 class="modal-title">Fraudulent Transaction Flow</h4>
+        </div>
+        <div class="modal-body">
+          <div id="tree-simple"></div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$('#tree-simple').hide();">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Eof Modal -->
+
  </section>
  <!-- Eof Mid Content-->
  
@@ -156,8 +177,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/treant/vendor/raphael.js"></script>
+    <script type="text/javascript" src="../js/treant/Treant.js"></script>
 	  <script type="text/javascript" src="../js/bundle.js"></script>
-    <script type="text/javascript"></script>
     <script type="text/javascript" src="../js/bank.js"></script>
     <script type="text/javascript" src="../js/utils.js"></script>
     <script type="text/javascript" src="../js/viewFraud.js"></script>
