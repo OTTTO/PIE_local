@@ -11,7 +11,7 @@ eventLister  = async (events) => {
     const fromAccount = web3.utils.toAscii(values.fromAccount);
     const toBank = web3.utils.toAscii(toB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
-    const amount = `$${values.amount}`;
+    const amount = `₹${values.amount}`;
     const time = timeConverter(values.txDate / 1000);
     const txId = web3.utils.toAscii(values.txId);    
 

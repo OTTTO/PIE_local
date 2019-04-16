@@ -5,7 +5,7 @@ const logFraud = async (type, values) => {
     const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
     const fromBank = web3.utils.toAscii(fromB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
-    const amount = `$${values.amount}`;
+    const amount = `₹${values.amount}`;
     const txTime = timeConverter(values.time / 1000);
 
     const elements = [txId, fromAccount, fromBank, toAccount, amount, txTime];
@@ -31,9 +31,9 @@ const logFraud = async (type, values) => {
         button.setAttribute("class", "btn btn-notifyme");
         button.setAttribute("data-toggle", "modal");
         button.setAttribute("data-target", "#myModal");        
-        button.innerHTML = "Check/Respond"
+        button.innerHTML = "Check & Action"
         button.addEventListener("click", function() { 
-            setTimeout(checkAndRespond.bind(this), 500);
+            setTimeout(checkAndRespond.bind(this), 250);
         });
 
         const elements = [checkbox, button];
@@ -87,25 +87,25 @@ const checkAndRespond = async function () {
     // FAKE ACCOUNTS
     const accounts = 
     [
-        {account:"123", balance:0,   bank: "West Wrangler Bank"},
-        {account:"876", balance:0,   bank: "Riemann's Bank"},
-        {account:"987", balance:100, bank: "West Wrangler Bank"},
-        {account:"321", balance:0,   bank: "West Wrangler Bank"},
-        {account:"234", balance:50,  bank: "Riemann's Bank"},
-        {account:"567", balance:0,   bank: "Riemann's Bank"},
-        {account:"231", balance:30,  bank: "West Wrangler Bank"},
-        {account:"435", balance:20,  bank: "West Wrangler Bank"},
+        {account:"12345678", balance:0,   bank: "North Arya Bank"},
+        {account:"87654321", balance:0,   bank: "Asian Bank"},
+        {account:"98765432", balance:100, bank: "North Arya Bank"},
+        {account:"32123456", balance:0,   bank: "North Arya Bank"},
+        {account:"23456789", balance:50,  bank: "Asian Bank"},
+        {account:"56789021", balance:0,   bank: "Asian Bank"},
+        {account:"23109876", balance:30,  bank: "North Arya Bank"},
+        {account:"43567890", balance:20,  bank: "North Arya Bank"},
     ];
     // FAKE TRANSACTIONS
     const transactions = 
-    [
-        {txId:"101", fromBank:"West Wrangler Bank", fromAccount:"123", toBank:"Riemann's Bank",     toAccount:"876", amount:200, txTime: new Date},
-        {txId:"111", fromBank:"Riemann's Bank",     fromAccount:"876", toBank:"West Wrangler Bank", toAccount:"987", amount:100, txTime: new Date},
-        {txId:"222", fromBank:"Riemann's Bank",     fromAccount:"876", toBank:"West Wrangler Bank", toAccount:"321", amount:100, txTime: new Date},
-        {txId:"333", fromBank:"West Wrangler Bank", fromAccount:"321", toBank:"Riemann's Bank",     toAccount:"234", amount:50,  txTime: new Date},
-        {txId:"444", fromBank:"West Wrangler Bank", fromAccount:"321", toBank:"Riemann's Bank",     toAccount:"567", amount:50,  txTime: new Date},
-        {txId:"555", fromBank:"Riemann's Bank",     fromAccount:"567", toBank:"West Wrangler Bank", toAccount:"231", amount:30,  txTime: new Date},
-        {txId:"666", fromBank:"Riemann's Bank",     fromAccount:"567", toBank:"West Wrangler Bank", toAccount:"435", amount:20,  txTime: new Date}
+    [ 
+        {txId:"101101101101", fromBank:"North Arya Bank", fromAccount:"12345678", toBank:"Asian Bank",      toAccount:"87654321", amount:200, txTime: new Date},
+        {txId:"183246127312", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"98765432", amount:100, txTime: new Date},
+        {txId:"232478783413", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"32123456", amount:100, txTime: new Date},
+        {txId:"332765936141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"23456789", amount:50,  txTime: new Date},
+        {txId:"467146148141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"56789021", amount:50,  txTime: new Date},
+        {txId:"553686823142", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"23109876", amount:30,  txTime: new Date},
+        {txId:"664318741813", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"43567890", amount:20,  txTime: new Date}
     ];
     // Treant chart
     const chart_config = {
@@ -185,7 +185,7 @@ const checkAndRespond = async function () {
     } else {
         //suspend account
         //chart_config.nodeStructure = newSuspended(originalAccount.account);
-        $('#tree-simple').empty().append('Money found, account suspended').show();
+        ('#tree-simple').empty().append('Money found, account suspended').show();
         return;
     }
     $("#tree-simple").show();
@@ -210,7 +210,7 @@ const checkAndRespond = async function () {
     function newSuspended(bank, account) { return {text:{name: bank, title:account, desc:"SUSPENDED"}, HTMLclass:"suspended"}; } 
 
     function suspendAccount(actNum) {
-        alert(`${actNum} has been suspended!`);
+        alert(`{actNum} has been suspended!`);
     }
 
     function search(key, value, myArray) {
