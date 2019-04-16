@@ -6,12 +6,17 @@ findFraudByFromAccount = async (account, timestamp) => {
   for (let i = 0; i < events.length; i++) {
     let values = events[i].returnValues;
 
-    if ((timestamp > values.time) || timestamps.has(values.time)) continue;
-    else {
+    /*if ((timestamp > values.time) || timestamps.has(values.time)) continue;
+    else {*/
+      const addEvent = await window.KYCinstance.getPastEvents('BankAdded', { filter: {bankAddress: values.toBank},fromBlock: 0 });
+      const bankName = web3.utils.toAscii(addEvent[0].returnValues.name);
       timestamps.add(values.time);
       theseTimestamps.push(values.time);
-      frauds.push(web3.utils.toAscii(values.toAccount)); 
-    }
+      frauds.push({
+        name: bankName,
+        account: web3.utils.toAscii(values.toAccount)
+      }); 
+    //}
   }
   return [frauds, theseTimestamps];
 }
@@ -28,21 +33,30 @@ trackFraud = async () => {
         connectors: {
           type: "straight"
         },
-        rootOrientation: "WEST"
+        rootOrientation: "WEST",
+        nodeAlign: "TOP"
     }
   };
 
-  const root = chart_config.nodeStructure = newNode(account);
+  accountEvents = await window.KYCinstance.getPastEvents('ReportedFraudB', { filter: {fromAccount: web3.utils.fromAscii(account)}, fromBlock: 0 });
+  let values = accountEvents[0].returnValues;
+  const addEvent = await window.KYCinstance.getPastEvents('BankAdded', { filter: {bankAddress: values.fromBank},fromBlock: 0 });
+  const bankName = web3.utils.toAscii(addEvent[0].returnValues.name);
+
+  const root = chart_config.nodeStructure = newNode(bankName, account);
 
   timestamps = new Set();
 
   await fraudClimb(root, account, 0);
 
+  $('#tree-simple').show();
   const my_chart = new Treant(chart_config);
 
   document.getElementById("tree-simple").style.visibility = "visible";
 
-  function newNode(node) { return {text:{name: node}}; }
+  function newNode(name, account) { 
+    return {text:{name: name, title: account.toString()}}; 
+  }
 
   async function fraudClimb(root, account, theseTimestamps) {
 
@@ -55,16 +69,10 @@ trackFraud = async () => {
     const children = root.children = [];
 
     for (let i = 0; i < frauds.length; i++) {
-      children.push(newNode(frauds[i]));
-      await fraudClimb(children[i], frauds[i], theseTimestamps[i]);
+      children.push(newNode(frauds[i].name, frauds[i].account));
+      await fraudClimb(children[i], frauds[i].account, theseTimestamps[i]);
     }
   }
-}
-
-clearFraud = () => {
-  const tree = document.getElementById("tree-simple");
-  tree.innerHTML = '';
-  tree.style.visibility = "hidden";
 }
 
 listenCallback = async (error, event, type) => {
@@ -78,7 +86,7 @@ listenCallback = async (error, event, type) => {
     const fromAccount = web3.utils.toAscii(values.fromAccount);
     const toBank = web3.utils.toAscii(toB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
-    const amount = `$${values.amount}`;
+    const amount = `₹${values.amount}`;
     const time = timeConverter(values.txDate / 1000);
     const txId = web3.utils.toAscii(values.txId);
 
