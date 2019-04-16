@@ -6,7 +6,7 @@ const logFraud = async (type, values) => {
     const fromBank = web3.utils.toAscii(fromB.name);
     const toAccount = web3.utils.toAscii(values.toAccount);
     const amount = `₹${values.amount}`;
-    const txTime = timeConverter(values.time / 1000);
+    const txTime = timeConverter(values.txDate / 1000);
 
     const elements = [txId, fromAccount, fromBank, toAccount, amount, txTime];
 
@@ -135,7 +135,7 @@ const checkAndRespond = async function () {
         $('#tree-simple').empty().append('Account currently suspended').show();
         return;
     }
-
+    const toReport = {fromBanks:[], toBanks:[], fromAccounts:[], toAccounts:[], amounts:[], dates:[], ids:[]};
     //check original fraud
     if (originalAccount.balance === 0) {
         //push OA onto BFS DS
@@ -171,13 +171,19 @@ const checkAndRespond = async function () {
                 const fromAccount = web3.utils.fromAscii(txn.fromAccount);
                 const toAccount = web3.utils.fromAscii(txn.toAccount);
                 //get date
-                const txDate = txn.txTime;
-                const hours = (24 - (txDate.getTimezoneOffset() / 60)) % 24;                    
-                txDate.setHours(hours,0,0,0);
+                const date = txn.txTime.getTime();
+                //get amount
+                const amount= txn.amount;
                 //get txID
-                const txId = web3.utils.fromAscii(txn.txId)
-                //upload to blockchain
-                window.KYCinstance.methods.reportFraud(fromBank, toBank, fromAccount, toAccount, txn.amount, txDate.getTime(), txn.txTime.getTime(), txId).send({from: ethereum.selectedAddress, gas:3200000});
+                const txId = web3.utils.fromAscii(txn.txId);
+                //fill JSON arrays
+                toReport.fromBanks.push(fromBank);
+                toReport.toBanks.push(toBank);
+                toReport.fromAccounts.push(fromAccount);
+                toReport.toAccounts.push(toAccount);
+                toReport.amounts.push(amount);
+                toReport.dates.push(date);
+                toReport.ids.push(txId);
             }
             //remove processed node
             fraudAccounts.shift();
@@ -185,9 +191,20 @@ const checkAndRespond = async function () {
     } else {
         //suspend account
         //chart_config.nodeStructure = newSuspended(originalAccount.account);
-        ('#tree-simple').empty().append('Money found, account suspended').show();
+        $('#tree-simple').empty().append('Money found, account suspended').show();
         return;
     }
+    //upload to blockchain
+    await window.KYCinstance.methods.systematicReport(
+        toReport.fromBanks,
+        toReport.toBanks,
+        toReport.fromAccounts,
+        toReport.toAccounts,
+        toReport.amounts,
+        toReport.dates,
+        toReport.ids
+    ).send({from: ethereum.selectedAddress, gas:3200000});
+
     $("#tree-simple").show();
     const my_chart = new Treant(chart_config);
 
@@ -210,7 +227,7 @@ const checkAndRespond = async function () {
     function newSuspended(bank, account) { return {text:{name: bank, title:account, desc:"SUSPENDED"}, HTMLclass:"suspended"}; } 
 
     function suspendAccount(actNum) {
-        alert(`{actNum} has been suspended!`);
+        alert(`${actNum} has been suspended!`);
     }
 
     function search(key, value, myArray) {

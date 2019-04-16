@@ -46,8 +46,8 @@ renderPage = async () => {
     
     const txDate = document.createElement("input");
     txDate.setAttribute("id", "txDate");
-    txDate.setAttribute("placeholder", "Txn Time");
-    txDate.setAttribute("onfocus", "(this.type='datetime-local')");
+    txDate.setAttribute("placeholder", "Txn Date");
+    txDate.setAttribute("onfocus", "(this.type='date')");
     txDate.setAttribute("onblur", "(this.type='')" );
 
 
@@ -84,16 +84,17 @@ reportFraud = async () => {
       const earliestDate = new Date(1965, 0, 0);
       const latestDate = new Date();
       const txDate = new Date(params[4]);
-      const hours = (24 - (txDate.getTimezoneOffset() / 60)) % 24;
-      txDate.setHours(hours,0,0,0);
-      const timestamp = new Date(params[4]);
+      //const hours = (txDate.getTimezoneOffset() / 60) % 24;
+      txDate.setHours(txDate.getHours() + 24);
 
-      if (timestamp < earliestDate || timestamp > latestDate) {
+      console.log(txDate)
+
+      if (txDate < earliestDate || txDate > latestDate) {
         alert("invalid date");
         return;
       }
 
-      window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), timestamp.getTime(), web3.utils.fromAscii(params[0])).send({from: ethereum.selectedAddress, gas:3200000});
+      window.KYCinstance.methods.reportFraud(ethereum.selectedAddress, toBank, fromAccount, toAccount, params[3], txDate.getTime(), web3.utils.fromAscii(params[0])).send({from: ethereum.selectedAddress, gas:3200000});
       
     }
   } else {

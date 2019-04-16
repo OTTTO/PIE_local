@@ -11,7 +11,6 @@ contract KYC is Ownable {
         bytes32 toAccount,
         uint256 amount,
         uint256 indexed txDate,
-        uint256 time,
         bytes32 txId
     );
 
@@ -22,18 +21,17 @@ contract KYC is Ownable {
         bytes32 indexed toAccount,
         uint256 amount,
         uint256 txDate,
-        uint256 time,
         bytes32 indexed txId
     );
 
     event BankAdded(
-        address bankAddress,
+        address indexed bankAddress,
         bytes32 indexed name,
         bytes32 indexed bankType
     );
 
     event BankRemoved(
-        address bankAddress,
+        address indexed bankAddress,
         bytes32 indexed name,
         bytes32 indexed bankType
         );
@@ -55,7 +53,6 @@ contract KYC is Ownable {
         bytes32 toAccount;
         uint256 amount;
         uint256 txDate;
-        uint256 time;
         bytes32 txId;
     }
     
@@ -66,7 +63,7 @@ contract KYC is Ownable {
 
     constructor() public {
         //push fraud origin
-        frauds.push(Fraud(address(0x0), address(0x0), "", "", 0, 0, 0, ""));
+        frauds.push(Fraud(address(0x0), address(0x0), "", "", 0, 0, ""));
     }
 /*
     modifier classA () {
@@ -106,13 +103,19 @@ contract KYC is Ownable {
     }
     
 
-    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate, uint256 time, bytes32 txId) external returns(uint256 fraudID) {
+    function reportFraud (address fromBank, address toBank, bytes32 fromAccount, bytes32 toAccount, uint256 amount, uint256 txDate, bytes32 txId) public {
 
-        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate, time, txId);
+        Fraud memory fraud = Fraud(fromBank, toBank, fromAccount, toAccount, amount, txDate, txId);
         frauds.push(fraud);
 
-        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate, time, txId);
-        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate, time, txId);
+        emit ReportedFraudA(fromBank, toBank, fromAccount, toAccount, amount, txDate, txId);
+        emit ReportedFraudB(fromBank, toBank, fromAccount, toAccount, amount, txDate, txId);
+    }
+
+    function systematicReport (address[] calldata fromBanks, address[] calldata toBanks, bytes32[] calldata fromAccounts, bytes32[] calldata toAccounts, uint256[] calldata amounts, uint256[] calldata txDates, bytes32[] calldata txIds) external {
+        for (uint8 i; i < fromBanks.length; i++) {
+            reportFraud(fromBanks[i], toBanks[i], fromAccounts[i], toAccounts[i], amounts[i], txDates[i], txIds[i]);
+        }
     }
 
     function viewFraud (bytes32 txId, address toBank) external { emit FraudViewed(txId, toBank); }

@@ -80,10 +80,13 @@ listenCallback = async (error, event, type) => {
   if (error) { console.log(error); }
   else {
     let values = event.returnValues;
+    //internal fraud check
     if (values.fromBank == values.toBank && (type == "fromFraudEvents" || type == "toFraudEvents")) return;
+    //prevent duplicates
     let blockNumber = event.blockNumber;
-    if (eventBlocks.has(blockNumber)) return;
+    if (txIds.has(values.txId) && eventBlocks.has(blockNumber)) return;
     eventBlocks.add(blockNumber);
+    txIds.add(values.txId);
 
     const fromB = await window.KYCinstance.methods.banks(values.fromBank).call({from: ethereum.selectedAddress, gas:3000000}); 
     const toB = await window.KYCinstance.methods.banks(values.toBank).call({from: ethereum.selectedAddress, gas:3000000}); 
@@ -132,5 +135,6 @@ startWeb3 = async () => {
 };
 
 const eventBlocks = new Set();
+const txIds = new Set();
 
 startWeb3();
