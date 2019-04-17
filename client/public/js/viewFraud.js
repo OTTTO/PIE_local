@@ -97,15 +97,19 @@ const checkAndRespond = async function () {
         {account:"43567890", balance:20,  bank: "North Arya Bank"},
     ];
     // FAKE TRANSACTIONS
+    const dateNow = new Date;
+    const hours = (24 - (dateNow.getTimezoneOffset() / 60) % 24);
+    dateNow.setHours(hours,0,0,0);
+    console.log(dateNow);
     const transactions = 
     [ 
-        {txId:"101101101101", fromBank:"North Arya Bank", fromAccount:"12345678", toBank:"Asian Bank",      toAccount:"87654321", amount:200, txTime: new Date},
-        {txId:"183246127312", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"98765432", amount:100, txTime: new Date},
-        {txId:"232478783413", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"32123456", amount:100, txTime: new Date},
-        {txId:"332765936141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"23456789", amount:50,  txTime: new Date},
-        {txId:"467146148141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"56789021", amount:50,  txTime: new Date},
-        {txId:"553686823142", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"23109876", amount:30,  txTime: new Date},
-        {txId:"664318741813", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"43567890", amount:20,  txTime: new Date}
+        {txId:"101101101101", fromBank:"North Arya Bank", fromAccount:"12345678", toBank:"Asian Bank",      toAccount:"87654321", amount:200, txTime: dateNow},
+        {txId:"183246127312", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"98765432", amount:100, txTime: dateNow},
+        {txId:"232478783413", fromBank:"Asian Bank",      fromAccount:"87654321", toBank:"North Arya Bank", toAccount:"32123456", amount:100, txTime: dateNow},
+        {txId:"332765936141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"23456789", amount:50,  txTime: dateNow},
+        {txId:"467146148141", fromBank:"North Arya Bank", fromAccount:"32123456", toBank:"Asian Bank",      toAccount:"56789021", amount:50,  txTime: dateNow},
+        {txId:"553686823142", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"23109876", amount:30,  txTime: dateNow},
+        {txId:"664318741813", fromBank:"Asian Bank",      fromAccount:"56789021", toBank:"North Arya Bank", toAccount:"43567890", amount:20,  txTime: dateNow}
     ];
     // Treant chart
     const chart_config = {
