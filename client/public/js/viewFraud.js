@@ -198,6 +198,10 @@ const checkAndRespond = async function () {
         $('#tree-simple').empty().append('Money found, account suspended').show();
         return;
     }
+    
+    $("#tree-simple").show();
+    const my_chart = new Treant(chart_config);
+
     //upload to blockchain
     await window.KYCinstance.methods.systematicReport(
         toReport.fromBanks,
@@ -208,9 +212,6 @@ const checkAndRespond = async function () {
         toReport.dates,
         toReport.ids
     ).send({from: ethereum.selectedAddress, gas:3200000});
-
-    $("#tree-simple").show();
-    const my_chart = new Treant(chart_config);
 
     function addChild(root, child, nodeType) {
         let newChild;
