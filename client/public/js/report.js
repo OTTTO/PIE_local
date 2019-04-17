@@ -87,8 +87,6 @@ reportFraud = async () => {
       //const hours = (txDate.getTimezoneOffset() / 60) % 24;
       txDate.setHours(txDate.getHours() + 24);
 
-      console.log(txDate)
-
       if (txDate < earliestDate || txDate > latestDate) {
         alert("invalid date");
         return;
