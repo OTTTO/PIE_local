@@ -83,6 +83,7 @@ reportFraud = async () => {
       
       const earliestDate = new Date(1965, 0, 0);
       const latestDate = new Date();
+      latestDate.setHours(latestDate.getHours() + 24);
       const txDate = new Date(params[4]);
       //const hours = (txDate.getTimezoneOffset() / 60) % 24;
       txDate.setHours(txDate.getHours() + 24);
